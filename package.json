@@ -4,6 +4,9 @@
   "description": "基于React和Django的体育用品商城网站",
   "main": "index.js",
   "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

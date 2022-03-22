@@ -45,3 +45,8 @@ yarn-error.log*
 
 # jquery
 /public/static/js
+
+**/node_modules
+**/.next
+**/jetstream-data
+.DS_Store

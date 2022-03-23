@@ -47,9 +47,4 @@ yarn-error.log*
 /public/static/
 
 **/node_modules/
-
-/myDjangoProject/_pycache_/*.pyc
-myDjangoProject/myDjangoProject/__pycache__/wsgi.cpython-36.pyc
-myDjangoProject/myDjangoProject/__pycache__/urls.cpython-36.pyc
-myDjangoProject/myDjangoProject/__pycache__/settings.cpython-36.pyc
-myDjangoProject/myDjangoProject/__pycache__/__init__.cpython-36.pyc
+myDjangoProject/myDjangoProject/__pycache__/*.pyc

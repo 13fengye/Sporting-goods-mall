@@ -3,6 +3,12 @@
 
 ### 以下命令请用终端输入，并在项目文件夹Sporting-goods-mall下，若sudo npm报错，试着在Myproject下运行命令 ###
 
+## git ##
+克隆项目的最近一个版本：
+git clone git@github.com:13fengye/Sporting-goods-mall.git --depth=1
+
+# 接着做一下的环境配置
+
 # React
 
 

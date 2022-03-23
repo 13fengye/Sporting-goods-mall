@@ -48,4 +48,4 @@ yarn-error.log*
 
 **/node_modules/
 
-/myDjangoProject/_pycache_
+/myDjangoProject/_pycache_/*.pyc

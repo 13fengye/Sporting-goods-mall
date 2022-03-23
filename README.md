@@ -1,20 +1,28 @@
 # Sporting-goods-mall
 基于React和Django的体育用品商城网站
 
-# 以下命令请用终端输入
+### 以下命令请用终端输入，并在项目文件夹Sporting-goods-mall下，若sudo npm报错，试着在Myproject下运行命令 ###
 
 # React
 
 
-# Next.js and TypejScript
-在项目文件夹Sporting-goods-mall下初始化项目：
-npm init -y
+# Next.js and TypejScript()
+（参考TypeScript中文文档：https://typescript.bootcss.com/tutorials/react-&-webpack.html）
+初始化项目：
+sudo npm init -y
 
 添加React,Next依赖：
-npm install --save react react-dom next
+sudo npm install --save react react-dom next
+
+添加依赖Webpack（Webpack这个工具可以将你的所有代码和可选择地将依赖捆绑成一个单独的.js文件）:
+sudo npm install -g webpack
+sudo npm i -g webpack-cli
+
+添加开发时依赖awesome-typescript-loader和source-map-loader:
+sudo npm install --save-dev typescript awesome-typescript-loader source-map-loader
 
 添加TypeScript开发环境依赖:
-npm install --save-dev typescript @types/react @types/node
+sudo npm install --save-dev typescript @types/react @types/node
 
 编译：
 sudo npm run build

@@ -47,4 +47,9 @@ yarn-error.log*
 /public/static/
 
 **/node_modules/
-myDjangoProject/myDjangoProject/__pycache__/*.pyc
+
+# json
+*.json
+
+myDjangoProject/db.sqlite3
+myDjangoProject/myDjangoProject/*.pyc

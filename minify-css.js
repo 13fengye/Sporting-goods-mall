@@ -12,9 +12,9 @@ minify({
     './public/static/css/css2.css',
     './public/static/css/fancybox.min.css',
     './public/static/css/font-awesome.min.css',
-    '.public/static/css/pe-icon-7-stroke.css',
+    './public/static/css/pe-icon-7-stroke.css',
     './public/static/css/style.css',
-    './public/static/css/swiper.min.css'
+    './public/static/css/swiper.min.css',
   ],
   output: './public/static/css/global.min.css',
   callback: function (err, min) { }

@@ -24,14 +24,14 @@
 # typescript
 
 # html
-/public/static/*.html
+# /public/static/*.html
 
 # sass-cache
-/public/static/.sass-cache/
+# /public/static/.sass-cache/
 
 
 # jquery
-/public/static/
+# /public/static/
 
 **/node_modules/
 

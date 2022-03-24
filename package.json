@@ -1,0 +1,34 @@
+{
+  "name": "sporting-goods-mall",
+  "version": "1.0.0",
+  "description": "基于React和Django的体育用品商城网站",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/13fengye/Sporting-goods-mall.git"
+  },
+  "keywords": [],
+  "author": "fengye",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/13fengye/Sporting-goods-mall/issues"
+  },
+  "homepage": "https://github.com/13fengye/Sporting-goods-mall#readme",
+  "dependencies": {
+    "next": "^12.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.22",
+    "@types/react": "^17.0.42",
+    "typescript": "^4.6.2",
+    "webpack-cli": "^4.9.2"
+  }
+}

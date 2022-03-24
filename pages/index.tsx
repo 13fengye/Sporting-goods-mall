@@ -159,8 +159,8 @@ export default function Home(){
         <section className="home-slider-area">
           <div className="swiper-container home-slider-container default-slider-container">
             <div className="swiper-wrapper home-slider-wrapper slider-default">
-              <div className="swiper-slide">
-                <div className="slider-content-area" data-bg-img="/static/assets/img/shape/1.webp">
+              <div className="swiper-slide swiper-slide-active">
+                <div className="slider-content-area" style={{ backgroundImage: "url('/static/assets/img/shape/1.webp')" }}>
                   <div className="container">
                     <div className="slider-container">
                       <div className="row justify-content-between align-items-center">
@@ -185,7 +185,7 @@ export default function Home(){
                               <span className="scene-layer" data-depth=".3"><img src="/static/picture/slider-01.webp" width="461" height="489" alt="Image-HasTech" /></span>
                             </div>
                             <div className="shape-group mousemove">
-                              <div className="shape-group-one mousemove-layer" data-speed=".8" data-bg-img="/static/assets/img/shape/2.webp"></div>
+                              <div className="shape-group-one mousemove-layer" data-speed=".8" style={{ backgroundImage: "url('/static/assets/img/shape/2.webp')" }}></div>
                               <div className="shape-group-two scene"><span className="scene-layer" data-depth=".6"><img src="/static/picture/33.webp" width="471" height="462" alt="Image-HasTech" /></span></div>
                             </div>
                           </div>
@@ -197,7 +197,7 @@ export default function Home(){
                 </div>
               </div>
               <div className="swiper-slide">
-                <div className="slider-content-area" data-bg-img="/static/assets/img/shape/1.webp">
+                <div className="slider-content-area" style={{ backgroundImage: "url('/static/assets/img/shape/1.webp')" }}>
                   <div className="container">
                     <div className="slider-container">
                       <div className="row justify-content-between align-items-center">
@@ -222,7 +222,7 @@ export default function Home(){
                               <span className="scene-layer" data-depth=".3"><img src="/static/picture/slider-03.webp" width="548" height="649" alt="Image-HasTech" /></span>
                             </div>
                             <div className="shape-group mousemove">
-                              <div className="shape-group-one mousemove-layer" data-speed=".8" data-bg-img="/static/assets/img/shape/2.webp"></div>
+                              <div className="shape-group-one mousemove-layer" data-speed=".8" style={{ backgroundImage: "url('/static/assets/img/shape/2.webp')" }}></div>
                               <div className="shape-group-two scene"><span className="scene-layer" data-depth=".6"><img src="/static/picture/33.webp" width="471" height="462" alt="Image-HasTech" /></span></div>
                             </div>
                           </div>
@@ -258,7 +258,7 @@ export default function Home(){
                         <h4 className="price">From $95.00</h4>
                       </div>
                     </div>
-                    <div className="product-collection-thumb" data-bg-img="/static/assets/img/shop/collection/1.webp"></div>
+                    <div className="product-collection-thumb" style={{ backgroundImage: "url('/static/assets/img/shop/collection/1.webp')"}}></div>
                     <a className="banner-link-overlay" href="shop.html"></a>
                   </div>
                 </div>
@@ -272,7 +272,7 @@ export default function Home(){
                         <h4 className="price">From $90.00</h4>
                       </div>
                     </div>
-                    <div className="product-collection-thumb" data-bg-img="/static/assets/img/shop/collection/2.webp"></div>
+                    <div className="product-collection-thumb" style={{ backgroundImage: "url('/static/assets/img/shop/collection/2.webp')" }}></div>
                     <a className="banner-link-overlay" href="shop.html"></a>
                   </div>
                 </div>
@@ -286,7 +286,7 @@ export default function Home(){
                         <h4 className="price">From $82.00</h4>
                       </div>
                     </div>
-                    <div className="product-collection-thumb" data-bg-img="/static/assets/img/shop/collection/3.webp"></div>
+                    <div className="product-collection-thumb" style={{ backgroundImage: "url('/static/assets/img/shop/collection/3.webp')" }}></div>
                     <a className="banner-link-overlay" href="shop.html"></a>
                   </div>
                 </div>
@@ -618,7 +618,7 @@ export default function Home(){
             </div>
           </div>
           <div className="bg-layer-wrap">
-            <div className="bg-layer-style z-index--1 parallax" data-speed="1.05" data-bg-img="/static/assets/img/photos/bg1.webp"></div>
+            <div className="bg-layer-style z-index--1 parallax" data-speed="1.05" style={{ backgroundImage: "url('/static/assets/img/photos/bg1.webp')" }}></div>
           </div>
         </section>  
         <section className="product-area product-best-seller-area">

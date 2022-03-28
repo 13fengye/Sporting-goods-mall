@@ -35,3 +35,11 @@ sudo npm run build
 
 运行：
 sudo npm run dev
+
+# Django配置参考Django官方文档
+链接：https://docs.djangoproject.com/zh-hans/4.0/
+
+Django不用自带数据库，可改用Mysql,其安装及配置：
+链接：https://www.jb51.net/article/215879.htm
+
+在myDjangoProject下的settings.py进行mysql的配置并终端里新建一个数据库

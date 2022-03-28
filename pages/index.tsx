@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Home(){
+  const minnewShoesNumber = 1, maxnewShoesNumber = 2;
+  const [newShoesNumber, setNewShoesNumber] =useState<number>(1);
+  console.log(newShoesNumber)
+
   return(<>
     <div className="wrapper">
       <header className="main-header-wrapper position-relative">
@@ -18,9 +22,9 @@ export default function Home(){
                     <div className="header-info-items">
                       <div className="info-items">
                         <ul>
-                          <li className="number"><i className="fa fa-phone"></i><a href="tel://0123456789">+00 123 456 789</a></li>
-                          <li className="email"><i className="fa fa-envelope"></i><a href="mailto://demo@example.com">demo@example.com</a></li>
-                          <li className="account"><i className="fa fa-user"></i><a href="account-login.html">Account</a></li>
+                          <li className="number"><i className="fa fa-phone"></i><a href="/tel://0123456789">+00 123 456 789</a></li>
+                          <li className="email"><i className="fa fa-envelope"></i><a href="/mailto://demo@example.com">demo@example.com</a></li>
+                          <li className="account"><i className="fa fa-user"></i><a href="/account-login">Account</a></li>
                         </ul>
                       </div>
                     </div>
@@ -37,7 +41,7 @@ export default function Home(){
                 <div className="header-middle-align">
                   <div className="header-middle-align-start">
                       <div className="header-logo-area">
-                        <a href="">
+                        <a href="/">
                           <img className="logo-main" src="/static/picture/logo.webp" width="131" height="34" alt="Logo" />
                           <img className="logo-light" src="/static/picture/logo-light.webp" width="131" height="34" alt="Logo" />
                         </a>
@@ -57,7 +61,7 @@ export default function Home(){
                           <button className="shopping-search-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasSearch" aria-controls="AsideOffcanvasSearch"><i className="pe-7s-search icon"></i></button>
                         </div>
                         <div className="shopping-wishlist">
-                          <a className="shopping-wishlist-btn" href="shop-wishlist.html">
+                          <a className="shopping-wishlist-btn" href="shop-wishlist">
                             <i className="pe-7s-like icon"></i>
                           </a>
                         </div>
@@ -84,68 +88,68 @@ export default function Home(){
                   <div className="header-align">
                     <div className="header-navigation-area position-relative">
                       <ul className="main-menu nav">
-                        <li className="has-submenu"><a href="#/"><span>Home</span></a>
+                        <li className="has-submenu"><a href="/#/"><span>Home</span></a>
                           <ul className="submenu-nav">
-                            <li><a href=""><span>Home One</span></a></li>
-                            <li><a href="index-two.html"><span>Home Two</span></a></li>
+                            <li><a href="/"><span>Home One</span></a></li>
+                            <li><a href="/index-two"><span>Home Two</span></a></li>
                           </ul>
                         </li>
-                        <li><a href="about-us.html"><span>About</span></a></li>
-                        <li className="has-submenu"><a href="#/"><span>Pages</span></a>
+                        <li><a href="/about-us"><span>About</span></a></li>
+                        <li className="has-submenu"><a href="/#/"><span>Pages</span></a>
                           <ul className="submenu-nav">
-                            <li><a href="account.html"><span>Account</span></a></li>
-                            <li><a href="account-login.html"><span>Login</span></a></li>
-                            <li><a href="account-register.html"><span>Register</span></a></li>
-                            <li><a href="page-not-found.html"><span>Page Not Found</span></a></li>
+                            <li><a href="/account"><span>Account</span></a></li>
+                            <li><a href="/account-login"><span>Login</span></a></li>
+                            <li><a href="/account-register"><span>Register</span></a></li>
+                            <li><a href="/page-not-found"><span>Page Not Found</span></a></li>
                           </ul>
                         </li>
-                        <li className="has-submenu position-static"><a href="#/"><span>Shop</span></a>
+                        <li className="has-submenu position-static"><a href="/#/"><span>Shop</span></a>
                           <ul className="submenu-nav submenu-nav-mega column-3">
-                            <li className="mega-menu-item"><a href="#/" className="mega-title"><span>Shop Layout</span></a>
+                            <li className="mega-menu-item"><a href="/#/" className="mega-title"><span>Shop Layout</span></a>
                               <ul>
-                                <li><a href="shop-three-columns.html"><span>Shop 3 Column</span></a></li>
-                                <li><a href="shop-four-columns.html"><span>Shop 4 Column</span></a></li>
-                                <li><a href="shop.html"><span>Shop Left Sidebar</span></a></li>
-                                <li><a href="shop-right-sidebar.html"><span>Shop Right Sidebar</span></a></li>
+                                <li><a href="/shop-three-columns"><span>Shop 3 Column</span></a></li>
+                                <li><a href="/shop-four-columns"><span>Shop 4 Column</span></a></li>
+                                <li><a href="/shop"><span>Shop Left Sidebar</span></a></li>
+                                <li><a href="/shop-right-sidebar"><span>Shop Right Sidebar</span></a></li>
                               </ul>
                             </li>
-                            <li className="mega-menu-item"><a href="#/" className="mega-title"><span>Single Product</span></a>
+                            <li className="mega-menu-item"><a href="/#/" className="mega-title"><span>Single Product</span></a>
                               <ul>
-                                <li><a href="single-normal-product.html"><span>Single Product Normal</span></a></li>
-                                <li><a href="single-product.html"><span>Single Product Variable</span></a></li>
-                                <li><a href="single-group-product.html"><span>Single Product Group</span></a></li>
-                                <li><a href="single-affiliate-product.html"><span>Single Product Affiliate</span></a></li>
+                                <li><a href="/single-normal-product"><span>Single Product Normal</span></a></li>
+                                <li><a href="/single-product"><span>Single Product Variable</span></a></li>
+                                <li><a href="/single-group-product"><span>Single Product Group</span></a></li>
+                                <li><a href="/single-affiliate-product"><span>Single Product Affiliate</span></a></li>
                               </ul>
                             </li>
-                            <li className="mega-menu-item"><a href="#/" className="mega-title"><span>Others Pages</span></a>
+                            <li className="mega-menu-item"><a href="/#/" className="mega-title"><span>Others Pages</span></a>
                               <ul>
-                                <li><a href="shop-cart.html"><span>Shopping Cart</span></a></li>
-                                <li><a href="shop-checkout.html"><span>Checkout</span></a></li>
-                                <li><a href="shop-wishlist.html"><span>Wishlist</span></a></li>
-                                <li><a href="shop-compare.html"><span>Compare</span></a></li>
+                                <li><a href="/shop-cart"><span>Shopping Cart</span></a></li>
+                                <li><a href="/shop-checkout"><span>Checkout</span></a></li>
+                                <li><a href="/shop-wishlist"><span>Wishlist</span></a></li>
+                                <li><a href="/shop-compare"><span>Compare</span></a></li>
                               </ul>
                             </li>
                           </ul>
                         </li>
-                        <li className="has-submenu"><a href="#/"><span>Blog</span></a>
+                        <li className="has-submenu"><a href="/#/"><span>Blog</span></a>
                           <ul className="submenu-nav submenu-nav-mega">
-                            <li className="mega-menu-item"><a href="#/" className="mega-title">Blog Layout</a>
+                            <li className="mega-menu-item"><a href="/#/" className="mega-title">Blog Layout</a>
                               <ul>
-                                <li><a href="blog.html">Blog Grid</a></li>
-                                <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
+                                <li><a href="/blog">Blog Grid</a></li>
+                                <li><a href="/blog-left-sidebar">Blog Left Sidebar</a></li>
+                                <li><a href="/blog-right-sidebar">Blog Right Sidebar</a></li>
                               </ul>
                             </li>
-                            <li className="mega-menu-item"><a href="#/" className="mega-title">Single Blog</a>
+                            <li className="mega-menu-item"><a href="/#/" className="mega-title">Single Blog</a>
                               <ul>
-                                <li><a href="blog-details-no-sidebar.html">Blog Details</a></li>
-                                <li><a href="blog-details-left-sidebar.html">Blog Details Left Sidebar</a></li>
-                                <li><a href="blog-details.html">Blog Details Right Sidebar</a></li>
+                                <li><a href="/blog-details-no-sidebar">Blog Details</a></li>
+                                <li><a href="/blog-details-left-sidebar">Blog Details Left Sidebar</a></li>
+                                <li><a href="/blog-details">Blog Details Right Sidebar</a></li>
                               </ul>
                             </li>
                           </ul>
                         </li>
-                        <li><a href="contact.html"><span>Contact</span></a></li>
+                        <li><a href="/contact"><span>Contact</span></a></li>
                       </ul>
                     </div>
                   </div>
@@ -174,7 +178,7 @@ export default function Home(){
                                 <p className="desc">Up To 30% Off All Shoes & Products</p>
                               </div>
                               <div className="btn-box">
-                                <a className="btn-slider" href="shop.html">Shop Now</a>
+                                <a className="btn-slider" href="shop">Shop Now</a>
                               </div>
                             </div>
                           </div>
@@ -182,7 +186,7 @@ export default function Home(){
                         <div className="col-sm-6 col-md-6">
                           <div className="slider-thumb">
                             <div className="thumb scene">
-                              <span className="scene-layer" data-depth=".3"><img src="/static/picture/slider-01.webp" width="461" height="489" alt="Image-HasTech" /></span>
+                              <span className="scene-layer" data-depth=".3"><img src={`/static/picture/slider-0${newShoesNumber}.webp`} width="461" height="489" alt="Image-HasTech" /></span>
                             </div>
                             <div className="shape-group mousemove">
                               <div className="shape-group-one mousemove-layer" data-speed=".8" style={{ backgroundImage: "url('/static/assets/img/shape/2.webp')" }}></div>
@@ -196,51 +200,14 @@ export default function Home(){
                   <h2 className="slider-text-shape">NEW 2021</h2>
                 </div>
               </div>
-              <div className="swiper-slide">
-                <div className="slider-content-area" style={{ backgroundImage: "url('/static/assets/img/shape/1.webp')" }}>
-                  <div className="container">
-                    <div className="slider-container">
-                      <div className="row justify-content-between align-items-center">
-                        <div className="col-sm-6 col-md-5">
-                          <div className="slider-content">
-                            <div className="content">
-                              <div className="title-box">
-                                <h2 className="title">Exclusive New Shoes</h2>
-                              </div>
-                              <div className="desc-box">
-                                <p className="desc">Up To 30% Off All Shoes & Products</p>
-                              </div>
-                              <div className="btn-box">
-                                <a className="btn-slider" href="shop.html">Shop Now</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-sm-6 col-md-6">
-                          <div className="slider-thumb">
-                            <div className="thumb scene">
-                              <span className="scene-layer" data-depth=".3"><img src="/static/picture/slider-03.webp" width="548" height="649" alt="Image-HasTech" /></span>
-                            </div>
-                            <div className="shape-group mousemove">
-                              <div className="shape-group-one mousemove-layer" data-speed=".8" style={{ backgroundImage: "url('/static/assets/img/shape/2.webp')" }}></div>
-                              <div className="shape-group-two scene"><span className="scene-layer" data-depth=".6"><img src="/static/picture/33.webp" width="471" height="462" alt="Image-HasTech" /></span></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <h2 className="slider-text-shape">NEW 2022</h2>
-                </div>
-              </div>
             </div>
 
             <div className="swiper-btn-wrap">
               <div className="swiper-btn-prev">
-                <i className="pe-7s-angle-left"></i>
+                <i className={`pe-7s-angle-left ${newShoesNumber > 1 ? "" : "disabled"}`} onClick={() => {newShoesNumber > 1 ? setNewShoesNumber(newShoesNumber - 1) : setNewShoesNumber(maxnewShoesNumber)}}></i>
               </div>
               <div className="swiper-btn-next">
-                <i className="pe-7s-angle-right"></i>
+                <i className={`pe-7s-angle-right ${newShoesNumber < maxnewShoesNumber ? "" : "disabled"}`} onClick={() => {newShoesNumber < maxnewShoesNumber ? setNewShoesNumber(newShoesNumber + 1) : setNewShoesNumber(minnewShoesNumber) }}></i>
               </div>
             </div>
           </div>
@@ -254,12 +221,12 @@ export default function Home(){
                   <div className="inner-content">
                     <div className="product-collection-content">
                       <div className="content">
-                        <h3 className="title"><a href="shop.html">Sports Shoes</a></h3>
+                        <h3 className="title"><a href="/shop">Sports Shoes</a></h3>
                         <h4 className="price">From $95.00</h4>
                       </div>
                     </div>
                     <div className="product-collection-thumb" style={{ backgroundImage: "url('/static/assets/img/shop/collection/1.webp')"}}></div>
-                    <a className="banner-link-overlay" href="shop.html"></a>
+                    <a className="banner-link-overlay" href="shop"></a>
                   </div>
                 </div>
               </div>
@@ -268,12 +235,12 @@ export default function Home(){
                   <div className="inner-content">
                     <div className="product-collection-content">
                       <div className="content">
-                        <h3 className="title"><a href="shop.html">Latest Shoes</a></h3>
+                        <h3 className="title"><a href="/shop">Latest Shoes</a></h3>
                         <h4 className="price">From $90.00</h4>
                       </div>
                     </div>
                     <div className="product-collection-thumb" style={{ backgroundImage: "url('/static/assets/img/shop/collection/2.webp')" }}></div>
-                    <a className="banner-link-overlay" href="shop.html"></a>
+                    <a className="banner-link-overlay" href="shop"></a>
                   </div>
                 </div>
               </div>
@@ -282,12 +249,12 @@ export default function Home(){
                   <div className="inner-content">
                     <div className="product-collection-content">
                       <div className="content">
-                        <h3 className="title"><a href="shop.html">Office Shoes</a></h3>
+                        <h3 className="title"><a href="/shop">Office Shoes</a></h3>
                         <h4 className="price">From $82.00</h4>
                       </div>
                     </div>
                     <div className="product-collection-thumb" style={{ backgroundImage: "url('/static/assets/img/shop/collection/3.webp')" }}></div>
-                    <a className="banner-link-overlay" href="shop.html"></a>
+                    <a className="banner-link-overlay" href="shop"></a>
                   </div>
                 </div>
               </div>
@@ -312,7 +279,7 @@ export default function Home(){
                 <div className="product-item">
                   <div className="inner-content">
                     <div className="product-thumb">
-                      <a href="single-product.html">
+                      <a href="/single-product">
                         <img src="/static/picture/112.webp" width="270" height="274" alt="Image-HasTech" />
                       </a>
                       <div className="product-flag">
@@ -321,24 +288,24 @@ export default function Home(){
                         </ul>
                       </div>
                       <div className="product-action">
-                        <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                        <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                        <a className="btn-product-wishlist" href="shop-wishlist"><i className="fa fa-heart"></i></a>
+                        <a className="btn-product-cart" href="shop-cart"><i className="fa fa-shopping-cart"></i></a>
                         <button type="button" className="btn-product-quick-view-open">
                           <i className="fa fa-arrows"></i>
                         </button>
-                        <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                        <a className="btn-product-compare" href="shop-compare"><i className="fa fa-random"></i></a>
                       </div>
-                      <a className="banner-link-overlay" href="shop.html"></a>
+                      <a className="banner-link-overlay" href="shop"></a>
                     </div>
                     <div className="product-info">
                       <div className="category">
                         <ul>
-                          <li><a href="shop.html">Men</a></li>
+                          <li><a href="/shop">Men</a></li>
                           <li className="sep">/</li>
-                          <li><a href="shop.html">Women</a></li>
+                          <li><a href="/shop">Women</a></li>
                         </ul>
                       </div>
-                      <h4 className="title"><a href="single-product.html">Leather Mens Slipper</a></h4>
+                      <h4 className="title"><a href="/single-product">Leather Mens Slipper</a></h4>
                       <div className="prices">
                         <span className="price-old">$100</span>
                         <span className="sep">-</span>
@@ -352,28 +319,28 @@ export default function Home(){
                 <div className="product-item">
                   <div className="inner-content">
                     <div className="product-thumb">
-                      <a href="single-product.html">
+                      <a href="/single-product">
                         <img src="/static/picture/24.webp" width="270" height="274" alt="Image-HasTech" />
                       </a>
                       <div className="product-action">
-                        <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                        <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                        <a className="btn-product-wishlist" href="shop-wishlist"><i className="fa fa-heart"></i></a>
+                        <a className="btn-product-cart" href="shop-cart"><i className="fa fa-shopping-cart"></i></a>
                         <button type="button" className="btn-product-quick-view-open">
                           <i className="fa fa-arrows"></i>
                         </button>
-                        <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                        <a className="btn-product-compare" href="shop-compare"><i className="fa fa-random"></i></a>
                       </div>
-                      <a className="banner-link-overlay" href="shop.html"></a>
+                      <a className="banner-link-overlay" href="shop"></a>
                     </div>
                     <div className="product-info">
                       <div className="category">
                         <ul>
-                          <li><a href="shop.html">Men</a></li>
+                          <li><a href="/shop">Men</a></li>
                           <li className="sep">/</li>
-                          <li><a href="shop.html">Women</a></li>
+                          <li><a href="/shop">Women</a></li>
                         </ul>
                       </div>
-                      <h4 className="title"><a href="single-product.html">Quickiin Mens shoes</a></h4>
+                      <h4 className="title"><a href="/single-product">Quickiin Mens shoes</a></h4>
                       <div className="prices">
                         <span className="price">$140.00</span>
                       </div>
@@ -385,7 +352,7 @@ export default function Home(){
                 <div className="product-item">
                   <div className="inner-content">
                     <div className="product-thumb">
-                      <a href="single-product.html">
+                      <a href="/single-product">
                         <img src="/static/picture/34.webp" width="270" height="274" alt="Image-HasTech" />
                       </a>
                       <div className="product-flag">
@@ -394,24 +361,24 @@ export default function Home(){
                         </ul>
                       </div>
                       <div className="product-action">
-                        <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                        <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                        <a className="btn-product-wishlist" href="shop-wishlist"><i className="fa fa-heart"></i></a>
+                        <a className="btn-product-cart" href="shop-cart"><i className="fa fa-shopping-cart"></i></a>
                         <button type="button" className="btn-product-quick-view-open">
                           <i className="fa fa-arrows"></i>
                         </button>
-                        <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                        <a className="btn-product-compare" href="shop-compare"><i className="fa fa-random"></i></a>
                       </div>
-                      <a className="banner-link-overlay" href="shop.html"></a>
+                      <a className="banner-link-overlay" href="shop"></a>
                     </div>
                     <div className="product-info">
                       <div className="category">
                         <ul>
-                          <li><a href="shop.html">Men</a></li>
+                          <li><a href="/shop">Men</a></li>
                           <li className="sep">/</li>
-                          <li><a href="shop.html">Women</a></li>
+                          <li><a href="/shop">Women</a></li>
                         </ul>
                       </div>
-                      <h4 className="title"><a href="single-product.html">Rexpo Womens shoes</a></h4>
+                      <h4 className="title"><a href="/single-product">Rexpo Womens shoes</a></h4>
                       <div className="prices">
                         <span className="price-old">$60</span>
                         <span className="sep">-</span>
@@ -425,28 +392,28 @@ export default function Home(){
                 <div className="product-item">
                   <div className="inner-content">
                     <div className="product-thumb">
-                      <a href="single-product.html">
+                      <a href="/single-product">
                         <img src="/static/picture/41.webp" width="270" height="274" alt="Image-HasTech" />
                       </a>
                       <div className="product-action">
-                        <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                        <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                        <a className="btn-product-wishlist" href="shop-wishlist"><i className="fa fa-heart"></i></a>
+                        <a className="btn-product-cart" href="shop-cart"><i className="fa fa-shopping-cart"></i></a>
                         <button type="button" className="btn-product-quick-view-open">
                           <i className="fa fa-arrows"></i>
                         </button>
-                        <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                        <a className="btn-product-compare" href="shop-compare"><i className="fa fa-random"></i></a>
                       </div>
-                      <a className="banner-link-overlay" href="shop.html"></a>
+                      <a className="banner-link-overlay" href="shop"></a>
                     </div>
                     <div className="product-info">
                       <div className="category">
                         <ul>
-                          <li><a href="shop.html">Men</a></li>
+                          <li><a href="/shop">Men</a></li>
                           <li className="sep">/</li>
-                          <li><a href="shop.html">Women</a></li>
+                          <li><a href="/shop">Women</a></li>
                         </ul>
                       </div>
-                      <h4 className="title"><a href="single-product.html">Hollister V-Neck Knit</a></h4>
+                      <h4 className="title"><a href="/single-product">Hollister V-Neck Knit</a></h4>
                       <div className="prices">
                         <span className="price">$880.00</span>
                       </div>
@@ -458,28 +425,28 @@ export default function Home(){
                 <div className="product-item">
                   <div className="inner-content">
                     <div className="product-thumb">
-                      <a href="single-product.html">
+                      <a href="/single-product">
                         <img src="/static/picture/5.webp" width="270" height="274" alt="Image-HasTech" />
                       </a>
                       <div className="product-action">
-                        <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                        <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                        <a className="btn-product-wishlist" href="shop-wishlist"><i className="fa fa-heart"></i></a>
+                        <a className="btn-product-cart" href="shop-cart"><i className="fa fa-shopping-cart"></i></a>
                         <button type="button" className="btn-product-quick-view-open">
                           <i className="fa fa-arrows"></i>
                         </button>
-                        <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                        <a className="btn-product-compare" href="shop-compare"><i className="fa fa-random"></i></a>
                       </div>
-                      <a className="banner-link-overlay" href="shop.html"></a>
+                      <a className="banner-link-overlay" href="shop"></a>
                     </div>
                     <div className="product-info">
                       <div className="category">
                         <ul>
-                          <li><a href="shop.html">Men</a></li>
+                          <li><a href="/shop">Men</a></li>
                           <li className="sep">/</li>
-                          <li><a href="shop.html">Women</a></li>
+                          <li><a href="/shop">Women</a></li>
                         </ul>
                       </div>
-                      <h4 className="title"><a href="single-product.html">Primitive Mens shoes</a></h4>
+                      <h4 className="title"><a href="/single-product">Primitive Mens shoes</a></h4>
                       <div className="prices">
                         <span className="price">$500.00</span>
                       </div>
@@ -491,7 +458,7 @@ export default function Home(){
                 <div className="product-item">
                   <div className="inner-content">
                     <div className="product-thumb">
-                      <a href="single-product.html">
+                      <a href="/single-product">
                         <img src="/static/picture/6.webp" width="270" height="274" alt="Image-HasTech" />
                       </a>
                       <div className="product-flag">
@@ -500,24 +467,24 @@ export default function Home(){
                         </ul>
                       </div>
                       <div className="product-action">
-                        <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                        <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                        <a className="btn-product-wishlist" href="shop-wishlist"><i className="fa fa-heart"></i></a>
+                        <a className="btn-product-cart" href="shop-cart"><i className="fa fa-shopping-cart"></i></a>
                         <button type="button" className="btn-product-quick-view-open">
                           <i className="fa fa-arrows"></i>
                         </button>
-                        <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                        <a className="btn-product-compare" href="shop-compare"><i className="fa fa-random"></i></a>
                       </div>
-                      <a className="banner-link-overlay" href="shop.html"></a>
+                      <a className="banner-link-overlay" href="shop"></a>
                     </div>
                     <div className="product-info">
                       <div className="category">
                         <ul>
-                          <li><a href="shop.html">Men</a></li>
+                          <li><a href="/shop">Men</a></li>
                           <li className="sep">/</li>
-                          <li><a href="shop.html">Women</a></li>
+                          <li><a href="/shop">Women</a></li>
                         </ul>
                       </div>
-                      <h4 className="title"><a href="single-product.html">New Womens High Hills</a></h4>
+                      <h4 className="title"><a href="/single-product">New Womens High Hills</a></h4>
                       <div className="prices">
                         <span className="price-old">$300</span>
                         <span className="sep">-</span>
@@ -531,28 +498,28 @@ export default function Home(){
                 <div className="product-item">
                   <div className="inner-content">
                     <div className="product-thumb">
-                      <a href="single-product.html">
+                      <a href="/single-product">
                         <img src="/static/picture/7.webp" width="270" height="274" alt="Image-HasTech" />
                       </a>
                       <div className="product-action">
-                        <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                        <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                        <a className="btn-product-wishlist" href="shop-wishlist"><i className="fa fa-heart"></i></a>
+                        <a className="btn-product-cart" href="shop-cart"><i className="fa fa-shopping-cart"></i></a>
                         <button type="button" className="btn-product-quick-view-open">
                           <i className="fa fa-arrows"></i>
                         </button>
-                        <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                        <a className="btn-product-compare" href="shop-compare"><i className="fa fa-random"></i></a>
                       </div>
-                      <a className="banner-link-overlay" href="shop.html"></a>
+                      <a className="banner-link-overlay" href="shop"></a>
                     </div>
                     <div className="product-info">
                       <div className="category">
                         <ul>
-                          <li><a href="shop.html">Men</a></li>
+                          <li><a href="/shop">Men</a></li>
                           <li className="sep">/</li>
-                          <li><a href="shop.html">Women</a></li>
+                          <li><a href="/shop">Women</a></li>
                         </ul>
                       </div>
-                      <h4 className="title"><a href="single-product.html">Simple Fabric Shoe</a></h4>
+                      <h4 className="title"><a href="/single-product">Simple Fabric Shoe</a></h4>
                       <div className="prices">
                         <span className="price">$133.00</span>
                       </div>
@@ -564,7 +531,7 @@ export default function Home(){
                 <div className="product-item">
                   <div className="inner-content">
                     <div className="product-thumb">
-                      <a href="single-product.html">
+                      <a href="/single-product">
                         <img src="/static/picture/8.webp" width="270" height="274" alt="Image-HasTech" />
                       </a>
                       <div className="product-flag">
@@ -573,24 +540,24 @@ export default function Home(){
                         </ul>
                       </div>
                       <div className="product-action">
-                        <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                        <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                        <a className="btn-product-wishlist" href="shop-wishlist"><i className="fa fa-heart"></i></a>
+                        <a className="btn-product-cart" href="shop-cart"><i className="fa fa-shopping-cart"></i></a>
                         <button type="button" className="btn-product-quick-view-open">
                           <i className="fa fa-arrows"></i>
                         </button>
-                        <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                        <a className="btn-product-compare" href="shop-compare"><i className="fa fa-random"></i></a>
                       </div>
-                      <a className="banner-link-overlay" href="shop.html"></a>
+                      <a className="banner-link-overlay" href="shop"></a>
                     </div>
                     <div className="product-info">
                       <div className="category">
                         <ul>
-                          <li><a href="shop.html">Men</a></li>
+                          <li><a href="/shop">Men</a></li>
                           <li className="sep">/</li>
-                          <li><a href="shop.html">Women</a></li>
+                          <li><a href="/shop">Women</a></li>
                         </ul>
                       </div>
-                      <h4 className="title"><a href="single-product.html">exclusive mens shoe</a></h4>
+                      <h4 className="title"><a href="/single-product">exclusive mens shoe</a></h4>
                       <div className="prices">
                         <span className="price-old">$300</span>
                         <span className="sep">-</span>
@@ -612,7 +579,7 @@ export default function Home(){
                   <h4 className="sub-title">Saving 50%</h4>
                   <h2 className="title">All Online Store</h2>
                   <p className="desc">Offer Available All Shoes & Products</p>
-                  <a className="btn-theme" href="shop.html">Shop Now</a>
+                  <a className="btn-theme" href="shop">Shop Now</a>
                 </div>
               </div>
             </div>
@@ -642,7 +609,7 @@ export default function Home(){
                         <div className="product-item">
                           <div className="inner-content">
                             <div className="product-thumb">
-                              <a href="single-product.html">
+                              <a href="/single-product">
                                 <img src="/static/picture/112.webp" width="270" height="274" alt="Image-HasTech" />
                               </a>
                               <div className="product-flag">
@@ -651,24 +618,24 @@ export default function Home(){
                                 </ul>
                               </div>
                               <div className="product-action">
-                                <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                                <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                                <a className="btn-product-wishlist" href="shop-wishlist"><i className="fa fa-heart"></i></a>
+                                <a className="btn-product-cart" href="shop-cart"><i className="fa fa-shopping-cart"></i></a>
                                 <button type="button" className="btn-product-quick-view-open">
                                   <i className="fa fa-arrows"></i>
                                 </button>
-                                <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                                <a className="btn-product-compare" href="shop-compare"><i className="fa fa-random"></i></a>
                               </div>
-                              <a className="banner-link-overlay" href="shop.html"></a>
+                              <a className="banner-link-overlay" href="shop"></a>
                             </div>
                             <div className="product-info">
                               <div className="category">
                                 <ul>
-                                  <li><a href="shop.html">Men</a></li>
+                                  <li><a href="/shop">Men</a></li>
                                   <li className="sep">/</li>
-                                  <li><a href="shop.html">Women</a></li>
+                                  <li><a href="/shop">Women</a></li>
                                 </ul>
                               </div>
-                              <h4 className="title"><a href="single-product.html">Modern Smart Shoes</a></h4>
+                              <h4 className="title"><a href="/single-product">Modern Smart Shoes</a></h4>
                               <div className="prices">
                                 <span className="price-old">$200</span>
                                 <span className="sep">-</span>
@@ -682,28 +649,28 @@ export default function Home(){
                         <div className="product-item">
                           <div className="inner-content">
                             <div className="product-thumb">
-                              <a href="single-product.html">
+                              <a href="/single-product">
                                 <img src="/static/picture/7.webp" width="270" height="274" alt="Image-HasTech" />
                               </a>
                               <div className="product-action">
-                                <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                                <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                                <a className="btn-product-wishlist" href="shop-wishlist"><i className="fa fa-heart"></i></a>
+                                <a className="btn-product-cart" href="shop-cart"><i className="fa fa-shopping-cart"></i></a>
                                 <button type="button" className="btn-product-quick-view-open">
                                   <i className="fa fa-arrows"></i>
                                 </button>
-                                <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                                <a className="btn-product-compare" href="shop-compare"><i className="fa fa-random"></i></a>
                               </div>
-                              <a className="banner-link-overlay" href="shop.html"></a>
+                              <a className="banner-link-overlay" href="shop"></a>
                             </div>
                             <div className="product-info">
                               <div className="category">
                                 <ul>
-                                  <li><a href="shop.html">Men</a></li>
+                                  <li><a href="/shop">Men</a></li>
                                   <li className="sep">/</li>
-                                  <li><a href="shop.html">Women</a></li>
+                                  <li><a href="/shop">Women</a></li>
                                 </ul>
                               </div>
-                              <h4 className="title"><a href="single-product.html">Quickiin Mens shoes</a></h4>
+                              <h4 className="title"><a href="/single-product">Quickiin Mens shoes</a></h4>
                               <div className="prices">
                                 <span className="price">$440.00</span>
                               </div>
@@ -715,7 +682,7 @@ export default function Home(){
                         <div className="product-item">
                           <div className="inner-content">
                             <div className="product-thumb">
-                              <a href="single-product.html">
+                              <a href="/single-product">
                                 <img src="/static/picture/34.webp" width="270" height="274" alt="Image-HasTech" />
                               </a>
                               <div className="product-flag">
@@ -724,24 +691,24 @@ export default function Home(){
                                 </ul>
                               </div>
                               <div className="product-action">
-                                <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                                <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                                <a className="btn-product-wishlist" href="shop-wishlist"><i className="fa fa-heart"></i></a>
+                                <a className="btn-product-cart" href="shop-cart"><i className="fa fa-shopping-cart"></i></a>
                                 <button type="button" className="btn-product-quick-view-open">
                                   <i className="fa fa-arrows"></i>
                                 </button>
-                                <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                                <a className="btn-product-compare" href="shop-compare"><i className="fa fa-random"></i></a>
                               </div>
-                              <a className="banner-link-overlay" href="shop.html"></a>
+                              <a className="banner-link-overlay" href="shop"></a>
                             </div>
                             <div className="product-info">
                               <div className="category">
                                 <ul>
-                                  <li><a href="shop.html">Men</a></li>
+                                  <li><a href="/shop">Men</a></li>
                                   <li className="sep">/</li>
-                                  <li><a href="shop.html">Women</a></li>
+                                  <li><a href="/shop">Women</a></li>
                                 </ul>
                               </div>
-                              <h4 className="title"><a href="single-product.html">Rexpo Womens shoes</a></h4>
+                              <h4 className="title"><a href="/single-product">Rexpo Womens shoes</a></h4>
                               <div className="prices">
                                 <span className="price-old">$130</span>
                                 <span className="sep">-</span>
@@ -755,28 +722,28 @@ export default function Home(){
                         <div className="product-item">
                           <div className="inner-content">
                             <div className="product-thumb">
-                              <a href="single-product.html">
+                              <a href="/single-product">
                                 <img src="/static/picture/41.webp" width="270" height="274" alt="Image-HasTech" />
                               </a>
                               <div className="product-action">
-                                <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                                <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                                <a className="btn-product-wishlist" href="shop-wishlist"><i className="fa fa-heart"></i></a>
+                                <a className="btn-product-cart" href="shop-cart"><i className="fa fa-shopping-cart"></i></a>
                                 <button type="button" className="btn-product-quick-view-open">
                                   <i className="fa fa-arrows"></i>
                                 </button>
-                                <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                                <a className="btn-product-compare" href="shop-compare"><i className="fa fa-random"></i></a>
                               </div>
-                              <a className="banner-link-overlay" href="shop.html"></a>
+                              <a className="banner-link-overlay" href="shop"></a>
                             </div>
                             <div className="product-info">
                               <div className="category">
                                 <ul>
-                                  <li><a href="shop.html">Men</a></li>
+                                  <li><a href="/shop">Men</a></li>
                                   <li className="sep">/</li>
-                                  <li><a href="shop.html">Women</a></li>
+                                  <li><a href="/shop">Women</a></li>
                                 </ul>
                               </div>
-                              <h4 className="title"><a href="single-product.html">Leather Mens Slipper</a></h4>
+                              <h4 className="title"><a href="/single-product">Leather Mens Slipper</a></h4>
                               <div className="prices">
                                 <span className="price">$540.00</span>
                               </div>
@@ -790,28 +757,28 @@ export default function Home(){
                         <div className="product-item">
                           <div className="inner-content">
                             <div className="product-thumb">
-                              <a href="single-product.html">
+                              <a href="/single-product">
                                 <img src="/static/picture/5.webp" width="270" height="274" alt="Image-HasTech" />
                               </a>
                               <div className="product-action">
-                                <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                                <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                                <a className="btn-product-wishlist" href="shop-wishlist"><i className="fa fa-heart"></i></a>
+                                <a className="btn-product-cart" href="shop-cart"><i className="fa fa-shopping-cart"></i></a>
                                 <button type="button" className="btn-product-quick-view-open">
                                   <i className="fa fa-arrows"></i>
                                 </button>
-                                <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                                <a className="btn-product-compare" href="shop-compare"><i className="fa fa-random"></i></a>
                               </div>
-                              <a className="banner-link-overlay" href="shop.html"></a>
+                              <a className="banner-link-overlay" href="shop"></a>
                             </div>
                             <div className="product-info">
                               <div className="category">
                                 <ul>
-                                  <li><a href="shop.html">Men</a></li>
+                                  <li><a href="/shop">Men</a></li>
                                   <li className="sep">/</li>
-                                  <li><a href="shop.html">Women</a></li>
+                                  <li><a href="/shop">Women</a></li>
                                 </ul>
                               </div>
-                              <h4 className="title"><a href="single-product.html">Primitive Mens shoes</a></h4>
+                              <h4 className="title"><a href="/single-product">Primitive Mens shoes</a></h4>
                               <div className="prices">
                                 <span className="price-old">$40</span>
                                 <span className="sep">-</span>
@@ -827,7 +794,7 @@ export default function Home(){
                         <div className="product-item">
                           <div className="inner-content">
                             <div className="product-thumb">
-                              <a href="single-product.html">
+                              <a href="/single-product">
                                 <img src="/static/picture/6.webp" width="270" height="274" alt="Image-HasTech" />
                               </a>
                               <div className="product-flag">
@@ -836,24 +803,24 @@ export default function Home(){
                                 </ul>
                               </div>
                               <div className="product-action">
-                                <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                                <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                                <a className="btn-product-wishlist" href="shop-wishlist"><i className="fa fa-heart"></i></a>
+                                <a className="btn-product-cart" href="shop-cart"><i className="fa fa-shopping-cart"></i></a>
                                 <button type="button" className="btn-product-quick-view-open">
                                   <i className="fa fa-arrows"></i>
                                 </button>
-                                <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                                <a className="btn-product-compare" href="shop-compare"><i className="fa fa-random"></i></a>
                               </div>
-                              <a className="banner-link-overlay" href="shop.html"></a>
+                              <a className="banner-link-overlay" href="shop"></a>
                             </div>
                             <div className="product-info">
                               <div className="category">
                                 <ul>
-                                  <li><a href="shop.html">Men</a></li>
+                                  <li><a href="/shop">Men</a></li>
                                   <li className="sep">/</li>
-                                  <li><a href="shop.html">Women</a></li>
+                                  <li><a href="/shop">Women</a></li>
                                 </ul>
                               </div>
-                              <h4 className="title"><a href="single-product.html">Simple Fabric Shoe</a></h4>
+                              <h4 className="title"><a href="/single-product">Simple Fabric Shoe</a></h4>
                               <div className="prices">
                                 <span className="price-old">$400</span>
                                 <span className="sep">-</span>
@@ -885,21 +852,21 @@ export default function Home(){
               <div className="col-lg-6">
                 <div className="divider-thumb-content">
                   <div className="thumb">
-                    <a href="shop.html">
+                    <a href="/shop">
                       <img src="/static/picture/113.webp" width="570" height="350" alt="Image-HasTech" />
                     </a>
                   </div>
                   <div className="content">
                     <h2 className="title">Sports Shoes</h2>
                     <p className="desc">Up To 30% Off All Shoes & Products</p>
-                    <a className="btn-theme" href="shop.html">Shop Now</a>
+                    <a className="btn-theme" href="shop">Shop Now</a>
                   </div>
                 </div>
               </div>
               <div className="col-lg-6">
                 <div className="divider-thumb-content">
                   <div className="thumb">
-                    <a href="shop.html">
+                    <a href="/shop">
                       <img src="/static/picture/25.webp" width="570" height="700" alt="Image-HasTech" />
                     </a>
                   </div>
@@ -925,17 +892,17 @@ export default function Home(){
                 <div className="post-item">
                   <div className="inner-content">
                     <div className="thumb">
-                      <a href="blog-details.html"><img src="/static/picture/111.webp" width="370" height="260" alt="Image-HasTech" /></a>
+                      <a href="/blog-details"><img src="/static/picture/111.webp" width="370" height="260" alt="Image-HasTech" /></a>
                     </div>
                     <div className="content">
                       <div className="meta-post">
                         <ul>
-                          <li className="post-date"><i className="fa fa-calendar"></i><a href="blog.html">27,Jun 2030</a></li>
-                          <li className="author-info"><i className="fa fa-user"></i><a href="blog.html">Oaklee Odom</a></li>
+                          <li className="post-date"><i className="fa fa-calendar"></i><a href="/blog">27,Jun 2030</a></li>
+                          <li className="author-info"><i className="fa fa-user"></i><a href="/blog">Oaklee Odom</a></li>
                         </ul>
                       </div>
-                      <h4 className="title"><a href="blog-details.html">Lorem ipsum dolor ametcons adipisicing elit sed</a></h4>
-                      <a className="post-btn" href="blog.html">Read More</a>
+                      <h4 className="title"><a href="/blog-details">Lorem ipsum dolor ametcons adipisicing elit sed</a></h4>
+                      <a className="post-btn" href="blog">Read More</a>
                     </div>
                   </div>
                 </div>
@@ -945,17 +912,17 @@ export default function Home(){
                 <div className="post-item">
                   <div className="inner-content">
                     <div className="thumb">
-                      <a href="blog-details.html"><img src="/static/picture/23.webp" width="370" height="260" alt="Image-HasTech" /></a>
+                      <a href="/blog-details"><img src="/static/picture/23.webp" width="370" height="260" alt="Image-HasTech" /></a>
                     </div>
                     <div className="content">
                       <div className="meta-post">
                         <ul>
-                          <li className="post-date"><i className="fa fa-calendar"></i><a href="blog.html">27,Jun 2030</a></li>
-                          <li className="author-info"><i className="fa fa-user"></i><a href="blog.html">Oaklee Odom</a></li>
+                          <li className="post-date"><i className="fa fa-calendar"></i><a href="/blog">27,Jun 2030</a></li>
+                          <li className="author-info"><i className="fa fa-user"></i><a href="/blog">Oaklee Odom</a></li>
                         </ul>
                       </div>
-                      <h4 className="title"><a href="blog-details.html">Celebrity Daughter Opens About Upto Having Her Eye</a></h4>
-                      <a className="post-btn" href="blog.html">Read More</a>
+                      <h4 className="title"><a href="/blog-details">Celebrity Daughter Opens About Upto Having Her Eye</a></h4>
+                      <a className="post-btn" href="blog">Read More</a>
                     </div>
                   </div>
                 </div>
@@ -965,17 +932,17 @@ export default function Home(){
                 <div className="post-item">
                   <div className="inner-content">
                     <div className="thumb">
-                      <a href="blog-details.html"><img src="/static/picture/32.webp" width="370" height="260" alt="Image-HasTech" /></a>
+                      <a href="/blog-details"><img src="/static/picture/32.webp" width="370" height="260" alt="Image-HasTech" /></a>
                     </div>
                     <div className="content">
                       <div className="meta-post">
                         <ul>
-                          <li className="post-date"><i className="fa fa-calendar"></i><a href="blog.html">27,Jun 2030</a></li>
-                          <li className="author-info"><i className="fa fa-user"></i><a href="blog.html">Oaklee Odom</a></li>
+                          <li className="post-date"><i className="fa fa-calendar"></i><a href="/blog">27,Jun 2030</a></li>
+                          <li className="author-info"><i className="fa fa-user"></i><a href="/blog">Oaklee Odom</a></li>
                         </ul>
                       </div>
-                      <h4 className="title"><a href="blog-details.html">Romantic Love Stories Of Hollywood Popular Celebrities</a></h4>
-                      <a className="post-btn" href="blog.html">Read More</a>
+                      <h4 className="title"><a href="/blog-details">Romantic Love Stories Of Hollywood Popular Celebrities</a></h4>
+                      <a className="post-btn" href="blog">Read More</a>
                     </div>
                   </div>
                 </div>
@@ -992,16 +959,16 @@ export default function Home(){
                 <div className="widget-item">
                   <div className="about-widget-wrap">
                     <div className="widget-logo-area">
-                      <a href="">
+                      <a href="/">
                         <img className="logo-main" src="/static/picture/logo-light.webp" width="131" height="34" alt="Logo" />
                       </a>
                     </div>
                     <p className="desc">Lorem ipsum dolor sit amet consl adipisi elit, sed do eiusmod templ incididunt ut labore</p>
                     <div className="social-icons">
-                      <a href="javascript:;" target="_blank" rel="noopener"><i className="fa fa-facebook"></i></a>
-                      <a href="javascript:;" target="_blank" rel="noopener"><i className="fa fa-dribbble"></i></a>
-                      <a href="javascript:;" target="_blank" rel="noopener"><i className="fa fa-pinterest-p"></i></a>
-                      <a href="javascript:;" target="_blank" rel="noopener"><i className="fa fa-twitter"></i></a>
+                      <a href="/javascript:;" target="_blank" rel="noopener"><i className="fa fa-facebook"></i></a>
+                      <a href="/javascript:;" target="_blank" rel="noopener"><i className="fa fa-dribbble"></i></a>
+                      <a href="/javascript:;" target="_blank" rel="noopener"><i className="fa fa-pinterest-p"></i></a>
+                      <a href="/javascript:;" target="_blank" rel="noopener"><i className="fa fa-twitter"></i></a>
                     </div>
                   </div>
                 </div>
@@ -1014,11 +981,11 @@ export default function Home(){
                     <div className="collapse-body">
                       <div className="widget-menu-wrap">
                         <ul className="nav-menu">
-                          <li><a href="contact.html">Home monitoring</a></li>
-                          <li><a href="contact.html">Air Filters</a></li>
-                          <li><a href="contact.html">Professional installation</a></li>
-                          <li><a href="contact.html">Smart Buildings</a></li>
-                          <li><a href="contact.html">For contractors</a></li>
+                          <li><a href="/contact">Home monitoring</a></li>
+                          <li><a href="/contact">Air Filters</a></li>
+                          <li><a href="/contact">Professional installation</a></li>
+                          <li><a href="/contact">Smart Buildings</a></li>
+                          <li><a href="/contact">For contractors</a></li>
                         </ul>
                       </div>
                     </div>
@@ -1033,11 +1000,11 @@ export default function Home(){
                     <div className="collapse-body">
                       <div className="widget-menu-wrap">
                         <ul className="nav-menu">
-                          <li><a href="account-login.html">My Account</a></li>
-                          <li><a href="contact.html">Contact</a></li>
-                          <li><a href="shop-cart.html">Shopping cart</a></li>
-                          <li><a href="shop.html">Shop</a></li>
-                          <li><a href="account-login.html">Services Login</a></li>
+                          <li><a href="/account-login">My Account</a></li>
+                          <li><a href="/contact">Contact</a></li>
+                          <li><a href="/shop-cart">Shopping cart</a></li>
+                          <li><a href="/shop">Shop</a></li>
+                          <li><a href="/account-login">Services Login</a></li>
                         </ul>
                       </div>
                     </div>
@@ -1053,8 +1020,8 @@ export default function Home(){
                       <div className="widget-contact-wrap">
                         <ul>
                           <li><span>Address:</span> Your address goes here.</li>
-                          <li><span>Phone//fax:</span> <a href="tel://0123456789">0123456789</a></li>
-                          <li><span>Email:</span> <a href="mailto://demo@example.com">demo@example.com</a></li>
+                          <li><span>Phone//fax:</span> <a href="/tel://0123456789">0123456789</a></li>
+                          <li><span>Email:</span> <a href="/mailto://demo@example.com">demo@example.com</a></li>
                           <li><a target="_blank" href="javascript:;">www.example.com</a></li>
                         </ul>
                       </div>
@@ -1073,7 +1040,7 @@ export default function Home(){
               </div>
               <div className="col-md-5 col-lg-6">
                 <div className="payment">
-                    <a href="account-login.html"><img src="/static/picture/payment-card.webp" width="192" height="21" alt="Payment Logo" /></a>
+                    <a href="/account-login"><img src="/static/picture/payment-card.webp" width="192" height="21" alt="Payment Logo" /></a>
                 </div>
               </div>
             </div>
@@ -1143,16 +1110,16 @@ export default function Home(){
         <div className="offcanvas-body">
           <ul className="aside-cart-product-list">
             <li className="product-list-item">
-              <a href="#/" className="remove">×</a>
-              <a href="single-product.html">
+              <a href="/#/" className="remove">×</a>
+              <a href="/single-product">
                 <img src="/static/picture/14.webp" width="90" height="110" alt="Image-HasTech" />
                   <span className="product-title">Leather Mens Slipper</span>
               </a>
               <span className="product-price">1 × £69.99</span>
             </li>
             <li className="product-list-item">
-              <a href="#/" className="remove">×</a>
-              <a href="single-product.html">
+              <a href="/#/" className="remove">×</a>
+              <a href="/single-product">
                 <img src="/static/picture/2.webp" width="90" height="110" alt="Image-HasTech" />
                   <span className="product-title">Quickiin Mens shoes</span>
               </a>
@@ -1160,9 +1127,9 @@ export default function Home(){
             </li>
           </ul>
           <p className="cart-total"><span>Subtotal:</span><span className="amount">£89.99</span></p>
-          <a className="btn-theme" data-margin-bottom="10" href="shop-cart.html">View cart</a>
-          <a className="btn-theme" href="shop-checkout.html">Checkout</a>
-          <a className="d-block text-end lh-1" href="shop-checkout.html"><img src="/static/picture/paypal.webp" width="133" height="26" alt="Has-image" /></a>
+          <a className="btn-theme" data-margin-bottom="10" href="shop-cart">View cart</a>
+          <a className="btn-theme" href="shop-checkout">Checkout</a>
+          <a className="d-block text-end lh-1" href="shop-checkout"><img src="/static/picture/paypal.webp" width="133" height="26" alt="Has-image" /></a>
         </div>
       </div> 
       <aside className="aside-search-box-wrapper offcanvas offcanvas-top" tabIndex={-1}id="AsideOffcanvasSearch" aria-labelledby="offcanvasTopLabel">
@@ -1195,76 +1162,76 @@ export default function Home(){
         <div className="offcanvas-body">
           <div className="info-items">
             <ul>
-              <li className="number"><a href="tel://0123456789"><i className="fa fa-phone"></i>+00 123 456 789</a></li>
-              <li className="email"><a href="mailto://demo@example.com"><i className="fa fa-envelope"></i>demo@example.com</a></li>
-              <li className="account"><a href="account-login.html"><i className="fa fa-user"></i>Account</a></li>
+              <li className="number"><a href="/tel://0123456789"><i className="fa fa-phone"></i>+00 123 456 789</a></li>
+              <li className="email"><a href="/mailto://demo@example.com"><i className="fa fa-envelope"></i>demo@example.com</a></li>
+              <li className="account"><a href="/account-login"><i className="fa fa-user"></i>Account</a></li>
             </ul>
           </div>
   
           <div className="mobile-menu-items">
             <ul className="nav-menu">
-              <li><a href="#">Home</a>
+              <li><a href="/#">Home</a>
                 <ul className="sub-menu">
-                  <li><a href="">Home One</a></li>
-                  <li><a href="index-two.html">Home Two</a></li>
+                  <li><a href="/">Home One</a></li>
+                  <li><a href="/index-two">Home Two</a></li>
                 </ul>
               </li>
-              <li><a href="about-us.html">About</a></li>
-              <li><a href="#">Pages</a>
+              <li><a href="/about-us">About</a></li>
+              <li><a href="/#">Pages</a>
                 <ul className="sub-menu">
-                  <li><a href="account.html">Account</a></li>
-                  <li><a href="account-login.html">Login</a></li>
-                  <li><a href="account-register.html">Register</a></li>
-                  <li><a href="page-not-found.html">Page Not Found</a></li>
+                  <li><a href="/account">Account</a></li>
+                  <li><a href="/account-login">Login</a></li>
+                  <li><a href="/account-register">Register</a></li>
+                  <li><a href="/page-not-found">Page Not Found</a></li>
                 </ul>
               </li>
-              <li><a href="#">Shop</a>
+              <li><a href="/#">Shop</a>
                 <ul className="sub-menu">
-                  <li><a href="#">Shop Layout</a>
+                  <li><a href="/#">Shop Layout</a>
                     <ul className="sub-menu">
-                      <li><a href="shop-three-columns.html">Shop 3 Column</a></li>
-                      <li><a href="shop-four-columns.html">Shop 4 Column</a></li>
-                      <li><a href="shop.html">Shop Left Sidebar</a></li>
-                      <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
+                      <li><a href="/shop-three-columns">Shop 3 Column</a></li>
+                      <li><a href="/shop-four-columns">Shop 4 Column</a></li>
+                      <li><a href="/shop">Shop Left Sidebar</a></li>
+                      <li><a href="/shop-right-sidebar">Shop Right Sidebar</a></li>
                     </ul>
                   </li>
-                  <li><a href="#">Single Product</a>
+                  <li><a href="/#">Single Product</a>
                     <ul className="sub-menu">
-                      <li><a href="single-normal-product.html">Single Product Normal</a></li>
-                      <li><a href="single-product.html">Single Product Variable</a></li>
-                      <li><a href="single-group-product.html">Single Product Group</a></li>
-                      <li><a href="single-affiliate-product.html">Single Product Affiliate</a></li>
+                      <li><a href="/single-normal-product">Single Product Normal</a></li>
+                      <li><a href="/single-product">Single Product Variable</a></li>
+                      <li><a href="/single-group-product">Single Product Group</a></li>
+                      <li><a href="/single-affiliate-product">Single Product Affiliate</a></li>
                     </ul>
                   </li>
-                  <li><a href="#">Others Pages</a>
+                  <li><a href="/#">Others Pages</a>
                     <ul className="sub-menu">
-                      <li><a href="shop-cart.html">Shopping Cart</a></li>
-                      <li><a href="shop-checkout.html">Checkout</a></li>
-                      <li><a href="shop-wishlist.html">Wishlist</a></li>
-                      <li><a href="shop-compare.html">Compare</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="#">Blog</a>
-                <ul className="sub-menu">
-                  <li><a href="#">Blog Layout</a>
-                    <ul className="sub-menu">
-                      <li><a href="blog.html">Blog Grid</a></li>
-                      <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                      <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Single Blog</a>
-                    <ul className="sub-menu">
-                      <li><a href="blog-details-no-sidebar.html">Blog Details</a></li>
-                      <li><a href="blog-details-left-sidebar.html">Blog Details Left Sidebar</a></li>
-                      <li><a href="blog-details.html">Blog Details Right Sidebar</a></li>
+                      <li><a href="/shop-cart">Shopping Cart</a></li>
+                      <li><a href="/shop-checkout">Checkout</a></li>
+                      <li><a href="/shop-wishlist">Wishlist</a></li>
+                      <li><a href="/shop-compare">Compare</a></li>
                     </ul>
                   </li>
                 </ul>
               </li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a href="/#">Blog</a>
+                <ul className="sub-menu">
+                  <li><a href="/#">Blog Layout</a>
+                    <ul className="sub-menu">
+                      <li><a href="/blog">Blog Grid</a></li>
+                      <li><a href="/blog-left-sidebar">Blog Left Sidebar</a></li>
+                      <li><a href="/blog-right-sidebar">Blog Right Sidebar</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="/#">Single Blog</a>
+                    <ul className="sub-menu">
+                      <li><a href="/blog-details-no-sidebar">Blog Details</a></li>
+                      <li><a href="/blog-details-left-sidebar">Blog Details Left Sidebar</a></li>
+                      <li><a href="/blog-details">Blog Details Right Sidebar</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="/contact">Contact</a></li>
             </ul>
           </div>
          </div>

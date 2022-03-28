@@ -1,3 +1,5 @@
+import Footer from 'components/footer'
+import Header from 'components/header'
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
 
 class MyDocument extends Document {
@@ -34,8 +36,12 @@ class MyDocument extends Document {
           <script src="/static/js/custom.js"></script>
         </Head>
         <body>
-          <Main />
-          <NextScript />
+          <div className="wrapper">
+            <Header />
+              <Main />
+              <NextScript />
+            <Footer />
+          </div>
         </body>
       </Html>
     )

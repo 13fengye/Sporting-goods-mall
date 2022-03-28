@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-
-export default function Shop() {
-  return (<>
-    <main className="main-content">
+export default function ShopRightSidebar(){
+  return (
+    <>
+      <main className="main-content">
         {/* <!--== Start Page Header Area Wrapper ==--> */}
-        <div className="page-header-area" data-bg-img="/static/assets/img/photos/bg3.webp">
+        <div className="page-header-area" data-bg-img="assets/img/photos/bg3.webp">
           <div className="container pt--0 pb--0">
             <div className="row">
               <div className="col-12">
@@ -27,13 +26,13 @@ export default function Shop() {
         {/* <!--== Start Product Area Wrapper ==--> */}
         <section className="product-area product-default-area">
           <div className="container">
-            <div className="row flex-xl-row-reverse justify-content-between">
+            <div className="row justify-content-between">
               <div className="col-xl-9">
                 <div className="row">
                   <div className="col-12">
                     <div className="shop-top-bar">
                       <div className="shop-top-left">
-                        <p className="pagination-line"><a href="">12</a> Product Found of <a href="">30</a></p>
+                        <p className="pagination-line"><a href="shop.html">12</a> Product Found of <a href="shop.html">30</a></p>
                       </div>
                       <div className="shop-top-center">
                         <nav className="product-nav">
@@ -67,7 +66,7 @@ export default function Shop() {
                               <div className="inner-content">
                                 <div className="product-thumb">
                                   <a href="single-product.html">
-                                    <img src="/static/picture/112.webp" width="270" height="274" alt="Image-HasTech" />
+                                    <img src="static/picture/112.webp" width="270" height="274" alt="Image-HasTech" />
                                   </a>
                                   <div className="product-flag">
                                     <ul>
@@ -82,14 +81,14 @@ export default function Shop() {
                                     </button>
                                     <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
                                   </div>
-                                  <a className="banner-link-overlay" href=""></a>
+                                  <a className="banner-link-overlay" href="shop.html"></a>
                                 </div>
                                 <div className="product-info">
                                   <div className="category">
                                     <ul>
-                                      <li><a href="">Men</a></li>
+                                      <li><a href="shop.html">Men</a></li>
                                       <li className="sep">/</li>
-                                      <li><a href="">Women</a></li>
+                                      <li><a href="shop.html">Women</a></li>
                                     </ul>
                                   </div>
                                   <h4 className="title"><a href="single-product.html">Leather Mens Slipper</a></h4>
@@ -109,7 +108,7 @@ export default function Shop() {
                               <div className="inner-content">
                                 <div className="product-thumb">
                                   <a href="single-product.html">
-                                    <img src="/static/picture/24.webp" width="270" height="274" alt="Image-HasTech" />
+                                    <img src="static/picture/24.webp" width="270" height="274" alt="Image-HasTech" />
                                   </a>
                                   <div className="product-action">
                                     <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
@@ -119,14 +118,14 @@ export default function Shop() {
                                     </button>
                                     <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
                                   </div>
-                                  <a className="banner-link-overlay" href=""></a>
+                                  <a className="banner-link-overlay" href="shop.html"></a>
                                 </div>
                                 <div className="product-info">
                                   <div className="category">
                                     <ul>
-                                      <li><a href="">Men</a></li>
+                                      <li><a href="shop.html">Men</a></li>
                                       <li className="sep">/</li>
-                                      <li><a href="">Women</a></li>
+                                      <li><a href="shop.html">Women</a></li>
                                     </ul>
                                   </div>
                                   <h4 className="title"><a href="single-product.html">Quickiin Mens shoes</a></h4>
@@ -144,7 +143,7 @@ export default function Shop() {
                               <div className="inner-content">
                                 <div className="product-thumb">
                                   <a href="single-product.html">
-                                    <img src="/static/picture/34.webp" width="270" height="274" alt="Image-HasTech" />
+                                    <img src="static/picture/34.webp" width="270" height="274" alt="Image-HasTech" />
                                   </a>
                                   <div className="product-flag">
                                     <ul>
@@ -159,14 +158,14 @@ export default function Shop() {
                                     </button>
                                     <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
                                   </div>
-                                  <a className="banner-link-overlay" href=""></a>
+                                  <a className="banner-link-overlay" href="shop.html"></a>
                                 </div>
                                 <div className="product-info">
                                   <div className="category">
                                     <ul>
-                                      <li><a href="">Men</a></li>
+                                      <li><a href="shop.html">Men</a></li>
                                       <li className="sep">/</li>
-                                      <li><a href="">Women</a></li>
+                                      <li><a href="shop.html">Women</a></li>
                                     </ul>
                                   </div>
                                   <h4 className="title"><a href="single-product.html">Rexpo Womens shoes</a></h4>
@@ -186,7 +185,7 @@ export default function Shop() {
                               <div className="inner-content">
                                 <div className="product-thumb">
                                   <a href="single-product.html">
-                                    <img src="/static/picture/41.webp" width="270" height="274" alt="Image-HasTech" />
+                                    <img src="static/picture/41.webp" width="270" height="274" alt="Image-HasTech" />
                                   </a>
                                   <div className="product-action">
                                     <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
@@ -196,14 +195,14 @@ export default function Shop() {
                                     </button>
                                     <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
                                   </div>
-                                  <a className="banner-link-overlay" href=""></a>
+                                  <a className="banner-link-overlay" href="shop.html"></a>
                                 </div>
                                 <div className="product-info">
                                   <div className="category">
                                     <ul>
-                                      <li><a href="">Men</a></li>
+                                      <li><a href="shop.html">Men</a></li>
                                       <li className="sep">/</li>
-                                      <li><a href="">Women</a></li>
+                                      <li><a href="shop.html">Women</a></li>
                                     </ul>
                                   </div>
                                   <h4 className="title"><a href="single-product.html">Modern Smart Shoes</a></h4>
@@ -221,7 +220,7 @@ export default function Shop() {
                               <div className="inner-content">
                                 <div className="product-thumb">
                                   <a href="single-product.html">
-                                    <img src="/static/picture/5.webp" width="270" height="274" alt="Image-HasTech" />
+                                    <img src="static/picture/5.webp" width="270" height="274" alt="Image-HasTech" />
                                   </a>
                                   <div className="product-flag">
                                     <ul>
@@ -236,14 +235,14 @@ export default function Shop() {
                                     </button>
                                     <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
                                   </div>
-                                  <a className="banner-link-overlay" href=""></a>
+                                  <a className="banner-link-overlay" href="shop.html"></a>
                                 </div>
                                 <div className="product-info">
                                   <div className="category">
                                     <ul>
-                                      <li><a href="">Men</a></li>
+                                      <li><a href="shop.html">Men</a></li>
                                       <li className="sep">/</li>
-                                      <li><a href="">Women</a></li>
+                                      <li><a href="shop.html">Women</a></li>
                                     </ul>
                                   </div>
                                   <h4 className="title"><a href="single-product.html">Primitive Mens shoes</a></h4>
@@ -261,7 +260,7 @@ export default function Shop() {
                               <div className="inner-content">
                                 <div className="product-thumb">
                                   <a href="single-product.html">
-                                    <img src="/static/picture/6.webp" width="270" height="274" alt="Image-HasTech" />
+                                    <img src="static/picture/6.webp" width="270" height="274" alt="Image-HasTech" />
                                   </a>
                                   <div className="product-action">
                                     <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
@@ -271,14 +270,14 @@ export default function Shop() {
                                     </button>
                                     <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
                                   </div>
-                                  <a className="banner-link-overlay" href=""></a>
+                                  <a className="banner-link-overlay" href="shop.html"></a>
                                 </div>
                                 <div className="product-info">
                                   <div className="category">
                                     <ul>
-                                      <li><a href="">Men</a></li>
+                                      <li><a href="shop.html">Men</a></li>
                                       <li className="sep">/</li>
-                                      <li><a href="">Women</a></li>
+                                      <li><a href="shop.html">Women</a></li>
                                     </ul>
                                   </div>
                                   <h4 className="title"><a href="single-product.html">Leather Mens Slipper</a></h4>
@@ -298,7 +297,7 @@ export default function Shop() {
                               <div className="inner-content">
                                 <div className="product-thumb">
                                   <a href="single-product.html">
-                                    <img src="/static/picture/7.webp" width="270" height="274" alt="Image-HasTech" />
+                                    <img src="static/picture/7.webp" width="270" height="274" alt="Image-HasTech" />
                                   </a>
                                   <div className="product-flag">
                                     <ul>
@@ -313,14 +312,14 @@ export default function Shop() {
                                     </button>
                                     <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
                                   </div>
-                                  <a className="banner-link-overlay" href=""></a>
+                                  <a className="banner-link-overlay" href="shop.html"></a>
                                 </div>
                                 <div className="product-info">
                                   <div className="category">
                                     <ul>
-                                      <li><a href="">Men</a></li>
+                                      <li><a href="shop.html">Men</a></li>
                                       <li className="sep">/</li>
-                                      <li><a href="">Women</a></li>
+                                      <li><a href="shop.html">Women</a></li>
                                     </ul>
                                   </div>
                                   <h4 className="title"><a href="single-product.html">Simple Fabric Shoe</a></h4>
@@ -338,7 +337,7 @@ export default function Shop() {
                               <div className="inner-content">
                                 <div className="product-thumb">
                                   <a href="single-product.html">
-                                    <img src="/static/picture/8.webp" width="270" height="274" alt="Image-HasTech" />
+                                    <img src="static/picture/8.webp" width="270" height="274" alt="Image-HasTech" />
                                   </a>
                                   <div className="product-action">
                                     <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
@@ -348,14 +347,14 @@ export default function Shop() {
                                     </button>
                                     <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
                                   </div>
-                                  <a className="banner-link-overlay" href=""></a>
+                                  <a className="banner-link-overlay" href="shop.html"></a>
                                 </div>
                                 <div className="product-info">
                                   <div className="category">
                                     <ul>
-                                      <li><a href="">Men</a></li>
+                                      <li><a href="shop.html">Men</a></li>
                                       <li className="sep">/</li>
-                                      <li><a href="">Women</a></li>
+                                      <li><a href="shop.html">Women</a></li>
                                     </ul>
                                   </div>
                                   <h4 className="title"><a href="single-product.html">Primitive Men shoes</a></h4>
@@ -375,7 +374,7 @@ export default function Shop() {
                               <div className="inner-content">
                                 <div className="product-thumb">
                                   <a href="single-product.html">
-                                    <img src="/static/picture/112.webp" width="270" height="274" alt="Image-HasTech" />
+                                    <img src="static/picture/112.webp" width="270" height="274" alt="Image-HasTech" />
                                   </a>
                                   <div className="product-flag">
                                     <ul>
@@ -390,14 +389,14 @@ export default function Shop() {
                                     </button>
                                     <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
                                   </div>
-                                  <a className="banner-link-overlay" href=""></a>
+                                  <a className="banner-link-overlay" href="shop.html"></a>
                                 </div>
                                 <div className="product-info">
                                   <div className="category">
                                     <ul>
-                                      <li><a href="">Men</a></li>
+                                      <li><a href="shop.html">Men</a></li>
                                       <li className="sep">/</li>
-                                      <li><a href="">Women</a></li>
+                                      <li><a href="shop.html">Women</a></li>
                                     </ul>
                                   </div>
                                   <h4 className="title"><a href="single-product.html">Hollister V-Neck Knit</a></h4>
@@ -417,7 +416,7 @@ export default function Shop() {
                               <div className="inner-content">
                                 <div className="product-thumb">
                                   <a href="single-product.html">
-                                    <img src="/static/picture/41.webp" width="270" height="274" alt="Image-HasTech" />
+                                    <img src="static/picture/41.webp" width="270" height="274" alt="Image-HasTech" />
                                   </a>
                                   <div className="product-action">
                                     <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
@@ -427,14 +426,14 @@ export default function Shop() {
                                     </button>
                                     <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
                                   </div>
-                                  <a className="banner-link-overlay" href=""></a>
+                                  <a className="banner-link-overlay" href="shop.html"></a>
                                 </div>
                                 <div className="product-info">
                                   <div className="category">
                                     <ul>
-                                      <li><a href="">Men</a></li>
+                                      <li><a href="shop.html">Men</a></li>
                                       <li className="sep">/</li>
-                                      <li><a href="">Women</a></li>
+                                      <li><a href="shop.html">Women</a></li>
                                     </ul>
                                   </div>
                                   <h4 className="title"><a href="single-product.html">exclusive mens shoe</a></h4>
@@ -452,7 +451,7 @@ export default function Shop() {
                               <div className="inner-content">
                                 <div className="product-thumb">
                                   <a href="single-product.html">
-                                    <img src="/static/picture/24.webp" width="270" height="274" alt="Image-HasTech" />
+                                    <img src="static/picture/24.webp" width="270" height="274" alt="Image-HasTech" />
                                   </a>
                                   <div className="product-flag">
                                     <ul>
@@ -467,14 +466,14 @@ export default function Shop() {
                                     </button>
                                     <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
                                   </div>
-                                  <a className="banner-link-overlay" href=""></a>
+                                  <a className="banner-link-overlay" href="shop.html"></a>
                                 </div>
                                 <div className="product-info">
                                   <div className="category">
                                     <ul>
-                                      <li><a href="">Men</a></li>
+                                      <li><a href="shop.html">Men</a></li>
                                       <li className="sep">/</li>
-                                      <li><a href="">Women</a></li>
+                                      <li><a href="shop.html">Women</a></li>
                                     </ul>
                                   </div>
                                   <h4 className="title"><a href="single-product.html">New Womens High Hills</a></h4>
@@ -494,7 +493,7 @@ export default function Shop() {
                               <div className="inner-content">
                                 <div className="product-thumb">
                                   <a href="single-product.html">
-                                    <img src="/static/picture/34.webp" width="270" height="274" alt="Image-HasTech" />
+                                    <img src="static/picture/34.webp" width="270" height="274" alt="Image-HasTech" />
                                   </a>
                                   <div className="product-action">
                                     <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
@@ -504,14 +503,14 @@ export default function Shop() {
                                     </button>
                                     <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
                                   </div>
-                                  <a className="banner-link-overlay" href=""></a>
+                                  <a className="banner-link-overlay" href="shop.html"></a>
                                 </div>
                                 <div className="product-info">
                                   <div className="category">
                                     <ul>
-                                      <li><a href="">Men</a></li>
+                                      <li><a href="shop.html">Men</a></li>
                                       <li className="sep">/</li>
-                                      <li><a href="">Women</a></li>
+                                      <li><a href="shop.html">Women</a></li>
                                     </ul>
                                   </div>
                                   <h4 className="title"><a href="single-product.html">Leather Mens slippers</a></h4>
@@ -526,7 +525,7 @@ export default function Shop() {
                           <div className="col-12">
                             <div className="pagination-items">
                               <ul className="pagination justify-content-end mb--0">
-                                <li><a className="active" href="">1</a></li>
+                                <li><a className="active" href="shop.html">1</a></li>
                                 <li><a href="shop-four-columns.html">2</a></li>
                                 <li><a href="shop-three-columns.html">3</a></li>
                               </ul>
@@ -542,7 +541,7 @@ export default function Shop() {
                               <div className="inner-content">
                                 <div className="product-thumb">
                                   <a href="single-product.html">
-                                    <img src="/static/picture/list-1.webp" width="322" height="360" alt="Image-HasTech" />
+                                    <img src="static/picture/list-1.webp" width="322" height="360" alt="Image-HasTech" />
                                   </a>
                                   <div className="product-flag">
                                     <ul>
@@ -557,14 +556,14 @@ export default function Shop() {
                                     </button>
                                     <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
                                   </div>
-                                  <a className="banner-link-overlay" href=""></a>
+                                  <a className="banner-link-overlay" href="shop.html"></a>
                                 </div>
                                 <div className="product-info">
                                   <div className="category">
                                     <ul>
-                                      <li><a href="">Men</a></li>
+                                      <li><a href="shop.html">Men</a></li>
                                       <li className="sep">/</li>
-                                      <li><a href="">Women</a></li>
+                                      <li><a href="shop.html">Women</a></li>
                                     </ul>
                                   </div>
                                   <h4 className="title"><a href="single-product.html">Leather Mens Slipper</a></h4>
@@ -586,7 +585,7 @@ export default function Shop() {
                               <div className="inner-content">
                                 <div className="product-thumb">
                                   <a href="single-product.html">
-                                    <img src="/static/picture/list-2.webp" width="322" height="360" alt="Image-HasTech" />
+                                    <img src="static/picture/list-2.webp" width="322" height="360" alt="Image-HasTech" />
                                   </a>
                                   <div className="product-action">
                                     <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
@@ -596,14 +595,14 @@ export default function Shop() {
                                     </button>
                                     <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
                                   </div>
-                                  <a className="banner-link-overlay" href=""></a>
+                                  <a className="banner-link-overlay" href="shop.html"></a>
                                 </div>
                                 <div className="product-info">
                                   <div className="category">
                                     <ul>
-                                      <li><a href="">Men</a></li>
+                                      <li><a href="shop.html">Men</a></li>
                                       <li className="sep">/</li>
-                                      <li><a href="">Women</a></li>
+                                      <li><a href="shop.html">Women</a></li>
                                     </ul>
                                   </div>
                                   <h4 className="title"><a href="single-product.html">Quickiin Mens shoes</a></h4>
@@ -623,7 +622,7 @@ export default function Shop() {
                               <div className="inner-content">
                                 <div className="product-thumb">
                                   <a href="single-product.html">
-                                    <img src="/static/picture/list-3.webp" width="322" height="360" alt="Image-HasTech" />
+                                    <img src="static/picture/list-3.webp" width="322" height="360" alt="Image-HasTech" />
                                   </a>
                                   <div className="product-flag">
                                     <ul>
@@ -638,14 +637,14 @@ export default function Shop() {
                                     </button>
                                     <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
                                   </div>
-                                  <a className="banner-link-overlay" href=""></a>
+                                  <a className="banner-link-overlay" href="shop.html"></a>
                                 </div>
                                 <div className="product-info">
                                   <div className="category">
                                     <ul>
-                                      <li><a href="">Men</a></li>
+                                      <li><a href="shop.html">Men</a></li>
                                       <li className="sep">/</li>
-                                      <li><a href="">Women</a></li>
+                                      <li><a href="shop.html">Women</a></li>
                                     </ul>
                                   </div>
                                   <h4 className="title"><a href="single-product.html">Rexpo Womens shoes</a></h4>
@@ -667,7 +666,7 @@ export default function Shop() {
                               <div className="inner-content">
                                 <div className="product-thumb">
                                   <a href="single-product.html">
-                                    <img src="/static/picture/list-4.webp" width="322" height="360" alt="Image-HasTech" />
+                                    <img src="static/picture/list-4.webp" width="322" height="360" alt="Image-HasTech" />
                                   </a>
                                   <div className="product-action">
                                     <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
@@ -677,14 +676,14 @@ export default function Shop() {
                                     </button>
                                     <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
                                   </div>
-                                  <a className="banner-link-overlay" href=""></a>
+                                  <a className="banner-link-overlay" href="shop.html"></a>
                                 </div>
                                 <div className="product-info">
                                   <div className="category">
                                     <ul>
-                                      <li><a href="">Men</a></li>
+                                      <li><a href="shop.html">Men</a></li>
                                       <li className="sep">/</li>
-                                      <li><a href="">Women</a></li>
+                                      <li><a href="shop.html">Women</a></li>
                                     </ul>
                                   </div>
                                   <h4 className="title"><a href="single-product.html">Modern Smart Shoes</a></h4>
@@ -704,7 +703,7 @@ export default function Shop() {
                               <div className="inner-content">
                                 <div className="product-thumb">
                                   <a href="single-product.html">
-                                    <img src="/static/picture/list-5.webp" width="322" height="360" alt="Image-HasTech" />
+                                    <img src="static/picture/list-5.webp" width="322" height="360" alt="Image-HasTech" />
                                   </a>
                                   <div className="product-flag">
                                     <ul>
@@ -719,14 +718,14 @@ export default function Shop() {
                                     </button>
                                     <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
                                   </div>
-                                  <a className="banner-link-overlay" href=""></a>
+                                  <a className="banner-link-overlay" href="shop.html"></a>
                                 </div>
                                 <div className="product-info">
                                   <div className="category">
                                     <ul>
-                                      <li><a href="">Men</a></li>
+                                      <li><a href="shop.html">Men</a></li>
                                       <li className="sep">/</li>
-                                      <li><a href="">Women</a></li>
+                                      <li><a href="shop.html">Women</a></li>
                                     </ul>
                                   </div>
                                   <h4 className="title"><a href="single-product.html">Primitive Mens shoes</a></h4>
@@ -746,7 +745,7 @@ export default function Shop() {
                               <div className="inner-content">
                                 <div className="product-thumb">
                                   <a href="single-product.html">
-                                    <img src="/static/picture/list-6.webp" width="322" height="360" alt="Image-HasTech" />
+                                    <img src="static/picture/list-6.webp" width="322" height="360" alt="Image-HasTech" />
                                   </a>
                                   <div className="product-action">
                                     <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
@@ -756,14 +755,14 @@ export default function Shop() {
                                     </button>
                                     <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
                                   </div>
-                                  <a className="banner-link-overlay" href=""></a>
+                                  <a className="banner-link-overlay" href="shop.html"></a>
                                 </div>
                                 <div className="product-info">
                                   <div className="category">
                                     <ul>
-                                      <li><a href="">Men</a></li>
+                                      <li><a href="shop.html">Men</a></li>
                                       <li className="sep">/</li>
-                                      <li><a href="">Women</a></li>
+                                      <li><a href="shop.html">Women</a></li>
                                     </ul>
                                   </div>
                                   <h4 className="title"><a href="single-product.html">Leather Mens Slipper</a></h4>
@@ -782,7 +781,7 @@ export default function Shop() {
                           <div className="col-12">
                             <div className="pagination-items">
                               <ul className="pagination justify-content-end mb--0">
-                                <li><a className="active" href="">1</a></li>
+                                <li><a className="active" href="shop.html">1</a></li>
                                 <li><a href="shop-four-columns.html">2</a></li>
                                 <li><a href="shop-three-columns.html">3</a></li>
                               </ul>
@@ -800,13 +799,13 @@ export default function Shop() {
                     <h4 className="sidebar-title">Top Categories</h4>
                     <div className="sidebar-category">
                       <ul className="category-list mb--0">
-                        <li><a href="">Shoes <span>(6)</span></a></li>
-                        <li><a href="">Computer <span>(4)</span></a></li>
-                        <li><a href="">Covid-19 <span>(2)</span></a></li>
-                        <li><a href="">Electronics <span>(6)</span></a></li>
-                        <li><a href="">Frame Sunglasses <span>(12)</span></a></li>
-                        <li><a href="">Furniture <span>(7)</span></a></li>
-                        <li><a href="">Genuine Leather <span>(9)</span></a></li>
+                        <li><a href="shop.html">Shoes <span>(6)</span></a></li>
+                        <li><a href="shop.html">Computer <span>(4)</span></a></li>
+                        <li><a href="shop.html">Covid-19 <span>(2)</span></a></li>
+                        <li><a href="shop.html">Electronics <span>(6)</span></a></li>
+                        <li><a href="shop.html">Frame Sunglasses <span>(12)</span></a></li>
+                        <li><a href="shop.html">Furniture <span>(7)</span></a></li>
+                        <li><a href="shop.html">Genuine Leather <span>(9)</span></a></li>
                       </ul>
                     </div>
                   </div>
@@ -844,11 +843,11 @@ export default function Shop() {
                     <h4 className="sidebar-title">Size</h4>
                     <div className="sidebar-size">
                       <ul className="size-list">
-                        <li><a href="">S <span>(6)</span></a></li>
-                        <li><a href="">M <span>(4)</span></a></li>
-                        <li><a href="">L <span>(2)</span></a></li>
-                        <li><a href="">XL <span>(6)</span></a></li>
-                        <li><a href="">XXL <span>(12)</span></a></li>
+                        <li><a href="shop.html">S <span>(6)</span></a></li>
+                        <li><a href="shop.html">M <span>(4)</span></a></li>
+                        <li><a href="shop.html">L <span>(2)</span></a></li>
+                        <li><a href="shop.html">XL <span>(6)</span></a></li>
+                        <li><a href="shop.html">XXL <span>(12)</span></a></li>
                       </ul>
                     </div>
                   </div>
@@ -857,11 +856,11 @@ export default function Shop() {
                     <h4 className="sidebar-title">Brand</h4>
                     <div className="sidebar-brand">
                       <ul className="brand-list mb--0">
-                        <li><a href="">Lakmeetao <span>(6)</span></a></li>
-                        <li><a href="">Beautifill <span>(4)</span></a></li>
-                        <li><a href="">Made In GD <span>(2)</span></a></li>
-                        <li><a href="">Pecifico <span>(6)</span></a></li>
-                        <li><a href="">Xlovgtir <span>(12)</span></a></li>
+                        <li><a href="shop.html">Lakmeetao <span>(6)</span></a></li>
+                        <li><a href="shop.html">Beautifill <span>(4)</span></a></li>
+                        <li><a href="shop.html">Made In GD <span>(2)</span></a></li>
+                        <li><a href="shop.html">Pecifico <span>(6)</span></a></li>
+                        <li><a href="shop.html">Xlovgtir <span>(12)</span></a></li>
                       </ul>
                     </div>
                   </div>
@@ -871,6 +870,7 @@ export default function Shop() {
           </div>
         </section>
         {/* <!--== End Product Area Wrapper ==--> */}
-    </main>
-  </>)
+      </main>
+    </>
+  );
 }

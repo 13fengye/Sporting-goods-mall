@@ -1,75 +1,10 @@
+import PageHeaderArea from "./pageHeaderArea";
+
 export default function IndexTwo(){
   return (
     <>
       <main className="main-content">
-        {/* <!--== Start Hero Area Wrapper ==--> */}
-        <section className="home-slider-area">
-          <div className="swiper-container home-slider-container default-slider-container">
-            <div className="swiper-wrapper home-slider-wrapper slider-default">
-              <div className="swiper-slide">
-                <div className="slider-content-area slider-content-area-two" data-bg-img="/static/assets/img/slider/slider-02.webp">
-                  <div className="container">
-                    <div className="slider-container">
-                      <div className="row justify-content-between align-items-center">
-                        <div className="col-lg-5">
-                          <div className="slider-content">
-                            <div className="content">
-                              <div className="desc-box">
-                                <p className="desc">Up To 30% Off</p>
-                              </div>
-                              <div className="title-box">
-                                <h2 className="title"><span className="font-weight-400">Exclusive </span>New Shoes</h2>
-                              </div>
-                              <div className="btn-box">
-                                <a className="btn-slider" href="/shop">Shop Now</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="swiper-slide">
-                <div className="slider-content-area slider-content-area-two" data-bg-img="/static/assets/img/slider/slider-04.webp">
-                  <div className="container">
-                    <div className="slider-container">
-                      <div className="row justify-content-between align-items-center">
-                        <div className="col-lg-5">
-                          <div className="slider-content">
-                            <div className="content">
-                              <div className="desc-box">
-                                <p className="desc">Up To 30% Off</p>
-                              </div>
-                              <div className="title-box">
-                                <h2 className="title"><span className="font-weight-400">Exclusive </span>New Shoes</h2>
-                              </div>
-                              <div className="btn-box">
-                                <a className="btn-slider" href="/shop">Shop Now</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* <!--== Add Swiper Arrows ==--> */}
-            <div className="swiper-btn-wrap">
-              <div className="swiper-btn-prev">
-                <i className="pe-7s-angle-left"></i>
-              </div>
-              <div className="swiper-btn-next">
-                <i className="pe-7s-angle-right"></i>
-              </div>
-            </div>
-          </div>
-        </section>
-        {/* <!--== End Hero Area Wrapper ==--> */}
+        <PageHeaderArea />
 
         {/* <!--== Start Product Category Area Wrapper ==--> */}
         <section className="product-area product-category-area">

@@ -1,7 +1,7 @@
 export default function PageHeaderArea() {
   return(
     <>
-      <div className="page-header-area" data-bg-img="/static/assets/img/photos/bg3.webp">
+      <div className="page-header-area" style={{ backgroundImage: "url('/static/assets/img/photos/bg3.webp')" }}>
         <div className="container pt--0 pb--0">
           <div className="row">
             <div className="col-12">

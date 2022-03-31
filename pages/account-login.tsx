@@ -12,7 +12,7 @@ export default function Accountlogin() {
                   <h2 className="title" data-aos="fade-down" data-aos-duration="1000">Login</h2>
                   <nav className="breadcrumb-area" data-aos="fade-down" data-aos-duration="1200">
                     <ul className="breadcrumb">
-                      <li><a href="index.html">Home</a></li>
+                      <li><a href="/index">Home</a></li>
                       <li className="breadcrumb-sep">//</li>
                       <li>Login</li>
                     </ul>
@@ -53,7 +53,7 @@ export default function Accountlogin() {
                       </div>
                       <div className="col-12">
                         <div className="form-group">
-                          <a className="btn-login" href="account.html">Login</a>
+                          <a className="btn-login" href="/account">Login</a>
                         </div>
                       </div>
                       <div className="col-12">

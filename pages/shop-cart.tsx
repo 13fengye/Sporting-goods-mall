@@ -3,7 +3,7 @@ export default function ShopCart(){
     <>
       <main className="main-content">
         {/* <!--== Start Page Header Area Wrapper ==--> */}
-        <div className="page-header-area" data-bg-img="assets/img/photos/bg3.webp">
+        <div className="page-header-area" data-bg-img="/static/assets/img/photos/bg3.webp">
           <div className="container pt--0 pb--0">
             <div className="row">
               <div className="col-12">
@@ -11,7 +11,7 @@ export default function ShopCart(){
                   <h2 className="title" data-aos="fade-down" data-aos-duration="1000">Shopping Cart</h2>
                   <nav className="breadcrumb-area" data-aos="fade-down" data-aos-duration="1200">
                     <ul className="breadcrumb">
-                      <li><a href="index.html">Home</a></li>
+                      <li><a href="/index">Home</a></li>
                       <li className="breadcrumb-sep">//</li>
                       <li>Shopping Cart</li>
                     </ul>
@@ -47,12 +47,12 @@ export default function ShopCart(){
                             <a href="#/"><i className="fa fa-trash-o"></i></a>
                           </td>
                           <td className="product-thumb">
-                            <a href="single-product.html">
-                              <img src="static/picture/14.webp" width="90" height="110" alt="Image-HasTech" />
+                            <a href="/single-product">
+                              <img src="/static/picture/14.webp" width="90" height="110" alt="Image-HasTech" />
                             </a>
                           </td>
                           <td className="product-name">
-                            <h4 className="title"><a href="single-product.html">Leather Mens Slipper</a></h4>
+                            <h4 className="title"><a href="/single-product">Leather Mens Slipper</a></h4>
                           </td>
                           <td className="product-price">
                             <span className="price">£69.99</span>
@@ -71,12 +71,12 @@ export default function ShopCart(){
                             <a href="#/"><i className="fa fa-trash-o"></i></a>
                           </td>
                           <td className="product-thumb">
-                            <a href="single-product.html">
-                              <img src="static/picture/2.webp" width="90" height="110" alt="Image-HasTech" />
+                            <a href="/single-product">
+                              <img src="/static/picture/2.webp" width="90" height="110" alt="Image-HasTech" />
                             </a>
                           </td>
                           <td className="product-name">
-                            <h4 className="title"><a href="single-product.html">Quickiin Mens shoes</a></h4>
+                            <h4 className="title"><a href="/single-product">Quickiin Mens shoes</a></h4>
                           </td>
                           <td className="product-price">
                             <span className="price">£20.00</span>
@@ -95,12 +95,12 @@ export default function ShopCart(){
                             <a href="#/"><i className="fa fa-trash-o"></i></a>
                           </td>
                           <td className="product-thumb">
-                            <a href="single-product.html">
-                              <img src="static/picture/3.webp" width="90" height="110" alt="Image-HasTech" />
+                            <a href="/single-product">
+                              <img src="/static/picture/3.webp" width="90" height="110" alt="Image-HasTech" />
                             </a>
                           </td>
                           <td className="product-name">
-                            <h4 className="title"><a href="single-product.html">Rexpo Womens shoes</a></h4>
+                            <h4 className="title"><a href="/single-product">Rexpo Womens shoes</a></h4>
                           </td>
                           <td className="product-price">
                             <span className="price">£39.00</span>
@@ -118,7 +118,7 @@ export default function ShopCart(){
                           <td className="border-0" colSpan={6}>
                             <button type="submit" className="update-cart" disabled={false}>Update cart</button>
                             <button type="submit" className="clear-cart">Clear Cart</button>
-                            <a href="shop.html" className="btn-theme btn-flat">Continue Shopping</a>
+                            <a href="/shop" className="btn-theme btn-flat">Continue Shopping</a>
                           </td>
                         </tr>
                       </tbody>
@@ -250,7 +250,7 @@ export default function ShopCart(){
                       </tbody>
                     </table>
                   </div>
-                  <a className="btn-theme btn-flat" href="shop-checkout.html">Proceed to checkout</a>
+                  <a className="btn-theme btn-flat" href="/shop-checkout">Proceed to checkout</a>
                 </div>
               </div>
             </div>

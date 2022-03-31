@@ -3,7 +3,7 @@ export default function BlogLeftSidebar(){
     <>
       <main className="main-content">
         {/* <!--== Start Page Header Area Wrapper ==--> */}
-        <div className="page-header-area" data-bg-img="assets/img/photos/bg3.webp">
+        <div className="page-header-area" data-bg-img="/static/assets/img/photos/bg3.webp">
           <div className="container pt--0 pb--0">
             <div className="row">
               <div className="col-12">
@@ -11,7 +11,7 @@ export default function BlogLeftSidebar(){
                   <h2 className="title" data-aos="fade-down" data-aos-duration="1000">Blog</h2>
                   <nav className="breadcrumb-area" data-aos="fade-down" data-aos-duration="1200">
                     <ul className="breadcrumb">
-                      <li><a href="index.html">Home</a></li>
+                      <li><a href="/index">Home</a></li>
                       <li className="breadcrumb-sep">//</li>
                       <li>Blog</li>
                     </ul>
@@ -34,17 +34,17 @@ export default function BlogLeftSidebar(){
                     <div className="post-item">
                       <div className="inner-content">
                         <div className="thumb">
-                          <a href="blog-details.html"><img src="static/picture/111.webp" width="370" height="260" alt="Image-HasTech" /></a>
+                          <a href="/blog-details"><img src="/static/picture/111.webp" width="370" height="260" alt="Image-HasTech" /></a>
                         </div>
                         <div className="content">
                           <div className="meta-post">
                             <ul>
-                              <li className="post-date"><i className="fa fa-calendar"></i><a href="blog.html">27,Jun 2030</a></li>
-                              <li className="author-info"><i className="fa fa-user"></i><a href="blog.html">Oaklee Odom</a></li>
+                              <li className="post-date"><i className="fa fa-calendar"></i><a href="/blog">27,Jun 2030</a></li>
+                              <li className="author-info"><i className="fa fa-user"></i><a href="/blog">Oaklee Odom</a></li>
                             </ul>
                           </div>
-                          <h4 className="title"><a href="blog-details.html">Lorem ipsum dolor ametcons adipisicing elit sed</a></h4>
-                          <a className="post-btn" href="blog.html">Read More</a>
+                          <h4 className="title"><a href="/blog-details">Lorem ipsum dolor ametcons adipisicing elit sed</a></h4>
+                          <a className="post-btn" href="/blog">Read More</a>
                         </div>
                       </div>
                     </div>
@@ -55,17 +55,17 @@ export default function BlogLeftSidebar(){
                     <div className="post-item">
                       <div className="inner-content">
                         <div className="thumb">
-                          <a href="blog-details.html"><img src="static/picture/23.webp" width="370" height="260" alt="Image-HasTech" /></a>
+                          <a href="/blog-details"><img src="/static/picture/23.webp" width="370" height="260" alt="Image-HasTech" /></a>
                         </div>
                         <div className="content">
                           <div className="meta-post">
                             <ul>
-                              <li className="post-date"><i className="fa fa-calendar"></i><a href="blog.html">27,Jun 2030</a></li>
-                              <li className="author-info"><i className="fa fa-user"></i><a href="blog.html">Oaklee Odom</a></li>
+                              <li className="post-date"><i className="fa fa-calendar"></i><a href="/blog">27,Jun 2030</a></li>
+                              <li className="author-info"><i className="fa fa-user"></i><a href="/blog">Oaklee Odom</a></li>
                             </ul>
                           </div>
-                          <h4 className="title"><a href="blog-details.html">Celebrity Daughter Opens About Upto Having Her Eye</a></h4>
-                          <a className="post-btn" href="blog.html">Read More</a>
+                          <h4 className="title"><a href="/blog-details">Celebrity Daughter Opens About Upto Having Her Eye</a></h4>
+                          <a className="post-btn" href="/blog">Read More</a>
                         </div>
                       </div>
                     </div>
@@ -76,17 +76,17 @@ export default function BlogLeftSidebar(){
                     <div className="post-item">
                       <div className="inner-content">
                         <div className="thumb">
-                          <a href="blog-details.html"><img src="static/picture/32.webp" width="370" height="260" alt="Image-HasTech" /></a>
+                          <a href="/blog-details"><img src="/static/picture/32.webp" width="370" height="260" alt="Image-HasTech" /></a>
                         </div>
                         <div className="content">
                           <div className="meta-post">
                             <ul>
-                              <li className="post-date"><i className="fa fa-calendar"></i><a href="blog.html">27,Jun 2030</a></li>
-                              <li className="author-info"><i className="fa fa-user"></i><a href="blog.html">Oaklee Odom</a></li>
+                              <li className="post-date"><i className="fa fa-calendar"></i><a href="/blog">27,Jun 2030</a></li>
+                              <li className="author-info"><i className="fa fa-user"></i><a href="/blog">Oaklee Odom</a></li>
                             </ul>
                           </div>
-                          <h4 className="title"><a href="blog-details.html">Romantic Love Stories Of Hollywood Popular Celebrities</a></h4>
-                          <a className="post-btn" href="blog.html">Read More</a>
+                          <h4 className="title"><a href="/blog-details">Romantic Love Stories Of Hollywood Popular Celebrities</a></h4>
+                          <a className="post-btn" href="/blog">Read More</a>
                         </div>
                       </div>
                     </div>
@@ -97,17 +97,17 @@ export default function BlogLeftSidebar(){
                     <div className="post-item">
                       <div className="inner-content">
                         <div className="thumb">
-                          <a href="blog-details.html"><img src="static/picture/46.webp" width="370" height="260" alt="Image-HasTech" /></a>
+                          <a href="/blog-details"><img src="/static/picture/46.webp" width="370" height="260" alt="Image-HasTech" /></a>
                         </div>
                         <div className="content">
                           <div className="meta-post">
                             <ul>
-                              <li className="post-date"><i className="fa fa-calendar"></i><a href="blog.html">27,Jun 2030</a></li>
-                              <li className="author-info"><i className="fa fa-user"></i><a href="blog.html">Oaklee Odom</a></li>
+                              <li className="post-date"><i className="fa fa-calendar"></i><a href="/blog">27,Jun 2030</a></li>
+                              <li className="author-info"><i className="fa fa-user"></i><a href="/blog">Oaklee Odom</a></li>
                             </ul>
                           </div>
-                          <h4 className="title"><a href="blog-details.html">fashions fade, style is eternal About Upto Having Her Eye</a></h4>
-                          <a className="post-btn" href="blog.html">Read More</a>
+                          <h4 className="title"><a href="/blog-details">fashions fade, style is eternal About Upto Having Her Eye</a></h4>
+                          <a className="post-btn" href="/blog">Read More</a>
                         </div>
                       </div>
                     </div>
@@ -118,17 +118,17 @@ export default function BlogLeftSidebar(){
                     <div className="post-item">
                       <div className="inner-content">
                         <div className="thumb">
-                          <a href="blog-details.html"><img src="static/picture/54.webp" width="370" height="260" alt="Image-HasTech" /></a>
+                          <a href="/blog-details"><img src="/static/picture/54.webp" width="370" height="260" alt="Image-HasTech" /></a>
                         </div>
                         <div className="content">
                           <div className="meta-post">
                             <ul>
-                              <li className="post-date"><i className="fa fa-calendar"></i><a href="blog.html">27,Jun 2030</a></li>
-                              <li className="author-info"><i className="fa fa-user"></i><a href="blog.html">Oaklee Odom</a></li>
+                              <li className="post-date"><i className="fa fa-calendar"></i><a href="/blog">27,Jun 2030</a></li>
+                              <li className="author-info"><i className="fa fa-user"></i><a href="/blog">Oaklee Odom</a></li>
                             </ul>
                           </div>
-                          <h4 className="title"><a href="blog-details.html">Nicholas K Spring 2020 Runway</a></h4>
-                          <a className="post-btn" href="blog.html">Read More</a>
+                          <h4 className="title"><a href="/blog-details">Nicholas K Spring 2020 Runway</a></h4>
+                          <a className="post-btn" href="/blog">Read More</a>
                         </div>
                       </div>
                     </div>
@@ -139,17 +139,17 @@ export default function BlogLeftSidebar(){
                     <div className="post-item">
                       <div className="inner-content">
                         <div className="thumb">
-                          <a href="blog-details.html"><img src="static/picture/63.webp" width="370" height="260" alt="Image-HasTech" /></a>
+                          <a href="/blog-details"><img src="/static/picture/63.webp" width="370" height="260" alt="Image-HasTech" /></a>
                         </div>
                         <div className="content">
                           <div className="meta-post">
                             <ul>
-                              <li className="post-date"><i className="fa fa-calendar"></i><a href="blog.html">27,Jun 2030</a></li>
-                              <li className="author-info"><i className="fa fa-user"></i><a href="blog.html">Oaklee Odom</a></li>
+                              <li className="post-date"><i className="fa fa-calendar"></i><a href="/blog">27,Jun 2030</a></li>
+                              <li className="author-info"><i className="fa fa-user"></i><a href="/blog">Oaklee Odom</a></li>
                             </ul>
                           </div>
-                          <h4 className="title"><a href="blog-details.html">Marc Jacobs Spring 2020 Runway</a></h4>
-                          <a className="post-btn" href="blog.html">Read More</a>
+                          <h4 className="title"><a href="/blog-details">Marc Jacobs Spring 2020 Runway</a></h4>
+                          <a className="post-btn" href="/blog">Read More</a>
                         </div>
                       </div>
                     </div>
@@ -160,17 +160,17 @@ export default function BlogLeftSidebar(){
                     <div className="post-item">
                       <div className="inner-content">
                         <div className="thumb">
-                          <a href="blog-details.html"><img src="static/picture/72.webp" width="370" height="260" alt="Image-HasTech" /></a>
+                          <a href="/blog-details"><img src="/static/picture/72.webp" width="370" height="260" alt="Image-HasTech" /></a>
                         </div>
                         <div className="content">
                           <div className="meta-post">
                             <ul>
-                              <li className="post-date"><i className="fa fa-calendar"></i><a href="blog.html">27,Jun 2030</a></li>
-                              <li className="author-info"><i className="fa fa-user"></i><a href="blog.html">Oaklee Odom</a></li>
+                              <li className="post-date"><i className="fa fa-calendar"></i><a href="/blog">27,Jun 2030</a></li>
+                              <li className="author-info"><i className="fa fa-user"></i><a href="/blog">Oaklee Odom</a></li>
                             </ul>
                           </div>
-                          <h4 className="title"><a href="blog-details.html">Lorem ipsum dolor ametcons adipisicing elit sed</a></h4>
-                          <a className="post-btn" href="blog.html">Read More</a>
+                          <h4 className="title"><a href="/blog-details">Lorem ipsum dolor ametcons adipisicing elit sed</a></h4>
+                          <a className="post-btn" href="/blog">Read More</a>
                         </div>
                       </div>
                     </div>
@@ -181,17 +181,17 @@ export default function BlogLeftSidebar(){
                     <div className="post-item">
                       <div className="inner-content">
                         <div className="thumb">
-                          <a href="blog-details.html"><img src="static/picture/82.webp" width="370" height="260" alt="Image-HasTech" /></a>
+                          <a href="/blog-details"><img src="/static/picture/82.webp" width="370" height="260" alt="Image-HasTech" /></a>
                         </div>
                         <div className="content">
                           <div className="meta-post">
                             <ul>
-                              <li className="post-date"><i className="fa fa-calendar"></i><a href="blog.html">27,Jun 2030</a></li>
-                              <li className="author-info"><i className="fa fa-user"></i><a href="blog.html">Oaklee Odom</a></li>
+                              <li className="post-date"><i className="fa fa-calendar"></i><a href="/blog">27,Jun 2030</a></li>
+                              <li className="author-info"><i className="fa fa-user"></i><a href="/blog">Oaklee Odom</a></li>
                             </ul>
                           </div>
-                          <h4 className="title"><a href="blog-details.html">Lorem ipsum dolor ametcons adipisicing elit sed</a></h4>
-                          <a className="post-btn" href="blog.html">Read More</a>
+                          <h4 className="title"><a href="/blog-details">Lorem ipsum dolor ametcons adipisicing elit sed</a></h4>
+                          <a className="post-btn" href="/blog">Read More</a>
                         </div>
                       </div>
                     </div>
@@ -215,13 +215,13 @@ export default function BlogLeftSidebar(){
                       <h4 className="sidebar-title" data-margin-bottom="23">Categories</h4>
                       <div className="sidebar-category">
                         <ul className="category-list">
-                          <li><a href="shop.html">Accesasories<span> (6)</span></a></li>
-                          <li><a href="shop.html">Computer<span> (4)</span></a></li>
-                          <li><a href="shop.html">Covid-19<span> (2)</span></a></li>
-                          <li><a href="shop.html">Electronics<span> (6)</span></a></li>
-                          <li><a href="shop.html">Frame Sunglasses<span> (12)</span></a></li>
-                          <li><a href="shop.html">Furniture<span> (7)</span></a></li>
-                          <li><a href="shop.html">Genuine Leather<span> (9)</span></a></li>
+                          <li><a href="/shop">Accesasories<span> (6)</span></a></li>
+                          <li><a href="/shop">Computer<span> (4)</span></a></li>
+                          <li><a href="/shop">Covid-19<span> (2)</span></a></li>
+                          <li><a href="/shop">Electronics<span> (6)</span></a></li>
+                          <li><a href="/shop">Frame Sunglasses<span> (12)</span></a></li>
+                          <li><a href="/shop">Furniture<span> (7)</span></a></li>
+                          <li><a href="/shop">Genuine Leather<span> (9)</span></a></li>
                         </ul>
                       </div>
                     </div>
@@ -231,38 +231,38 @@ export default function BlogLeftSidebar(){
                       <div className="sidebar-post">
                         <div className="single-post">
                           <div className="post-thumb">
-                            <a href="blog-details.html"><img src="static/picture/s1.webp" width="98" height="101" alt="" /></a>
+                            <a href="/blog-details"><img src="/static/picture/s1.webp" width="98" height="101" alt="" /></a>
                           </div>
                           <div className="post-content">
-                            <span className="date"><a href="blog.html"><i className="fa fa-calendar"></i>22,Jun 2022</a></span>
-                            <h6 className="title"><a href="blog-details.html">Lorem ipsum dolorl amet conse adip</a></h6>
+                            <span className="date"><a href="/blog"><i className="fa fa-calendar"></i>22,Jun 2022</a></span>
+                            <h6 className="title"><a href="/blog-details">Lorem ipsum dolorl amet conse adip</a></h6>
                           </div>
                         </div>
                         <div className="single-post">
                           <div className="post-thumb">
-                            <a href="blog-details.html"><img src="static/picture/s2.webp" width="98" height="101" alt="" /></a>
+                            <a href="/blog-details"><img src="/static/picture/s2.webp" width="98" height="101" alt="" /></a>
                           </div>
                           <div className="post-content">
-                            <span className="date"><a href="blog.html"><i className="fa fa-calendar"></i>22,Jun 2022</a></span>
-                            <h6 className="title"><a href="blog-details.html">Lorem ipsum dolorl amet conse adip</a></h6>
+                            <span className="date"><a href="/blog"><i className="fa fa-calendar"></i>22,Jun 2022</a></span>
+                            <h6 className="title"><a href="/blog-details">Lorem ipsum dolorl amet conse adip</a></h6>
                           </div>
                         </div>
                         <div className="single-post">
                           <div className="post-thumb">
-                            <a href="blog-details.html"><img src="static/picture/s3.webp" width="98" height="101" alt="" /></a>
+                            <a href="/blog-details"><img src="/static/picture/s3.webp" width="98" height="101" alt="" /></a>
                           </div>
                           <div className="post-content">
-                            <span className="date"><a href="blog.html"><i className="fa fa-calendar"></i>22,Jun 2022</a></span>
-                            <h6 className="title"><a href="blog-details.html">Lorem ipsum dolorl amet conse adip</a></h6>
+                            <span className="date"><a href="/blog"><i className="fa fa-calendar"></i>22,Jun 2022</a></span>
+                            <h6 className="title"><a href="/blog-details">Lorem ipsum dolorl amet conse adip</a></h6>
                           </div>
                         </div>
                         <div className="single-post">
                           <div className="post-thumb">
-                            <a href="blog-details.html"><img src="static/picture/s4.webp" width="98" height="101" alt="" /></a>
+                            <a href="/blog-details"><img src="/static/picture/s4.webp" width="98" height="101" alt="" /></a>
                           </div>
                           <div className="post-content">
-                            <span className="date"><a href="blog.html"><i className="fa fa-calendar"></i>22,Jun 2022</a></span>
-                            <h6 className="title"><a href="blog-details.html">Lorem ipsum dolorl amet conse adip</a></h6>
+                            <span className="date"><a href="/blog"><i className="fa fa-calendar"></i>22,Jun 2022</a></span>
+                            <h6 className="title"><a href="/blog-details">Lorem ipsum dolorl amet conse adip</a></h6>
                           </div>
                         </div>
                       </div>
@@ -272,12 +272,12 @@ export default function BlogLeftSidebar(){
                       <h4 className="sidebar-title" data-margin-bottom="23">Archives</h4>
                       <div className="sidebar-category-sub-menu">
                         <ul className="sub-menu-list">
-                          <li><a href="shop.html">March 2018</a></li>
-                          <li><a href="shop.html">February 2018</a></li>
-                          <li><a href="shop.html">January 2021</a></li>
-                          <li><a href="shop.html">September 2019</a></li>
-                          <li><a href="shop.html">March 2018</a></li>
-                          <li><a href="shop.html">July 2021</a></li>
+                          <li><a href="/shop">March 2018</a></li>
+                          <li><a href="/shop">February 2018</a></li>
+                          <li><a href="/shop">January 2021</a></li>
+                          <li><a href="/shop">September 2019</a></li>
+                          <li><a href="/shop">March 2018</a></li>
+                          <li><a href="/shop">July 2021</a></li>
                         </ul>
                       </div>
                     </div>
@@ -286,11 +286,11 @@ export default function BlogLeftSidebar(){
                       <h4 className="sidebar-title">Tages</h4>
                       <div className="sidebar-tags">
                         <ul className="tags-list mb--0">
-                          <li><a href="blog.html">Mobile</a></li>
-                          <li><a href="blog.html">Laptop</a></li>
-                          <li><a href="blog.html">Smart TV</a></li>
-                          <li><a href="blog.html">Pendrive</a></li>
-                          <li><a href="blog.html">Smartwatch</a></li>
+                          <li><a href="/blog">Mobile</a></li>
+                          <li><a href="/blog">Laptop</a></li>
+                          <li><a href="/blog">Smart TV</a></li>
+                          <li><a href="/blog">Pendrive</a></li>
+                          <li><a href="/blog">Smartwatch</a></li>
                         </ul>
                       </div>
                     </div>

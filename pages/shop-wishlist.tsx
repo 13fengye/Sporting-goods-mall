@@ -3,7 +3,7 @@ export default function ShopWishlist(){
     <>
       <main className="main-content">
         {/* <!--== Start Page Header Area Wrapper ==--> */}
-        <div className="page-header-area" data-bg-img="assets/img/photos/bg3.webp">
+        <div className="page-header-area" data-bg-img="/static/assets/img/photos/bg3.webp">
           <div className="container pt--0 pb--0">
             <div className="row">
               <div className="col-12">
@@ -11,7 +11,7 @@ export default function ShopWishlist(){
                   <h2 className="title" data-aos="fade-down" data-aos-duration="1000">Wishlist</h2>
                   <nav className="breadcrumb-area" data-aos="fade-down" data-aos-duration="1200">
                     <ul className="breadcrumb">
-                      <li><a href="index.html">Home</a></li>
+                      <li><a href="/index">Home</a></li>
                       <li className="breadcrumb-sep">//</li>
                       <li>Wishlist</li>
                     </ul>
@@ -46,12 +46,12 @@ export default function ShopWishlist(){
                           <a href="#/"><i className="fa fa-trash-o"></i></a>
                         </td>
                         <td className="product-thumb">
-                          <a href="single-product.html">
-                            <img src="static/picture/14.webp" width="90" height="110" alt="Image-HasTech" />
+                          <a href="/single-product">
+                            <img src="/static/picture/14.webp" width="90" height="110" alt="Image-HasTech" />
                           </a>
                         </td>
                         <td className="product-name">
-                          <h4 className="title"><a href="single-product.html">Leather Mens Slipper</a></h4>
+                          <h4 className="title"><a href="/single-product">Leather Mens Slipper</a></h4>
                         </td>
                         <td className="product-stock-status">
                           <span className="stock">In Stock</span>
@@ -60,7 +60,7 @@ export default function ShopWishlist(){
                           <span className="price">£25.99</span>
                         </td>
                         <td className="product-action">
-                          <a className="btn-cart" href="shop-cart.html">Add to cart</a>
+                          <a className="btn-cart" href="/shop-cart">Add to cart</a>
                         </td>
                       </tr>
                       <tr className="cart-wishlist-item">
@@ -68,12 +68,12 @@ export default function ShopWishlist(){
                           <a href="#/"><i className="fa fa-trash-o"></i></a>
                         </td>
                         <td className="product-thumb">
-                          <a href="single-product.html">
-                            <img src="static/picture/2.webp" width="90" height="110" alt="Image-HasTech" />
+                          <a href="/single-product">
+                            <img src="/static/picture/2.webp" width="90" height="110" alt="Image-HasTech" />
                           </a>
                         </td>
                         <td className="product-name">
-                          <h4 className="title"><a href="single-product.html">Quickiin Mens shoes</a></h4>
+                          <h4 className="title"><a href="/single-product">Quickiin Mens shoes</a></h4>
                         </td>
                         <td className="product-stock-status">
                           <span className="stock">In Stock</span>
@@ -82,7 +82,7 @@ export default function ShopWishlist(){
                           <span className="price">£69.99</span>
                         </td>
                         <td className="product-action">
-                          <a className="btn-cart" href="shop-cart.html">Add to cart</a>
+                          <a className="btn-cart" href="/shop-cart">Add to cart</a>
                         </td>
                       </tr>
                       <tr className="cart-wishlist-item">
@@ -90,12 +90,12 @@ export default function ShopWishlist(){
                           <a href="#/"><i className="fa fa-trash-o"></i></a>
                         </td>
                         <td className="product-thumb">
-                          <a href="single-product.html">
-                            <img src="static/picture/3.webp" width="90" height="110" alt="Image-HasTech" />
+                          <a href="/single-product">
+                            <img src="/static/picture/3.webp" width="90" height="110" alt="Image-HasTech" />
                           </a>
                         </td>
                         <td className="product-name">
-                          <h4 className="title"><a href="single-product.html">Rexpo Womens shoes</a></h4>
+                          <h4 className="title"><a href="/single-product">Rexpo Womens shoes</a></h4>
                         </td>
                         <td className="product-stock-status">
                           <span className="stock">In Stock</span>
@@ -104,7 +104,7 @@ export default function ShopWishlist(){
                           <span className="price">£39.99</span>
                         </td>
                         <td className="product-action">
-                          <a className="btn-cart" href="shop-cart.html">Add to cart</a>
+                          <a className="btn-cart" href="/shop-cart">Add to cart</a>
                         </td>
                       </tr>
                     </tbody>

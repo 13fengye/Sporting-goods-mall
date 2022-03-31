@@ -3,7 +3,7 @@ export default function ShopCheckout(){
     <>
       <main className="main-content">
         {/* <!--== Start Page Header Area Wrapper ==--> */}
-        <div className="page-header-area" data-bg-img="assets/img/photos/bg3.webp">
+        <div className="page-header-area" data-bg-img="/static/assets/img/photos/bg3.webp">
           <div className="container pt--0 pb--0">
             <div className="row">
               <div className="col-12">
@@ -11,7 +11,7 @@ export default function ShopCheckout(){
                   <h2 className="title" data-aos="fade-down" data-aos-duration="1000">Checkout</h2>
                   <nav className="breadcrumb-area" data-aos="fade-down" data-aos-duration="1200">
                     <ul className="breadcrumb">
-                      <li><a href="index.html">Home</a></li>
+                      <li><a href="/index">Home</a></li>
                       <li className="breadcrumb-sep">//</li>
                       <li>Checkout</li>
                     </ul>
@@ -393,7 +393,7 @@ export default function ShopCheckout(){
                         </div>
                         <div className="card">
                           <div className="card-header" id="check_payments4">
-                            <h5 className="title" data-bs-toggle="collapse" data-bs-target="#itemFour" aria-controls="itemTwo" aria-expanded="false">PayPal Express Checkout <img src="static/picture/paypal2.webp" width="40" height="26" alt="Image-HasTech" /></h5>
+                            <h5 className="title" data-bs-toggle="collapse" data-bs-target="#itemFour" aria-controls="itemTwo" aria-expanded="false">PayPal Express Checkout <img src="/static/picture/paypal2.webp" width="40" height="26" alt="Image-HasTech" /></h5>
                           </div>
                           <div id="itemFour" className="collapse" aria-labelledby="check_payments4" data-bs-parent="#PaymentMethodAccordion">
                             <div className="card-body">
@@ -409,7 +409,7 @@ export default function ShopCheckout(){
                             <label htmlFor="privacy" className="custom-control-label">I have read and agree to the website terms and conditions <span className="required">*</span></label>
                         </div>
                       </div>
-                      <a href="account-login.html" className="btn-theme">Place order</a>
+                      <a href="/account-login" className="btn-theme">Place order</a>
                     </div>
                   </div>
                 </div>

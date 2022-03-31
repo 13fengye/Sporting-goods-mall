@@ -4,7 +4,7 @@ export default function Account() {
   return (<>
     <main className="main-content">
         {/* <!--== Start Page Header Area Wrapper ==--> */}
-        <div className="page-header-area" data-bg-img="assets/img/photos/bg3.webp">
+        <div className="page-header-area" data-bg-img="/static/assets/img/photos/bg3.webp">
           <div className="container pt--0 pb--0">
             <div className="row">
               <div className="col-12">
@@ -12,7 +12,7 @@ export default function Account() {
                   <h2 className="title" data-aos="fade-down" data-aos-duration="1000">Account</h2>
                   <nav className="breadcrumb-area" data-aos="fade-down" data-aos-duration="1200">
                     <ul className="breadcrumb">
-                      <li><a href="index.html">Home</a></li>
+                      <li><a href="/index">Home</a></li>
                       <li className="breadcrumb-sep">//</li>
                       <li>Account</li>
                     </ul>
@@ -50,7 +50,7 @@ export default function Account() {
                           <div className="myaccount-content">
                             <h3>Dashboard</h3>
                             <div className="welcome">
-                              <p>Hello, <strong>Alex Tuntuni</strong> (If Not <strong>Tuntuni !</strong><a href="account-login.html" className="logout"> Logout</a>)</p>
+                              <p>Hello, <strong>Alex Tuntuni</strong> (If Not <strong>Tuntuni !</strong><a href="/account-login" className="logout"> Logout</a>)</p>
                             </div>
                             <p>From your account dashboard. you can easily check & view your recent orders, manage your shipping and billing addresses and edit your password and account details.</p>
                           </div>
@@ -75,21 +75,21 @@ export default function Account() {
                                     <td>Aug 22, 2018</td>
                                     <td>Pending</td>
                                     <td>$3000</td>
-                                    <td><a href="shop-cart.html" className="check-btn sqr-btn ">View</a></td>
+                                    <td><a href="/shop-cart" className="check-btn sqr-btn ">View</a></td>
                                   </tr>
                                   <tr>
                                     <td>2</td>
                                     <td>July 22, 2018</td>
                                     <td>Approved</td>
                                     <td>$200</td>
-                                    <td><a href="shop-cart.html" className="check-btn sqr-btn ">View</a></td>
+                                    <td><a href="/shop-cart" className="check-btn sqr-btn ">View</a></td>
                                   </tr>
                                   <tr>
                                     <td>3</td>
                                     <td>June 12, 2017</td>
                                     <td>On Hold</td>
                                     <td>$990</td>
-                                    <td><a href="shop-cart.html" className="check-btn sqr-btn ">View</a></td>
+                                    <td><a href="/shop-cart" className="check-btn sqr-btn ">View</a></td>
                                   </tr>
                                 </tbody>
                               </table>

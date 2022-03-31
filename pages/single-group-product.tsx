@@ -3,7 +3,7 @@ export default function SingleGroupProduct(){
     <>
       <main className="main-content">
         {/* <!--== Start Page Header Area Wrapper ==--> */}
-        <div className="page-header-area" data-bg-img="assets/img/photos/bg3.webp">
+        <div className="page-header-area" data-bg-img="/static/assets/img/photos/bg3.webp">
           <div className="container pt--0 pb--0">
             <div className="row">
               <div className="col-12">
@@ -11,7 +11,7 @@ export default function SingleGroupProduct(){
                   <h2 className="title" data-aos="fade-down" data-aos-duration="1000">Product Details</h2>
                   <nav className="breadcrumb-area" data-aos="fade-down" data-aos-duration="1200">
                     <ul className="breadcrumb">
-                      <li><a href="index.html">Home</a></li>
+                      <li><a href="/index">Home</a></li>
                       <li className="breadcrumb-sep">//</li>
                       <li>Product Details</li>
                     </ul>
@@ -36,28 +36,28 @@ export default function SingleGroupProduct(){
                         <div className="swiper-container single-product-thumb single-product-thumb-slider">
                           <div className="swiper-wrapper">
                             <div className="swiper-slide">
-                              <a className="lightbox-image" data-fancybox="gallery" href="static/picture/28.webp">
-                                <img src="static/picture/28.webp" width="570" height="541" alt="Image-HasTech" />
+                              <a className="lightbox-image" data-fancybox="gallery" href="/static/picture/28.webp">
+                                <img src="/static/picture/28.webp" width="570" height="541" alt="Image-HasTech" />
                               </a>
                             </div>
                             <div className="swiper-slide">
-                              <a className="lightbox-image" data-fancybox="gallery" href="static/picture/1.webp">
-                                <img src="static/picture/1.webp" width="570" height="541" alt="Image-HasTech" />
+                              <a className="lightbox-image" data-fancybox="gallery" href="/static/picture/1.webp">
+                                <img src="/static/picture/1.webp" width="570" height="541" alt="Image-HasTech" />
                               </a>
                             </div>
                             <div className="swiper-slide">
-                              <a className="lightbox-image" data-fancybox="gallery" href="static/picture/37.webp">
-                                <img src="static/picture/37.webp" width="570" height="541" alt="Image-HasTech" />
+                              <a className="lightbox-image" data-fancybox="gallery" href="/static/picture/37.webp">
+                                <img src="/static/picture/37.webp" width="570" height="541" alt="Image-HasTech" />
                               </a>
                             </div>
                             <div className="swiper-slide">
-                              <a className="lightbox-image" data-fancybox="gallery" href="static/picture/45.webp">
-                                <img src="static/picture/45.webp" width="570" height="541" alt="Image-HasTech" />
+                              <a className="lightbox-image" data-fancybox="gallery" href="/static/picture/45.webp">
+                                <img src="/static/picture/45.webp" width="570" height="541" alt="Image-HasTech" />
                               </a>
                             </div>
                             <div className="swiper-slide">
-                              <a className="lightbox-image" data-fancybox="gallery" href="static/picture/53.webp">
-                                <img src="static/picture/53.webp" width="570" height="541" alt="Image-HasTech" />
+                              <a className="lightbox-image" data-fancybox="gallery" href="/static/picture/53.webp">
+                                <img src="/static/picture/53.webp" width="570" height="541" alt="Image-HasTech" />
                               </a>
                             </div>
                           </div>
@@ -65,19 +65,19 @@ export default function SingleGroupProduct(){
                         <div className="swiper-container single-product-nav single-product-nav-slider">
                           <div className="swiper-wrapper">
                             <div className="swiper-slide">
-                              <img src="static/picture/nav-2.webp" width="127" height="127" alt="Image-HasTech" />
+                              <img src="/static/picture/nav-2.webp" width="127" height="127" alt="Image-HasTech" />
                             </div>
                             <div className="swiper-slide">
-                              <img src="static/picture/nav-1.webp" width="127" height="127" alt="Image-HasTech" />
+                              <img src="/static/picture/nav-1.webp" width="127" height="127" alt="Image-HasTech" />
                             </div>
                             <div className="swiper-slide">
-                              <img src="static/picture/nav-3.webp" width="127" height="127" alt="Image-HasTech" />
+                              <img src="/static/picture/nav-3.webp" width="127" height="127" alt="Image-HasTech" />
                             </div>
                             <div className="swiper-slide">
-                              <img src="static/picture/nav-4.webp" width="127" height="127" alt="Image-HasTech" />
+                              <img src="/static/picture/nav-4.webp" width="127" height="127" alt="Image-HasTech" />
                             </div>
                             <div className="swiper-slide">
-                              <img src="static/picture/nav-5.webp" width="127" height="127" alt="Image-HasTech" />
+                              <img src="/static/picture/nav-5.webp" width="127" height="127" alt="Image-HasTech" />
                             </div>
                           </div>
                         </div>
@@ -111,15 +111,15 @@ export default function SingleGroupProduct(){
                               <tr>
                                 <td className="choose"><input type="checkbox" checked={false} disabled={false} /></td>
                                 <td className="quantity"></td>
-                                <td className="thumb"><img src="static/picture/group1.webp" alt="Image" /></td>
+                                <td className="thumb"><img src="/static/picture/group1.webp" alt="Image" /></td>
                                 <td className="title"><span>Leather Mens Slipper</span></td>
                                 <td className="price"><span className="pro-price"><span>£100</span></span></td>
                               </tr>
                               <tr>
                                 <td className="choose"><input type="checkbox" /></td>
                                 <td className="quantity">1</td>
-                                <td className="thumb"><img src="static/picture/group2.webp" alt="Image" /></td>
-                                <td className="title"><a href="single-product.html">Modern Smart Shoes</a></td>
+                                <td className="thumb"><img src="/static/picture/group2.webp" alt="Image" /></td>
+                                <td className="title"><a href="/single-product">Modern Smart Shoes</a></td>
                                 <td className="price"><span className="pro-price"><span className="old">£120.00</span><span className="new">£96.00</span></span></td>
                               </tr>
                             </tbody>
@@ -131,11 +131,11 @@ export default function SingleGroupProduct(){
                               <input type="text" title="Quantity" value="1" />
                             </div>
                           </div>
-                          <a className="btn-theme" href="shop-cart.html">Add to Cart</a>
+                          <a className="btn-theme" href="/shop-cart">Add to Cart</a>
                         </div>
                         <div className="product-wishlist-compare">
-                          <a href="shop-wishlist.html"><i className="pe-7s-like"></i>Add to Wishlist</a>
-                          <a href="shop-compare.html"><i className="pe-7s-shuffle"></i>Add to Compare</a>
+                          <a href="/shop-wishlist"><i className="pe-7s-like"></i>Add to Wishlist</a>
+                          <a href="/shop-compare"><i className="pe-7s-shuffle"></i>Add to Compare</a>
                         </div>
                         <div className="product-info-footer">
                           <h6 className="code"><span>Code :</span>Ch-256xl</h6>
@@ -371,8 +371,8 @@ export default function SingleGroupProduct(){
                         <div className="product-item">
                           <div className="inner-content">
                             <div className="product-thumb">
-                              <a href="single-product.html">
-                                <img src="static/picture/112.webp" width="270" height="274" alt="Image-HasTech" />
+                              <a href="/single-product">
+                                <img src="/static/picture/112.webp" width="270" height="274" alt="Image-HasTech" />
                               </a>
                               <div className="product-flag">
                                 <ul>
@@ -380,24 +380,24 @@ export default function SingleGroupProduct(){
                                 </ul>
                               </div>
                               <div className="product-action">
-                                <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                                <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                                <a className="btn-product-wishlist" href="/shop-wishlist"><i className="fa fa-heart"></i></a>
+                                <a className="btn-product-cart" href="/shop-cart"><i className="fa fa-shopping-cart"></i></a>
                                 <button type="button" className="btn-product-quick-view-open">
                                   <i className="fa fa-arrows"></i>
                                 </button>
-                                <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                                <a className="btn-product-compare" href="/shop-compare"><i className="fa fa-random"></i></a>
                               </div>
-                              <a className="banner-link-overlay" href="shop.html"></a>
+                              <a className="banner-link-overlay" href="/shop"></a>
                             </div>
                             <div className="product-info">
                               <div className="category">
                                 <ul>
-                                  <li><a href="shop.html">Men</a></li>
+                                  <li><a href="/shop">Men</a></li>
                                   <li className="sep">/</li>
-                                  <li><a href="shop.html">Women</a></li>
+                                  <li><a href="/shop">Women</a></li>
                                 </ul>
                               </div>
-                              <h4 className="title"><a href="single-product.html">Modern Smart Shoes</a></h4>
+                              <h4 className="title"><a href="/single-product">Modern Smart Shoes</a></h4>
                               <div className="prices">
                                 <span className="price-old">$300</span>
                                 <span className="sep">-</span>
@@ -413,28 +413,28 @@ export default function SingleGroupProduct(){
                         <div className="product-item">
                           <div className="inner-content">
                             <div className="product-thumb">
-                              <a href="single-product.html">
-                                <img src="static/picture/7.webp" width="270" height="274" alt="Image-HasTech" />
+                              <a href="/single-product">
+                                <img src="/static/picture/7.webp" width="270" height="274" alt="Image-HasTech" />
                               </a>
                               <div className="product-action">
-                                <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                                <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                                <a className="btn-product-wishlist" href="/shop-wishlist"><i className="fa fa-heart"></i></a>
+                                <a className="btn-product-cart" href="/shop-cart"><i className="fa fa-shopping-cart"></i></a>
                                 <button type="button" className="btn-product-quick-view-open">
                                   <i className="fa fa-arrows"></i>
                                 </button>
-                                <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                                <a className="btn-product-compare" href="/shop-compare"><i className="fa fa-random"></i></a>
                               </div>
-                              <a className="banner-link-overlay" href="shop.html"></a>
+                              <a className="banner-link-overlay" href="/shop"></a>
                             </div>
                             <div className="product-info">
                               <div className="category">
                                 <ul>
-                                  <li><a href="shop.html">Men</a></li>
+                                  <li><a href="/shop">Men</a></li>
                                   <li className="sep">/</li>
-                                  <li><a href="shop.html">Women</a></li>
+                                  <li><a href="/shop">Women</a></li>
                                 </ul>
                               </div>
-                              <h4 className="title"><a href="single-product.html">Quickiin Mens shoes</a></h4>
+                              <h4 className="title"><a href="/single-product">Quickiin Mens shoes</a></h4>
                               <div className="prices">
                                 <span className="price">$240.00</span>
                               </div>
@@ -448,8 +448,8 @@ export default function SingleGroupProduct(){
                         <div className="product-item">
                           <div className="inner-content">
                             <div className="product-thumb">
-                              <a href="single-product.html">
-                                <img src="static/picture/34.webp" width="270" height="274" alt="Image-HasTech" />
+                              <a href="/single-product">
+                                <img src="/static/picture/34.webp" width="270" height="274" alt="Image-HasTech" />
                               </a>
                               <div className="product-flag">
                                 <ul>
@@ -457,24 +457,24 @@ export default function SingleGroupProduct(){
                                 </ul>
                               </div>
                               <div className="product-action">
-                                <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                                <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                                <a className="btn-product-wishlist" href="/shop-wishlist"><i className="fa fa-heart"></i></a>
+                                <a className="btn-product-cart" href="/shop-cart"><i className="fa fa-shopping-cart"></i></a>
                                 <button type="button" className="btn-product-quick-view-open">
                                   <i className="fa fa-arrows"></i>
                                 </button>
-                                <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                                <a className="btn-product-compare" href="/shop-compare"><i className="fa fa-random"></i></a>
                               </div>
-                              <a className="banner-link-overlay" href="shop.html"></a>
+                              <a className="banner-link-overlay" href="/shop"></a>
                             </div>
                             <div className="product-info">
                               <div className="category">
                                 <ul>
-                                  <li><a href="shop.html">Men</a></li>
+                                  <li><a href="/shop">Men</a></li>
                                   <li className="sep">/</li>
-                                  <li><a href="shop.html">Women</a></li>
+                                  <li><a href="/shop">Women</a></li>
                                 </ul>
                               </div>
-                              <h4 className="title"><a href="single-product.html">Rexpo Womens shoes</a></h4>
+                              <h4 className="title"><a href="/single-product">Rexpo Womens shoes</a></h4>
                               <div className="prices">
                                 <span className="price-old">$300</span>
                                 <span className="sep">-</span>
@@ -490,28 +490,28 @@ export default function SingleGroupProduct(){
                         <div className="product-item">
                           <div className="inner-content">
                             <div className="product-thumb">
-                              <a href="single-product.html">
-                                <img src="static/picture/41.webp" width="270" height="274" alt="Image-HasTech" />
+                              <a href="/single-product">
+                                <img src="/static/picture/41.webp" width="270" height="274" alt="Image-HasTech" />
                               </a>
                               <div className="product-action">
-                                <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                                <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                                <a className="btn-product-wishlist" href="/shop-wishlist"><i className="fa fa-heart"></i></a>
+                                <a className="btn-product-cart" href="/shop-cart"><i className="fa fa-shopping-cart"></i></a>
                                 <button type="button" className="btn-product-quick-view-open">
                                   <i className="fa fa-arrows"></i>
                                 </button>
-                                <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                                <a className="btn-product-compare" href="/shop-compare"><i className="fa fa-random"></i></a>
                               </div>
-                              <a className="banner-link-overlay" href="shop.html"></a>
+                              <a className="banner-link-overlay" href="/shop"></a>
                             </div>
                             <div className="product-info">
                               <div className="category">
                                 <ul>
-                                  <li><a href="shop.html">Men</a></li>
+                                  <li><a href="/shop">Men</a></li>
                                   <li className="sep">/</li>
-                                  <li><a href="shop.html">Women</a></li>
+                                  <li><a href="/shop">Women</a></li>
                                 </ul>
                               </div>
-                              <h4 className="title"><a href="single-product.html">Leather Mens Slipper</a></h4>
+                              <h4 className="title"><a href="/single-product">Leather Mens Slipper</a></h4>
                               <div className="prices">
                                 <span className="price">$240.00</span>
                               </div>
@@ -525,28 +525,28 @@ export default function SingleGroupProduct(){
                         <div className="product-item">
                           <div className="inner-content">
                             <div className="product-thumb">
-                              <a href="single-product.html">
-                                <img src="static/picture/5.webp" width="270" height="274" alt="Image-HasTech" />
+                              <a href="/single-product">
+                                <img src="/static/picture/5.webp" width="270" height="274" alt="Image-HasTech" />
                               </a>
                               <div className="product-action">
-                                <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                                <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                                <a className="btn-product-wishlist" href="/shop-wishlist"><i className="fa fa-heart"></i></a>
+                                <a className="btn-product-cart" href="/shop-cart"><i className="fa fa-shopping-cart"></i></a>
                                 <button type="button" className="btn-product-quick-view-open">
                                   <i className="fa fa-arrows"></i>
                                 </button>
-                                <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                                <a className="btn-product-compare" href="/shop-compare"><i className="fa fa-random"></i></a>
                               </div>
-                              <a className="banner-link-overlay" href="shop.html"></a>
+                              <a className="banner-link-overlay" href="/shop"></a>
                             </div>
                             <div className="product-info">
                               <div className="category">
                                 <ul>
-                                  <li><a href="shop.html">Men</a></li>
+                                  <li><a href="/shop">Men</a></li>
                                   <li className="sep">/</li>
-                                  <li><a href="shop.html">Women</a></li>
+                                  <li><a href="/shop">Women</a></li>
                                 </ul>
                               </div>
-                              <h4 className="title"><a href="single-product.html">Primitive Mens shoes</a></h4>
+                              <h4 className="title"><a href="/single-product">Primitive Mens shoes</a></h4>
                               <div className="prices">
                                 <span className="price-old">$300</span>
                                 <span className="sep">-</span>
@@ -562,8 +562,8 @@ export default function SingleGroupProduct(){
                         <div className="product-item">
                           <div className="inner-content">
                             <div className="product-thumb">
-                              <a href="single-product.html">
-                                <img src="static/picture/6.webp" width="270" height="274" alt="Image-HasTech" />
+                              <a href="/single-product">
+                                <img src="/static/picture/6.webp" width="270" height="274" alt="Image-HasTech" />
                               </a>
                               <div className="product-flag">
                                 <ul>
@@ -571,24 +571,24 @@ export default function SingleGroupProduct(){
                                 </ul>
                               </div>
                               <div className="product-action">
-                                <a className="btn-product-wishlist" href="shop-wishlist.html"><i className="fa fa-heart"></i></a>
-                                <a className="btn-product-cart" href="shop-cart.html"><i className="fa fa-shopping-cart"></i></a>
+                                <a className="btn-product-wishlist" href="/shop-wishlist"><i className="fa fa-heart"></i></a>
+                                <a className="btn-product-cart" href="/shop-cart"><i className="fa fa-shopping-cart"></i></a>
                                 <button type="button" className="btn-product-quick-view-open">
                                   <i className="fa fa-arrows"></i>
                                 </button>
-                                <a className="btn-product-compare" href="shop-compare.html"><i className="fa fa-random"></i></a>
+                                <a className="btn-product-compare" href="/shop-compare"><i className="fa fa-random"></i></a>
                               </div>
-                              <a className="banner-link-overlay" href="shop.html"></a>
+                              <a className="banner-link-overlay" href="/shop"></a>
                             </div>
                             <div className="product-info">
                               <div className="category">
                                 <ul>
-                                  <li><a href="shop.html">Men</a></li>
+                                  <li><a href="/shop">Men</a></li>
                                   <li className="sep">/</li>
-                                  <li><a href="shop.html">Women</a></li>
+                                  <li><a href="/shop">Women</a></li>
                                 </ul>
                               </div>
-                              <h4 className="title"><a href="single-product.html">Simple Fabric Shoe</a></h4>
+                              <h4 className="title"><a href="/single-product">Simple Fabric Shoe</a></h4>
                               <div className="prices">
                                 <span className="price-old">$300</span>
                                 <span className="sep">-</span>

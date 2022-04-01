@@ -6,6 +6,8 @@
 ## git ##
 克隆项目的最近一个版本：
 git clone git@github.com:13fengye/Sporting-goods-mall.git --depth=1
+克隆整个项目：
+git clone git@github.com:13fengye/Sporting-goods-mall.git
 
 # 接着做一下的环境配置
 # ------------------------------------------前端---------------------------------------------- #

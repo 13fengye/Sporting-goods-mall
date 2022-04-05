@@ -5,23 +5,23 @@ export default function Header() {
         <div className="container pt--0 pb--0">
           <div className="row">
             <div className="col-12">
-              <div className="header-top-align">
-                <div className="header-top-align-start">
-                  <div className="desc">
-                    <p>World Wide Completely Free Returns and Free Shipping</p>
-                  </div>
-                </div>
-                <div className="header-top-align-end">
+              <div style={{ textAlign: "right" }}>
                   <div className="header-info-items">
                     <div className="info-items">
-                      <ul>
-                        <li className="number"><i className="fa fa-phone"></i><a href="tel://0123456789">+00 123 456 789</a></li>
+                      <ul style={{ display: "inline-block" }}>
+                        {/* <li className="number"><i className="fa fa-phone"></i><a href="tel://0123456789">+00 123 456 789</a></li> */}
                         <li className="email"><i className="fa fa-envelope"></i><a href="mailto://demo@example.com">demo@example.com</a></li>
-                        <li className="account"><i className="fa fa-user"></i><a href="/account-login">Account</a></li>
+                        <li className="account"><i className="fa fa-user"></i><a href="/account-login">账户</a></li>
+                      <li className="has-submenu"><a href="/account-login">账户</a>
+                          <ul className="submenu-nav">
+                            <li><a href="/account"><span>Account</span></a></li>
+                            <li><a href="/account-login"><span>Login</span></a></li>
+                            <li><a href="/account-register"><span>Register</span></a></li>
+                          </ul>
+                        </li>
                       </ul>
                     </div>
                   </div>
-                </div>
               </div>
             </div>
           </div>
@@ -35,15 +35,14 @@ export default function Header() {
                 <div className="header-middle-align-start">
                   <div className="header-logo-area">
                     <a href="/">
-                      <img className="logo-main" src="/static/picture/logo.webp" width="131" height="34" alt="Logo" />
-                      <img className="logo-light" src="/static/picture/logo-light.webp" width="131" height="34" alt="Logo" />
+                      <h2 className="title" style={{ fontFamily: "fantasy", fontSize: "-webkit-xxx-large" }}>13fengye</h2>
                     </a>
                   </div>
                 </div>
                 <div className="header-middle-align-center">
                   <div className="header-search-area">
                     <form className="header-searchbox">
-                      <input type="search" className="form-control" placeholder="Search" />
+                      <input type="search" className="form-control" placeholder="搜索" />
                       <button className="btn-submit" type="submit"><i className="pe-7s-search"></i></button>
                     </form>
                   </div>
@@ -81,19 +80,12 @@ export default function Header() {
               <div className="header-align">
                 <div className="header-navigation-area position-relative">
                   <ul className="main-menu nav">
-                    <li className="has-submenu"><a href="/#/"><span>Home</span></a>
-                      <ul className="submenu-nav">
-                        <li><a href="/"><span>Home One</span></a></li>
-                        <li><a href="/index-two"><span>Home Two</span></a></li>
-                      </ul>
-                    </li>
-                    <li><a href="/about-us"><span>About</span></a></li>
-                    <li className="has-submenu"><a href="/#/"><span>Pages</span></a>
+                    <li><a href="/#/"><span>首页</span></a></li>
+                    <li className="has-submenu">
                       <ul className="submenu-nav">
                         <li><a href="/account"><span>Account</span></a></li>
                         <li><a href="/account-login"><span>Login</span></a></li>
                         <li><a href="/account-register"><span>Register</span></a></li>
-                        <li><a href="/page-not-found"><span>Page Not Found</span></a></li>
                       </ul>
                     </li>
                     <li className="has-submenu position-static"><a href="/#/"><span>Shop</span></a>

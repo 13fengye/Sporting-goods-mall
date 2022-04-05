@@ -1185,7 +1185,7 @@ table p {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    text-align: center;
+    text-align: right;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;

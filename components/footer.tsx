@@ -220,7 +220,7 @@ export default function Footer() {
 
           <div className="mobile-menu-items">
             <ul className="nav-menu">
-              <li><a href="#">Home</a>
+              <li><a href="#">首页</a>
                 <ul className="sub-menu">
                   <li><a href="/">Home One</a></li>
                   <li><a href="/index-two">Home Two</a></li>

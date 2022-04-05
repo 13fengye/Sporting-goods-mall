@@ -7,6 +7,7 @@ export default function Home(){
   const [newShoesNumber, setNewShoesNumber] =useState<number>(1);
   console.log(newShoesNumber)
 
+
   return(
     <>
       <main className="main-content">

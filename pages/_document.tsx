@@ -34,6 +34,7 @@ class MyDocument extends Document {
           <script src="/static/js/parallax.min.js"></script>
           <script src="/static/js/aos.min.js"></script>
           <script src="/static/js/custom.js"></script>
+          <meta http-equiv="Access-Control-Allow-Origin" content="*"></meta>
         </Head>
         <body>
           <div className="wrapper">

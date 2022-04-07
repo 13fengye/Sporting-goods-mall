@@ -37,14 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    # my apps
+    # 跨域
+    'corsheaders',
+    # 我的应用
     'User',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+
+    # 跨域中间件
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.common.CommonMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware',   # 防火墙
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -86,6 +91,7 @@ DATABASES = {
         'PASSWORD': '199953',
     }
 }
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # DATABASES = {
 #     'default': {
@@ -132,3 +138,33 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# 跨域相关配置
+CORS_ORIGIN_ALLOW_ALL = True #允许所有的请求，或者设置CORS_ORIGIN_WHITELIST，二选一
+# CORS_ALLOW_HEADERS = ('*') #允许所有的请求头
+# CORS_ALLOW_CREDENTIALS = True # 允许携带cookie，前端需要携带cookies访问后端时,需要设置withCredentials: true
+# CORS_ALLOW_METHODS = ('*') #允许跨域的请求方式
+# CORS_ORIGIN_WHITELIST = ('*') #允许跨域的域名
+# CORS_ALLOW_CREDENTIALS = True # 指明在跨域访问中，后端是否支持对cookie的操作
+CORS_ALLOW_METHODS = (
+ 'DELETE',
+ 'GET',
+ 'OPTIONS',
+ 'PATCH',
+ 'POST',
+ 'PUT',
+ 'VIEW',
+)
+CORS_ALLOW_HEADERS = (
+ 'XMLHttpRequest',
+ 'X_FILENAME',
+ 'accept-encoding',
+ 'authorization',
+ 'content-type',
+ 'dnt',
+ 'origin',
+ 'user-agent',
+ 'x-csrftoken',
+ 'x-requested-with',
+ 'Pragma',
+)

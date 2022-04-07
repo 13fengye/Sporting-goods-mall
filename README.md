@@ -72,7 +72,7 @@ DATABASES = {
 
 Django 使用 pymysql 模块连接 mysql 数据库：
 安装 pymysql：sudo apt install pymysql
-在与 settings.py 同级目录下的 __init__.py 中引入模块和进行配置
+在与 settings.py 同级目录下的 __init__.py 中引入模块和进行配置, 运行python3 manage.py runserver 8002 命令时, 报错 “AttributeError: module 'MySQLdb.constants.FIELD_TYPE' has no attribute 'JSON'”，将 __init__.py 中模块注释掉即可
 --------------------------------
 import pymysql
 pymysql.install_as_MySQLdb()

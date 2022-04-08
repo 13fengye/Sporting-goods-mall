@@ -7487,8 +7487,9 @@ table p {
 }
 .login-form-content .form-group label {
   color: #333;
-  font-size: 14px;
+  font-size: 20px;
   margin-bottom: 10px;
+  font-family: cursive;
 }
 .login-form-content .form-group label .required {
   color: #f00;
@@ -7585,7 +7586,7 @@ table p {
 }
 .login-form-content .rememberme-account .form-check .form-check-label {
   color: #8c8c8c;
-  font-size: 14px;
+  font-size: 18px;
   margin-bottom: 0;
   cursor: pointer;
   font-weight: 500;
@@ -7599,7 +7600,7 @@ table p {
 }
 .login-form-content .lost-password {
   color: #8c8c8c;
-  font-size: 15px;
+  font-size: 12px;
   margin-bottom: 0;
   cursor: pointer;
   font-weight: 500;

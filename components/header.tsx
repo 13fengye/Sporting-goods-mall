@@ -1,27 +1,27 @@
+import { useState } from "react";
+
 export default function Header() {
-  return(
+  const [isLogin, setIsLogin] = useState(false);
+
+  return (
     <header className="main-header-wrapper position-relative">
       <div className="header-top">
         <div className="container pt--0 pb--0">
           <div className="row">
             <div className="col-12">
               <div style={{ textAlign: "right" }}>
-                  <div className="header-info-items">
-                    <div className="info-items">
-                      <ul style={{ display: "inline-block" }}>
-                        {/* <li className="number"><i className="fa fa-phone"></i><a href="tel://0123456789">+00 123 456 789</a></li> */}
-                        <li className="email"><i className="fa fa-envelope"></i><a href="mailto://demo@example.com">demo@example.com</a></li>
-                        <li className="account"><i className="fa fa-user"></i><a href="/account-login">账户</a></li>
-                      <li className="has-submenu"><a href="/account-login">账户</a>
-                          <ul className="submenu-nav">
-                            <li><a href="/account"><span>Account</span></a></li>
-                            <li><a href="/account-login"><span>Login</span></a></li>
-                            <li><a href="/account-register"><span>Register</span></a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </div>
+                <div className="header-info-items">
+                  <div className="info-items">
+                    <ul style={{ display: "inline-block" }}>
+                      {/* <li className="number"><i className="fa fa-phone"></i><a href="tel://0123456789">+00 123 456 789</a></li> */}
+                      <li className="email"><i className="fa fa-envelope"></i><span>demo@example.com</span></li>
+                      <li className="account"><i className="fa fa-user"></i>
+                        {isLogin && <><a href="/account-login">账户</a> | <a onClick={() => { setIsLogin(true)}}>退出</a></>}
+                        {!isLogin &&  <><a href="/account-login">登录</a> | <a href="/account-register">注册</a></>}
+                      </li>
+                    </ul>
                   </div>
+                </div>
               </div>
             </div>
           </div>

@@ -5,7 +5,7 @@ import PageHeaderArea from "./pageHeaderArea";
 import { NEXT_PUBLIC_URL } from "components/url"
 
 export default function Accountlogin() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
@@ -32,13 +32,13 @@ export default function Accountlogin() {
                     <div className="row">
                       <div className="col-12">
                         <div className="form-group">
-                          <label htmlFor="username">Username or email address <span className="required">*</span></label>
-                          <input id="username" className="form-control" type="email" onChange={(e) => { setEmail(e.currentTarget.value) }} />
+                          <label htmlFor="username">用户名或邮箱 <span className="required">*</span></label>
+                          <input id="username" className="form-control" type="email" onChange={(e) => { setUsername(e.currentTarget.value) }} />
                         </div>
                       </div>
                       <div className="col-12">
                         <div className="form-group">
-                          <label htmlFor="password">Password <span className="required">*</span></label>
+                          <label htmlFor="password">密码 <span className="required">*</span></label>
                           <input id="password" className="form-control" type="password" onChange={(e) => { setPassword(e.currentTarget.value) }}/>
                         </div>
                       </div>
@@ -49,18 +49,8 @@ export default function Accountlogin() {
                           </Link> */}
                           <a className="btn-login"
                           onClick={()=>{
-                            post(`${NEXT_PUBLIC_URL}/User/user/`, JSON.stringify({'username': email, 'password': password})).then(res => {
-                              console.log(JSON.parse(res))
-                              // if(res.data.length>0){
-                              //   if(res.data[0].email==email && res.data[0].password==password){
-                              //     localStorage.setItem("user",JSON.stringify(res.data[0]))
-                              //     window.location.href="/account"
-                              //   }else{
-                              //     setError("Invalid email or password")
-                              //   }
-                              // }else{
-                              //   setError("Invalid email or password")
-                              // }
+                            post(`${NEXT_PUBLIC_URL}/User/user/`, JSON.stringify({ 'username': username, 'password': password})).then(res => {
+                              console.log(res.username);
                             })
                           }}>Login</a>
                         </div>
@@ -70,10 +60,10 @@ export default function Accountlogin() {
                           <div className="rememberme-account">
                             <div className="form-check">
                               <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                              <label className="form-check-label" htmlFor="defaultCheck1">Remember me</label>
+                              <label className="form-check-label" htmlFor="defaultCheck1">记住用户</label>
                             </div>
                           </div>
-                          <a className="lost-password" href="#/">Lost your password?</a>
+                          <a className="lost-password" href="#/">忘记密码?</a>
                         </div>
                       </div>
                     </div>

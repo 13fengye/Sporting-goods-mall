@@ -1,4 +1,4 @@
-import { get } from "components/fetch";
+import { get, post } from "components/fetch";
 import Link from "next/link";
 import { useState } from "react";
 import PageHeaderArea from "./pageHeaderArea";
@@ -49,8 +49,8 @@ export default function Accountlogin() {
                           </Link> */}
                           <a className="btn-login"
                           onClick={()=>{
-                            get(`${NEXT_PUBLIC_URL}/User/user/`).then(res => {
-                              console.log(res)
+                            post(`${NEXT_PUBLIC_URL}/User/user/`, JSON.stringify({'username': email, 'password': password})).then(res => {
+                              console.log(JSON.parse(res))
                               // if(res.data.length>0){
                               //   if(res.data[0].email==email && res.data[0].password==password){
                               //     localStorage.setItem("user",JSON.stringify(res.data[0]))

@@ -7,9 +7,7 @@ class User(models.Model):
     password = models.CharField(max_length=32)
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=32, unique=True)
-    create_time = models.DateTimeField(auto_now_add=True)
-    update_time = models.DateTimeField(auto_now=True)
-    
     
     class meta:
         db_table = 'user'
+        managed = True

@@ -50,7 +50,7 @@ export default function Accountlogin() {
                           <a className="btn-login"
                           onClick={()=>{
                             post(`${NEXT_PUBLIC_URL}/User/user/`, JSON.stringify({ 'username': username, 'password': password})).then(res => {
-                              console.log(res.username);
+                              console.log(res);
                             })
                           }}>Login</a>
                         </div>

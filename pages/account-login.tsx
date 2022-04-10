@@ -8,6 +8,7 @@ export default function Accountlogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLogin, setIsLogin] = useState<boolean>(false);
 
 
   return (
@@ -40,6 +41,7 @@ export default function Accountlogin() {
                         <div className="form-group">
                           <label htmlFor="password">密码 <span className="required">*</span></label>
                           <input id="password" className="form-control" type="password" onChange={(e) => { setPassword(e.currentTarget.value) }}/>
+                          <div style={{ fontFamily: 'cursive', color: !isLogin ? '#ff0000' : '#16e02c' }}>{error}</div>
                         </div>
                       </div>
                       <div className="col-12">
@@ -50,9 +52,17 @@ export default function Accountlogin() {
                           <a className="btn-login"
                           onClick={()=>{
                             post(`${NEXT_PUBLIC_URL}/User/user/`, JSON.stringify({ 'username': username, 'password': password})).then(res => {
-                              console.log(res);
+                              if (res.status === "200") {
+                                setIsLogin(true);
+                                setError(res.message);
+                                window.location.href = "/account";
+                              } else {
+                                setError(res.message);
+                                setIsLogin(false);
+                                setPassword("");
+                              }
                             })
-                          }}>Login</a>
+                          }}>登录</a>
                         </div>
                       </div>
                       <div className="col-12">

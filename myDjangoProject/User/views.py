@@ -17,7 +17,9 @@ class User(View):
         password = postData['password']
         user = models.User.objects.filter(username=username, password=password)
         if user:
-          response = HttpResponse(json.dumps({'isLogin': 'True', 'desciption': '登录成功！'}))
+          response = HttpResponse(json.dumps(
+              {'isLogin': 'True', 'message': '登录成功', 'status': '200'}))
         else:
-          response = HttpResponse(json.dumps({'isLogin': 'False', 'desciption': '登录失败，用户名或密码错误！'}))
+          response = HttpResponse(json.dumps(
+              {'isLogin': 'False', 'message': '登录失败，用户名或密码错误！', 'status': '400'}))
         return response

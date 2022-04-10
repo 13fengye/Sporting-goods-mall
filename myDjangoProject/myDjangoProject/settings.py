@@ -168,3 +168,5 @@ CORS_ALLOW_HEADERS = (
  'x-requested-with',
  'Pragma',
 )
+
+JWT_TOKEN_KEY = 'pengzhentong'

@@ -1,14 +1,43 @@
-import { get, post } from "components/fetch";
-import Link from "next/link";
-import { useState } from "react";
+import { post } from "components/fetch";
+import router from "next/router";
+import { useEffect, useState } from "react";
 import PageHeaderArea from "./pageHeaderArea";
-import { NEXT_PUBLIC_URL } from "components/url"
+
+function parseJwt(token: string) {
+  var base64Url = token.split('.')[1];
+  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
+
+  return JSON.parse(jsonPayload);
+};
 
 export default function Accountlogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLogin, setIsLogin] = useState<boolean>(false);
+  const [check, setCheck] = useState<boolean>(false);
+  const [checkUserNameError, setCheckUserNamError] = useState('');
+  const [checkPasswordError, setCheckPasswordError] = useState('');
+
+  useEffect(() => {
+
+    if (check) {
+      setError('');
+      if (username === '') {
+        setCheckUserNamError('用户名不能为空');
+      } else {
+        setCheckUserNamError('');
+      }
+      if (password === '') {
+        setCheckPasswordError('密码不能为空');
+      } else {
+        setCheckPasswordError('');
+      }
+    }
+  }, [check, username, password]);
 
 
   return (
@@ -22,7 +51,7 @@ export default function Accountlogin() {
             <div className="row">
               <div className="col-sm-8 m-auto">
                 <div className="section-title text-center">
-                  <h2 className="title">Login</h2>
+                  <h2 className="title">登录</h2>
                 </div>
               </div>
             </div>
@@ -34,13 +63,15 @@ export default function Accountlogin() {
                       <div className="col-12">
                         <div className="form-group">
                           <label htmlFor="username">用户名或邮箱 <span className="required">*</span></label>
-                          <input id="username" className="form-control" type="email" onChange={(e) => { setUsername(e.currentTarget.value) }} />
+                          <input className="form-control" type="text" onChange={(e) => { setUsername(e.currentTarget.value) }} />
+                          <div style={{ fontFamily: 'cursive', color: '#ff0000'}}>{checkUserNameError}</div>
                         </div>
                       </div>
                       <div className="col-12">
                         <div className="form-group">
                           <label htmlFor="password">密码 <span className="required">*</span></label>
-                          <input id="password" className="form-control" type="password" onChange={(e) => { setPassword(e.currentTarget.value) }}/>
+                          <input className="form-control" type="password" onChange={(e) => { setPassword(e.currentTarget.value) }}/>
+                          <div style={{ fontFamily: 'cursive', color: '#ff0000' }}>{checkPasswordError}</div>
                           <div style={{ fontFamily: 'cursive', color: !isLogin ? '#ff0000' : '#16e02c', fontWeight: !isLogin ? '' : 'bold'}}>{error}</div>
                         </div>
                       </div>
@@ -51,18 +82,24 @@ export default function Accountlogin() {
                           </Link> */}
                           <a className="btn-login"
                           onClick={()=>{
-                            post('/User/user/', { 'username': username, 'password': password}).then(res => {
-                              console.log(res);
-                              if (res.status === "200") {
-                                setIsLogin(true);
-                                setError(res.message);
-                                window.location.href = "/account";
-                              } else {
-                                setError(res.message);
-                                setIsLogin(false);
-                                setPassword("");
-                              }
-                            })
+                            setCheck(true);
+                            if (username !== '' && password!== '') {
+                              post('/User/user/', { 'username': username, 'password': password, 'email': ''}).then(res => {
+                                console.log(res);
+                                if (res.status === 200) {
+                                  setIsLogin(true);
+                                  setError(res.message);
+                                  const jwt = res.token;
+                                  const user = parseJwt(jwt);
+                                  console.log({ jwt, user })
+                                  window.localStorage.setItem('auth', JSON.stringify({ jwt, user}));
+                                  // router.push('/account')
+                                } else {
+                                  setError(res.message);
+                                  setIsLogin(false);
+                                }
+                              })
+                            }
                           }}>登录</a>
                         </div>
                       </div>

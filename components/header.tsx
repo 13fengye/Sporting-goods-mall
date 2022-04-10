@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Header() {
+ 
   const [isLogin, setIsLogin] = useState(false);
-
+  
   return (
     <header className="main-header-wrapper position-relative">
       <div className="header-top">
@@ -14,7 +15,7 @@ export default function Header() {
                   <div className="info-items">
                     <ul style={{ display: "inline-block" }}>
                       {/* <li className="number"><i className="fa fa-phone"></i><a href="tel://0123456789">+00 123 456 789</a></li> */}
-                      <li className="email"><i className="fa fa-envelope"></i><span>demo@example.com</span></li>
+                      <li className="email"><i className="fa fa-envelope"></i><span>{1}</span></li>
                       <li className="account"><i className="fa fa-user"></i>
                         {isLogin && <><a href="/account-login">账户</a> | <a onClick={() => { setIsLogin(true)}}>退出</a></>}
                         {!isLogin &&  <><a href="/account-login">登录</a> | <a href="/account-register">注册</a></>}

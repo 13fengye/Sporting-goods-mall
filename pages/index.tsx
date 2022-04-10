@@ -1,11 +1,10 @@
 import Footer from "components/footer";
 import Header from "components/header";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Home(){
   const minnewShoesNumber = 1, maxnewShoesNumber = 2;
   const [newShoesNumber, setNewShoesNumber] =useState<number>(1);
-  console.log(newShoesNumber)
 
 
   return(

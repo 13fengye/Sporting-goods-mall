@@ -12,7 +12,7 @@ class User(View):
         return HttpResponse(json.dumps({'username': 'admin', 'password': '1234'}))
      
     def post(self, request):
-        postData = json.loads(json.loads(request.body))
+        postData = json.loads(request.body)
         username = postData['username']
         password = postData['password']
         user = models.User.objects.filter(username=username, password=password)

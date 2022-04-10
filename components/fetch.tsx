@@ -1,3 +1,5 @@
+import { NEXT_PUBLIC_URL } from "./url";
+
 export const get = async (url: string) => {
     const response = await fetch(url);
     const data = await response.json();
@@ -5,7 +7,7 @@ export const get = async (url: string) => {
 }
 
 export const post = async (url: string, data: any) => {
-    const response = await fetch(url, {
+  const response = await fetch(NEXT_PUBLIC_URL + url, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

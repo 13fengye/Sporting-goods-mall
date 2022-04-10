@@ -41,7 +41,7 @@ export default function Accountlogin() {
                         <div className="form-group">
                           <label htmlFor="password">密码 <span className="required">*</span></label>
                           <input id="password" className="form-control" type="password" onChange={(e) => { setPassword(e.currentTarget.value) }}/>
-                          <div style={{ fontFamily: 'cursive', color: !isLogin ? '#ff0000' : '#16e02c' }}>{error}</div>
+                          <div style={{ fontFamily: 'cursive', color: !isLogin ? '#ff0000' : '#16e02c', fontWeight: !isLogin ? '' : 'bold'}}>{error}</div>
                         </div>
                       </div>
                       <div className="col-12">
@@ -51,7 +51,8 @@ export default function Accountlogin() {
                           </Link> */}
                           <a className="btn-login"
                           onClick={()=>{
-                            post(`${NEXT_PUBLIC_URL}/User/user/`, JSON.stringify({ 'username': username, 'password': password})).then(res => {
+                            post('/User/user/', { 'username': username, 'password': password}).then(res => {
+                              console.log(res);
                               if (res.status === "200") {
                                 setIsLogin(true);
                                 setError(res.message);

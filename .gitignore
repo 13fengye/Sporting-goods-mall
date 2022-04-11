@@ -44,3 +44,4 @@ myDjangoProject/db.sqlite3
 myDjangoProject/myDjangoProject/*.pyc
 myDjangoProject/**/migrations/
 myDjangoProject/**/__pycache__/
+myDjangoProject/my_env/

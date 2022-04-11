@@ -43,14 +43,16 @@ sudo npm run dev
 # Django配置参考Django官方文档
 链接：https://docs.djangoproject.com/zh-hans/4.0/
 
+安装Django: python3 -m pip install Django
+
 Django不用自带数据库，可改用Mysql,其安装及配置：
 链接：https://www.jb51.net/article/215879.htm
 
 在myDjangoProject下的settings.py进行mysql的配置并终端里新建一个数据库,
 终端输入一下命令迁移Django模型到数据库：
 python3 manage.py migrate   # 创建表结构
-python3 manage.py makemigrations TestModel  # 让 Django 知道我们在我们的模型有一些变更
-python3 manage.py migrate TestModel   # 创建表结构
+python3 manage.py makemigrations XXX  # 让 Django 知道我们在我们的模型有一些变更
+python3 manage.py migrate XXX  # 创建表结构
 
 # Mysql：
 启动：mysql -u root -p -h 127.0.0.1
@@ -71,12 +73,23 @@ DATABASES = {
 }
 
 Django 使用 pymysql 模块连接 mysql 数据库：
-安装 pymysql：sudo apt install pymysql
+安装 pymysql：sudo apt install pymysql / python3 -m pip install pymysql
 在与 settings.py 同级目录下的 __init__.py 中引入模块和进行配置, 运行python3 manage.py runserver 8002 命令时, 报错 “AttributeError: module 'MySQLdb.constants.FIELD_TYPE' has no attribute 'JSON'”，将 __init__.py 中模块注释掉即可
 --------------------------------
 import pymysql
 pymysql.install_as_MySQLdb()
 --------------------------------
+
+# Django虚拟环境virtualenv
+参考：https://blog.csdn.net/JBY2020/article/details/116074528
+创建: mkvirtualenv -p python3 虚拟环境名称
+退出：deactivate
+查看: workon
+删除: rmvirtualenv 虚拟环境名称
+启动：workon my_env
+
+# Django 跨域(corsheaders)
+参考：https://blog.csdn.net/jsxingmang/article/details/112060465
 
 # Pillow(image)
 https://pillow.readthedocs.io/en/latest/installation.html

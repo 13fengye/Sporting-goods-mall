@@ -81,15 +81,28 @@ pymysql.install_as_MySQLdb()
 --------------------------------
 
 # Django虚拟环境virtualenv
+方法一：
 参考：https://blog.csdn.net/JBY2020/article/details/116074528
+安装：pip3 install virtualenv
 创建: mkvirtualenv -p python3 虚拟环境名称
 退出：deactivate
 查看: workon
 删除: rmvirtualenv 虚拟环境名称
 启动：workon my_env
 
+方法二：
+https://tendcode.com/article/virtualenv-for-python/
+安装：pip3 install virtualenv 
+创建：virtualenv my_env
+启动：source my_env/bin/activate
+退出：deactivate
+
 # Django 跨域(corsheaders)
 参考：https://blog.csdn.net/jsxingmang/article/details/112060465
+pip3 install django-cors-headers
+
+# Django JWT
+安装：pip3 install pyjwt
 
 # Pillow(image)
 https://pillow.readthedocs.io/en/latest/installation.html

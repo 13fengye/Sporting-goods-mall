@@ -1,7 +1,14 @@
+import Header from "components/header"
 import { AppProps } from "next/app"
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  
+  return(
+    <>
+      <Header />
+      <Component {...pageProps} />
+    </>
+  )
 }
 
 // Only uncomment this method if you have blocking data requirements for

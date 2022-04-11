@@ -3,7 +3,7 @@ import router from "next/router";
 import { useEffect, useState } from "react";
 import PageHeaderArea from "./pageHeaderArea";
 
-function parseJwt(token: string) {
+export function parseJwt(token: string) {
   var base64Url = token.split('.')[1];
   var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
   var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
@@ -63,14 +63,14 @@ export default function Accountlogin() {
                       <div className="col-12">
                         <div className="form-group">
                           <label htmlFor="username">用户名或邮箱 <span className="required">*</span></label>
-                          <input className="form-control" type="text" onChange={(e) => { setUsername(e.currentTarget.value) }} />
+                          <input className="form-control" type="text" autoComplete="off" onChange={(e) => { setUsername(e.currentTarget.value) }} />
                           <div style={{ fontFamily: 'cursive', color: '#ff0000'}}>{checkUserNameError}</div>
                         </div>
                       </div>
                       <div className="col-12">
                         <div className="form-group">
                           <label htmlFor="password">密码 <span className="required">*</span></label>
-                          <input className="form-control" type="password" onChange={(e) => { setPassword(e.currentTarget.value) }}/>
+                          <input className="form-control" type="password" autoComplete="new-password" onChange={(e) => { setPassword(e.currentTarget.value)}}/>
                           <div style={{ fontFamily: 'cursive', color: '#ff0000' }}>{checkPasswordError}</div>
                           <div style={{ fontFamily: 'cursive', color: !isLogin ? '#ff0000' : '#16e02c', fontWeight: !isLogin ? '' : 'bold'}}>{error}</div>
                         </div>
@@ -91,9 +91,14 @@ export default function Accountlogin() {
                                   setError(res.message);
                                   const jwt = res.token;
                                   const user = parseJwt(jwt);
-                                  console.log({ jwt, user })
-                                  window.localStorage.setItem('auth', JSON.stringify({ jwt, user}));
-                                  // router.push('/account')
+                                  const username = user.username;
+                                  const email = user.email;
+                                  console.log({ jwt, user, email})
+                                  window.localStorage.setItem('auth', JSON.stringify({ jwt, username, email}));
+                                  router.push('/account')
+                                } else if (res.status === 301) {
+                                  setError(res.message);
+                                  router.push('/account-register');
                                 } else {
                                   setError(res.message);
                                   setIsLogin(false);

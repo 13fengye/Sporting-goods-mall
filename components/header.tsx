@@ -1,9 +1,20 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export default function Header() {
  
-  const [isLogin, setIsLogin] = useState(false);
-  
+  let currState: string = '{ "jwt": "", "username": "", "email": ""}';
+  if (typeof window !== "undefined") {
+    currState = localStorage.getItem('auth') || currState;
+  }
+
+  const [authState, setAuthState] = useState(JSON.parse(currState));
+
+  useEffect(() => {
+    setAuthState(JSON.parse(currState));
+  }, [currState])
+
+  const authUsername = authState.username || false as string|false;
+
   return (
     <header className="main-header-wrapper position-relative">
       <div className="header-top">
@@ -14,11 +25,13 @@ export default function Header() {
                 <div className="header-info-items">
                   <div className="info-items">
                     <ul style={{ display: "inline-block" }}>
-                      {/* <li className="number"><i className="fa fa-phone"></i><a href="tel://0123456789">+00 123 456 789</a></li> */}
-                      <li className="email"><i className="fa fa-envelope"></i><span>{1}</span></li>
+                      { authUsername && <li className="email"><i className="fa fa-envelope"></i><span>{authUsername}</span></li>}
                       <li className="account"><i className="fa fa-user"></i>
-                        {isLogin && <><a href="/account-login">账户</a> | <a onClick={() => { setIsLogin(true)}}>退出</a></>}
-                        {!isLogin &&  <><a href="/account-login">登录</a> | <a href="/account-register">注册</a></>}
+                        {authUsername && <><a href="/account">账户</a> | <button style={{ borderRadius: '5px' }} onClick={() => {
+                          setAuthState(currState);
+                          window.localStorage.setItem('auth', JSON.stringify({ "jwt": "", "username": "", "email": ""}));
+                        }}>退出</button></>}
+                        {!authUsername &&  <><a href="/account-login">登录</a> | <a href="/account-register">注册</a></>}
                       </li>
                     </ul>
                   </div>

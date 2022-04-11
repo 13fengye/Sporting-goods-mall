@@ -1,11 +1,8 @@
-import Footer from "components/footer";
-import Header from "components/header";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 
 export default function Home(){
   const minnewShoesNumber = 1, maxnewShoesNumber = 2;
   const [newShoesNumber, setNewShoesNumber] =useState<number>(1);
-
 
   return(
     <>

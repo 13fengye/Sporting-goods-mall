@@ -45,14 +45,20 @@ class User(View):
         password = postData['password']
         email = postData['email']
         if email == '':
-            user = models.User.objects.filter(username=username, password=md5(password)) | models.User.objects.filter(email=username, password=md5(password))
-            if user:
-              token = make_token(username)
-              response = HttpResponse(json.dumps({'message': '登录成功', 'status': 200, 'token': token.decode()}))
-              return response
+            hasThisUser = models.User.objects.filter(username=username) | models.User.objects.filter(email=username)
+            if hasThisUser:
+                user = models.User.objects.filter(username=username, password=md5(password)) | models.User.objects.filter(email=username, password=md5(password))
+                if user:
+                  token = make_token(username)
+                  response = HttpResponse(json.dumps({'message': '登录成功', 'status': 200, 'token': token.encode('utf-8').decode('utf-8')}))
+                  return response
+                else:
+                  response = HttpResponse(json.dumps({'message': '用户名或密码错误', 'status': 400}))
+                return response
             else:
-              response = HttpResponse(json.dumps({'message': '用户名或密码错误', 'status': 400}))
-            return response
+                return HttpResponse(json.dumps({'status': 301, 'message': '用户名或邮箱未注册'}))
+
+            
         else:
             user = models.User.objects.filter(username=username) | models.User.objects.filter(email=email) | models.User.objects.filter(username=email)
             if user:
@@ -60,7 +66,7 @@ class User(View):
             else:
               token = make_token(username)
               models.User.objects.create(username=username, password=md5(password), email=email)
-              response = HttpResponse(json.dumps({'message': '注册成功', 'status': 200, 'token': token.decode()}))
+              response = HttpResponse(json.dumps({'message': '注册成功', 'status': 200, 'token': token.encode('utf-8').decode('utf-8')}))
             return response
 
 

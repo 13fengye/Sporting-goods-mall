@@ -1,6 +1,7 @@
 import { post } from "components/fetch";
 import router from "next/router";
 import { useEffect, useState } from "react";
+import { parseJwt } from "./account-login";
 import PageHeaderArea from "./pageHeaderArea";
 
 export default function AccountRegister() {
@@ -71,7 +72,7 @@ export default function AccountRegister() {
                       <div className="col-12">
                         <div className="form-group">
                           <label htmlFor="username">用户名<span className="required">*</span></label>
-                          <input id="username" className="form-control" type="email" onChange={(e) => { setUsername(e.currentTarget.value) }} value={username} />
+                        <input id="username" className="form-control" type="username" autoComplete="off" onChange={(e) => { setUsername(e.currentTarget.value) }} value={username} />
                           <div style={{ fontFamily: 'cursive', color: '#ff0000' }}>{checkUserNameError}</div>
                         </div>
                       </div>
@@ -85,7 +86,7 @@ export default function AccountRegister() {
                       <div className="col-12">
                         <div className="form-group">
                           <label htmlFor="password">密码 <span className="required">*</span></label>
-                          <input id="password" className="form-control" type="password" onChange={(e) => { setPassword1(e.currentTarget.value) }} value={password1} />
+                          <input id="password" className="form-control" type="password" autoComplete="new-password" onChange={(e) => { setPassword1(e.currentTarget.value) }} value={password1} />
                           <div style={{ fontFamily: 'cursive', color: '#ff0000' }}>{checkPassword1Error}</div>
                         </div>
                       </div>
@@ -107,6 +108,12 @@ export default function AccountRegister() {
                                   if (res.status === 200) {
                                     setIsRegiste(true);
                                     setError(res.message);
+                                    const jwt = res.token;
+                                    const user = parseJwt(jwt);
+                                    const username = user.username;
+                                    const email = user.email;
+                                    console.log({ jwt, user, email })
+                                    window.localStorage.setItem('auth', JSON.stringify({ jwt, username, email }));
                                     router.push('/account')
                                   } else {
                                     setError(res.message);

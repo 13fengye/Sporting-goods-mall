@@ -38,7 +38,6 @@ class MyDocument extends Document {
         </Head>
         <body>
           <div className="wrapper">
-            <Header />
               <Main />
               <NextScript />
             <Footer />

@@ -4,9 +4,12 @@
   "description": "基于React和Django的体育用品商城网站",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "build-start": "next build && next start",
+    "lint": "next lint",
+    "minify-css": "node minify-css.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -110,12 +110,15 @@ pip3 install django-cors-headers
 参考：https://pillow.readthedocs.io/en/latest/installation.html
 
 # Django Nginx + uWSGI
-uWSGI参考：https://www.runoob.com/django/django-nginx-uwsgi.html
+uWSGI参考：
+https://www.runoob.com/django/django-nginx-uwsgi.html
 https://www.runoob.com/python3/python-uwsgi.html
 https://www.cnblogs.com/flhw/p/14923018.html
 https://www.runoob.com/python3/python-uwsgi.html
 
-Nginx参考：https://www.runoob.com/linux/nginx-install-setup.html
+Nginx参考：
+（官网）https://wizardforcel.gitbooks.io/nginx-doc/content/Text/1.3_install.html?msclkid=91f9159cbe7d11ecb2d477ec1b83e8c0
+https://www.runoob.com/linux/nginx-install-setup.html
 https://linuxtect.com/how-to-install-openssl-libraries-on-ubuntu-debian-mint/?msclkid=a1be1a2dbe5a11ec83fd3ad89bc1bfde
 https://www.e-learn.cn/topic/3732260?msclkid=851998a9be5f11ec89c86adc0acc7606
 

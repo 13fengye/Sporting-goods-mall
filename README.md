@@ -55,6 +55,7 @@ python3 manage.py makemigrations XXX  # 让 Django 知道我们在我们的模�
 python3 manage.py migrate XXX  # 创建表结构
 
 # Mysql：
+https://blog.csdn.net/xiamoyanyulrq/article/details/83041724?msclkid=f9de19c6be7411ec8f0657d145c45ca3
 启动：mysql -u root -p -h 127.0.0.1
 创建：create DATABASE sportinggoodsmall default charset=utf8;
 创建数据库后，在setting.py里配置DATABASES,其中数据库名为sportinggoodsmall
@@ -109,10 +110,14 @@ pip3 install django-cors-headers
 参考：https://pillow.readthedocs.io/en/latest/installation.html
 
 # Django Nginx + uWSGI
-参考：https://www.runoob.com/django/django-nginx-uwsgi.html
+uWSGI参考：https://www.runoob.com/django/django-nginx-uwsgi.html
 https://www.runoob.com/python3/python-uwsgi.html
 https://www.cnblogs.com/flhw/p/14923018.html
 https://www.runoob.com/python3/python-uwsgi.html
+
+Nginx参考：https://www.runoob.com/linux/nginx-install-setup.html
+https://linuxtect.com/how-to-install-openssl-libraries-on-ubuntu-debian-mint/?msclkid=a1be1a2dbe5a11ec83fd3ad89bc1bfde
+https://www.e-learn.cn/topic/3732260?msclkid=851998a9be5f11ec89c86adc0acc7606
 
 
 

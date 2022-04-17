@@ -51,12 +51,12 @@ Django不用自带数据库，可改用Mysql,其安装及配置：
 在myDjangoProject下的settings.py进行mysql的配置并终端里新建一个数据库,
 终端输入一下命令迁移Django模型到数据库：
 python3 manage.py migrate   # 创建表结构
-python3 manage.py makemigrations XXX  # 让 Django 知道我们在我们的模型有一些变更
+python3 manage.py makemigrations XXX  # 让 Django 知道我们在我们的模型有一些变更(有新App)
 python3 manage.py migrate XXX  # 创建表结构
 
 # Mysql：
 启动：mysql -u root -p -h 127.0.0.1
-创建：create DATABASE sportinggoodsmall default charset=utf8
+创建：create DATABASE sportinggoodsmall default charset=utf8;
 创建数据库后，在setting.py里配置DATABASES,其中数据库名为sportinggoodsmall
 
 例如：
@@ -81,6 +81,7 @@ pymysql.install_as_MySQLdb()
 --------------------------------
 
 # Django虚拟环境virtualenv
+sudo apt install virtualenv
 方法一：
 参考：https://blog.csdn.net/JBY2020/article/details/116074528
 安装：pip3 install virtualenv
@@ -105,4 +106,10 @@ pip3 install django-cors-headers
 安装：pip3 install pyjwt
 
 # Pillow(image)
-https://pillow.readthedocs.io/en/latest/installation.html
+参考：https://pillow.readthedocs.io/en/latest/installation.html
+
+# Django Nginx + uWSGI
+参考：https://www.runoob.com/python3/python-uwsgi.html
+https://www.cnblogs.com/flhw/p/14923018.html
+
+

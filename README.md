@@ -109,7 +109,10 @@ pip3 install django-cors-headers
 参考：https://pillow.readthedocs.io/en/latest/installation.html
 
 # Django Nginx + uWSGI
-参考：https://www.runoob.com/python3/python-uwsgi.html
+参考：https://www.runoob.com/django/django-nginx-uwsgi.html
+https://www.runoob.com/python3/python-uwsgi.html
 https://www.cnblogs.com/flhw/p/14923018.html
+https://www.runoob.com/python3/python-uwsgi.html
+
 
 

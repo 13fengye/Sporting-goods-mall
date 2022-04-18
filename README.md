@@ -111,6 +111,13 @@ pip3 install django-cors-headers
 
 # Django Nginx + uWSGI
 uWSGI参考：
+启动命令：python3 manage.py runserver 0.0.0.0:8001, 再访问浏览器 ip:8001
+---------------------注--------------------
+在服务器防火墙设置相应的端口；
+在setting.py中设置：
+ALLOWED_HOSTS = ['175.178.37.194', 
+'localhost', '0.0.0.0:9000', '127.0.0.1']
+-------------------------------------------
 https://www.runoob.com/django/django-nginx-uwsgi.html
 https://www.runoob.com/python3/python-uwsgi.html
 https://www.cnblogs.com/flhw/p/14923018.html
@@ -122,5 +129,12 @@ https://www.runoob.com/linux/nginx-install-setup.html
 https://linuxtect.com/how-to-install-openssl-libraries-on-ubuntu-debian-mint/?msclkid=a1be1a2dbe5a11ec83fd3ad89bc1bfde
 https://www.e-learn.cn/topic/3732260?msclkid=851998a9be5f11ec89c86adc0acc7606
 
-
-
+# StoryBook
+sudo npx -D sb init (-f)
+sudo npm install --save-dev react-dom
+-----------------------
+sudo node --version
+v16.14.2
+（sudo n 16）
+-----------------------
+sudo npm run storybook (访问呢浏览器加：0.0.0.0/XXXX)

@@ -1,34 +1,17 @@
+const path = require('path')
+
 module.exports = {
-  entry: "./pages/index.tsx",
-  output: {
-    filename: "bundle.js",
-    path: __dirname + "/dist"
-  },
-
-  // Enable sourcemaps for debugging webpack's output.
-  devtool: "source-map",
-
-  resolve: {
-    // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: [".ts", ".tsx", ".js", ".json"]
-  },
-
+  mode: 'production',
+  entry: './src/index.tsx',
   module: {
-    rules: [
-      // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
-      { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-
-      // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
-    ]
+    rules: [{
+      test: /\.tsx?$/,
+      use: 'ts-loader',  // ts-loader是TypeScript官方提供的打包loader
+      exclude: /node_modules/ //如果引入的文件，是来自/node_modules/，那么就不用'ts-loader'来处理
+    }]
   },
-
-  // When importing a module whose path matches one of the following, just
-  // assume a corresponding global variable exists and use that instead.
-  // This is important because it allows us to avoid bundling all of our
-  // dependencies, which allows browsers to cache those libraries between builds.
-  externals: {
-    "react": "React",
-    "react-dom": "ReactDOM"
-  },
-};
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  }
+}

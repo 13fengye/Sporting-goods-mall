@@ -125,9 +125,20 @@ https://www.runoob.com/python3/python-uwsgi.html
 
 Nginx参考：
 （官网）https://wizardforcel.gitbooks.io/nginx-doc/content/Text/1.3_install.html?msclkid=91f9159cbe7d11ecb2d477ec1b83e8c0
+装zlib包：sudo wget https://zlib.net/zlib-1.2.12.tar.gz
+装oppenssl包： sudo wget https://www.openssl.org/source/openssl-1.0.2g.tar.gz
 https://www.runoob.com/linux/nginx-install-setup.html
 https://linuxtect.com/how-to-install-openssl-libraries-on-ubuntu-debian-mint/?msclkid=a1be1a2dbe5a11ec83fd3ad89bc1bfde
 https://www.e-learn.cn/topic/3732260?msclkid=851998a9be5f11ec89c86adc0acc7606
+
+-----------------------------------------------------------------
+参考：https://blog.csdn.net/qq_46312987/article/details/118895520
+启动nginx: sudo ./nginx
+关闭nginx: sudo ./nginx -s stop
+重新加载nginx (nginx.conf):sudo ./nginx -s reload
+查看版本号: sudo ./nginx -v
+查看进程: ps -ef |grep nginx
+-----------------------------------------------------------------
 
 # StoryBook
 sudo npx -D sb init (-f)

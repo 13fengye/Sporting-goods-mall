@@ -1,7 +1,16 @@
 import router, { Router } from "next/router";
+import { useEffect, useState } from "react";
 import PageHeaderArea from "./pageHeaderArea";
 
 export default function Account() {
+  const [auth, setAuth] = useState<{ jwt: string, usename: string } | undefined>();
+  useEffect(() => {
+    setAuth(JSON.parse(localStorage.getItem("auth") || 'undefined'));
+    if (auth?.jwt === '') {
+      router.push("/");
+    }
+  }, [auth]);
+
   return (<>
     <main className="main-content">
       <PageHeaderArea />

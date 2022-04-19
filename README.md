@@ -1,5 +1,14 @@
 # Sporting-goods-mall
 基于React和Django的体育用品商城网站
+-----------------服务器-----------------
+前端：
+cd /usr/local/nginx
+sudo ./nginx
+cd ~/Sporting-goods-mall
+npm run start
+后端：
+python3 manage.py runserver 0.0.0.0:8001
+----------------------------------------
 
 ### 以下命令请用终端输入，并在项目文件夹Sporting-goods-mall下，若sudo npm报错，试着在Myproject下运行命令 ###
 
@@ -109,7 +118,7 @@ pip3 install django-cors-headers
 # Pillow(image)
 参考：https://pillow.readthedocs.io/en/latest/installation.html
 
-# Django Nginx + uWSGI
+# Django Nginx + uWSGI （两者有问题，没有部署上）
 uWSGI参考：
 启动命令：python3 manage.py runserver 0.0.0.0:8001, 再访问浏览器 ip:8001
 ---------------------注--------------------

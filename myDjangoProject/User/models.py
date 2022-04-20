@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-from bisect import bisect
 from django.db import models
-from requests import head
 
 # 用户表
 class User(models.Model):

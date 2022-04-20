@@ -63,6 +63,12 @@ python3 manage.py migrate   # 创建表结构
 python3 manage.py makemigrations XXX  # 让 Django 知道我们在我们的模型有一些变更(有新App)
 python3 manage.py migrate XXX  # 创建表结构
 
+------------------迁移表有问题-----------------
+删除app的migrations下的000xx.py文件后，输命令：
+python3 manage.py makemigrations --fake
+python3 manage.py migrate --fake
+----------------------------------------------
+
 # Mysql：
 https://blog.csdn.net/xiamoyanyulrq/article/details/83041724?msclkid=f9de19c6be7411ec8f0657d145c45ca3
 启动：mysql -u root -p -h 127.0.0.1

@@ -104,7 +104,7 @@ export default function AccountRegister() {
                             onClick={() => {
                               setCheck(true);
                               if (username !== '' && email !== '' && password1 !== '' && password2 !== '' && password1 === password2 && emailReg.test(email)) {
-                                post('/User/user/register', { 'username': username, 'password': password1, 'email': email}).then(res => {
+                                post('/User/user/', { 'username': username, 'password': password1, 'email': email}).then(res => {
                                   if (res.status === 200) {
                                     setIsRegiste(true);
                                     setError(res.message);

@@ -46,3 +46,5 @@ myDjangoProject/**/migrations/
 myDjangoProject/**/__pycache__/
 myDjangoProject/my_env/
 myDjangoProject/static/admin/*
+myDjangoProject/static/image/*
+myDjangoProject/myDjangoProject/

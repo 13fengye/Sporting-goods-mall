@@ -50,7 +50,7 @@ class User(View):
                 user = models.User.objects.filter(username=username, password=md5(password)) | models.User.objects.filter(email=username, password=md5(password))
                 if user:
                   token = make_token(username)
-                  response = HttpResponse(json.dumps({'message': '登录成功', 'status': 200, 'token': token.encode('utf-8').decode('utf-8')}))
+                  response = HttpResponse(json.dumps({'message': '登录成功', 'status': 200, 'token': token.decode('utf-8')}))
                   return response
                 else:
                   response = HttpResponse(json.dumps({'message': '用户名或密码错误', 'status': 400}))
@@ -66,7 +66,7 @@ class User(View):
             else:
               token = make_token(username)
               models.User.objects.create(username=username, password=md5(password), email=email)
-              response = HttpResponse(json.dumps({'message': '注册成功', 'status': 200, 'token': token.encode('utf-8').decode('utf-8')}))
+              response = HttpResponse(json.dumps({'message': '注册成功', 'status': 200, 'token': token.decode('utf-8')}))
             return response
 
 

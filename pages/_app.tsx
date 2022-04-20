@@ -1,12 +1,27 @@
+import Footer from "components/footer"
 import Header from "components/header"
 import { AppProps } from "next/app"
+import { useEffect, useState } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  let currState: string = '{ "jwt": "", "username": "", "email": ""}';
+  if (typeof window !== "undefined") {
+    currState = localStorage.getItem('auth') || currState;
+  }
+
+  const [authState, setAuthState] = useState(JSON.parse(currState));
+
+  useEffect(() => {
+    setAuthState(JSON.parse(currState));
+  }, [currState])
+
+  const authUsername = authState.username || false as string | false;
   
   return(
     <>
-      <Header />
+      <Header authUsername={authUsername} currState={currState} setAuthState={setAuthState}/>
       <Component {...pageProps} />
+      <Footer authUsername={authUsername} currState={currState} setAuthState={setAuthState}/>
     </>
   )
 }

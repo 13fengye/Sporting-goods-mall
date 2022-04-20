@@ -1,21 +1,18 @@
 import { useContext, useEffect, useState } from "react";
+import Footer from "./footer";
 
-export default function Header() {
- 
-  let currState: string = '{ "jwt": "", "username": "", "email": ""}';
-  if (typeof window !== "undefined") {
-    currState = localStorage.getItem('auth') || currState;
-  }
-
-  const [authState, setAuthState] = useState(JSON.parse(currState));
-
-  useEffect(() => {
-    setAuthState(JSON.parse(currState));
-  }, [currState])
-
-  const authUsername = authState.username || false as string|false;
+export default function Header({ 
+  authUsername, 
+  setAuthState,
+  currState
+}: {
+  authUsername: string | false,
+  setAuthState: any,
+  currState: string
+}) {
 
   return (
+    <>
     <header className="main-header-wrapper position-relative">
       <div className="header-top">
         <div className="container pt--0 pb--0">
@@ -157,5 +154,6 @@ export default function Header() {
         </div>
       </div>
     </header>
+    </>
   );
 }

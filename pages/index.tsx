@@ -19,13 +19,13 @@ export default function Home(){
                             <div className="slider-content">
                               <div className="content">
                                 <div className="title-box">
-                                  <h2 className="title">Exclusive New Shoes</h2>
+                                  <h2 className="title">特色新品</h2>
                                 </div>
                                 <div className="desc-box">
-                                  <p className="desc">Up To 30% Off All Shoes & Products</p>
+                                  <p className="desc">新品折扣最低X折</p>
                                 </div>
                                 <div className="btn-box">
-                                  <a className="btn-slider" href="shop">Shop Now</a>
+                                  <a className="btn-slider" href="shop">现在去购买</a>
                                 </div>
                               </div>
                             </div>
@@ -44,7 +44,7 @@ export default function Home(){
                         </div>
                       </div>
                     </div>
-                    <h2 className="slider-text-shape">NEW 2021</h2>
+                    <h2 className="slider-text-shape">NEW 2022</h2>
                   </div>
                 </div>
               </div>
@@ -60,6 +60,7 @@ export default function Home(){
             </div>
           </section>
 
+          {/* 鞋子的分类 */}
           <section className="product-area product-collection-area">
             <div className="container">
               <div className="row">
@@ -114,9 +115,9 @@ export default function Home(){
               <div className="row">
                 <div className="col-12">
                   <div className="section-title text-center">
-                    <h3 className="title">Featured Items</h3>
+                    <h3 className="title">畅销产品</h3>
                     <div className="desc">
-                      <p>There are many variations of passages of Lorem Ipsum available</p>
+                      {/* <p>There are many variations of passages of Lorem Ipsum available</p> */}
                     </div>
                   </div>
                 </div>
@@ -418,7 +419,7 @@ export default function Home(){
             </div>
           </section> 
     
-          <section className="bg-color-f2 position-relative z-index-1">
+          {/* <section className="bg-color-f2 position-relative z-index-1">
             <div className="container pt--0 pb--0">
               <div className="row divider-wrap divider-style1">
                 <div className="col-lg-6">
@@ -434,15 +435,15 @@ export default function Home(){
             <div className="bg-layer-wrap">
               <div className="bg-layer-style z-index--1 parallax" data-speed="1.05" style={{ backgroundImage: "url('/static/assets/img/photos/bg1.webp')" }}></div>
             </div>
-          </section>  
+          </section>   */}
           <section className="product-area product-best-seller-area">
             <div className="container">
               <div className="row">
                 <div className="col-12">
                   <div className="section-title text-center">
-                    <h3 className="title">Best Seller</h3>
+                    <h3 className="title">爆款</h3>
                     <div className="desc">
-                      <p>There are many variations of passages of Lorem Ipsum available</p>
+                      {/* <p>There are many variations of passages of Lorem Ipsum available</p> */}
                     </div>
                   </div>
                 </div>
@@ -693,36 +694,9 @@ export default function Home(){
               </div>
             </div>
           </section>
-          <section>
-            <div className="container pt--0 pb--0">
-              <div className="row flex-md-row-reverse justify-content-between divider-wrap divider-style2">
-                <div className="col-lg-6">
-                  <div className="divider-thumb-content">
-                    <div className="thumb">
-                      <a href="/shop">
-                        <img src="/static/picture/113.webp" width="570" height="350" alt="Image-HasTech" />
-                      </a>
-                    </div>
-                    <div className="content">
-                      <h2 className="title">Sports Shoes</h2>
-                      <p className="desc">Up To 30% Off All Shoes & Products</p>
-                      <a className="btn-theme" href="shop">Shop Now</a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-6">
-                  <div className="divider-thumb-content">
-                    <div className="thumb">
-                      <a href="/shop">
-                        <img src="/static/picture/25.webp" width="570" height="700" alt="Image-HasTech" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section className="blog-area blog-default-area">
+          {/* 
+           */}
+          {/* <section className="blog-area blog-default-area">
             <div className="container">
               <div className="row">
                 <div className="col-12">
@@ -796,7 +770,7 @@ export default function Home(){
                 </div>
               </div>
             </div>
-          </section>
+          </section> */}
       </main>
     </>
   );

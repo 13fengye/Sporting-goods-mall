@@ -40,7 +40,6 @@ class MyDocument extends Document {
           <div className="wrapper">
               <Main />
               <NextScript />
-            <Footer />
           </div>
         </body>
       </Html>

@@ -1,4 +1,14 @@
-export default function Footer() {
+import { useEffect, useState } from "react";
+
+export default function Footer({
+  authUsername,
+  setAuthState,
+  currState
+}: {
+  authUsername: string | false,
+  setAuthState: any,
+  currState: string
+}) {
   return(
     <>
       <footer className="footer-area">
@@ -10,16 +20,16 @@ export default function Footer() {
                   <div className="about-widget-wrap">
                     <div className="widget-logo-area">
                       <a href="/">
-                        <img className="logo-main" src="/static/picture/logo-light.webp" width="131" height="34" alt="Logo" />
+                        <h2 className="title" style={{ fontFamily: "fantasy", fontSize: "-webkit-xxx-large", color:"white" }}>13fengye</h2>
                       </a>
                     </div>
                     <p className="desc">Lorem ipsum dolor sit amet consl adipisi elit, sed do eiusmod templ incididunt ut labore</p>
-                    <div className="social-icons">
+                    {/* <div className="social-icons">
                       <a href="javascript:;" target="_blank" rel="noopener"><i className="fa fa-facebook"></i></a>
                       <a href="javascript:;" target="_blank" rel="noopener"><i className="fa fa-dribbble"></i></a>
                       <a href="javascript:;" target="_blank" rel="noopener"><i className="fa fa-pinterest-p"></i></a>
                       <a href="javascript:;" target="_blank" rel="noopener"><i className="fa fa-twitter"></i></a>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -77,20 +87,6 @@ export default function Footer() {
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <div className="container pt--0 pb--0">
-            <div className="row">
-              <div className="col-md-7 col-lg-6">
-                <p className="copyright">Copyright &copy; 2022.Company name All rights reserved.<a target="_blank" href="https://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
-              </div>
-              <div className="col-md-5 col-lg-6">
-                <div className="payment">
-                  <a href="/account-login"><img src="/static/picture/payment-card.webp" width="192" height="21" alt="Payment Logo" /></a>
                 </div>
               </div>
             </div>
@@ -207,34 +203,31 @@ export default function Footer() {
       <div className="off-canvas-wrapper offcanvas offcanvas-start" tabIndex={-1} id="AsideOffcanvasMenu" aria-labelledby="offcanvasExampleLabel">
         <div className="offcanvas-header">
           <h1 id="offcanvasExampleLabel"></h1>
-          <button className="btn-menu-close" data-bs-dismiss="offcanvas" aria-label="Close">menu <i className="fa fa-chevron-left"></i></button>
+          <button className="btn-menu-close" data-bs-dismiss="offcanvas" aria-label="Close">菜单<i className="fa fa-chevron-left"></i></button>
         </div>
         <div className="offcanvas-body">
           <div className="info-items">
-            <ul>
-              <li className="number"><a href="tel://0123456789"><i className="fa fa-phone"></i>+00 123 456 789</a></li>
-              <li className="email"><a href="mailto://demo@example.com"><i className="fa fa-envelope"></i>demo@example.com</a></li>
-              <li className="account"><a href="/account-login"><i className="fa fa-user"></i>Account</a></li>
-            </ul>
+            {authUsername && <ul>
+              {/* <li className="number"><a href="tel://0123456789"><i className="fa fa-phone"></i>+00 123 456 789</a></li> */}
+              <li className="email"><a><i className="fa fa-envelope"></i>demo@example.com</a></li>
+              <li className="account"><a href="/account-login"><i className="fa fa-user"></i>账户</a></li>
+              <li className="account"><a onClick={() => {
+                setAuthState(currState);
+                window.localStorage.setItem('auth', JSON.stringify({ "jwt": "", "username": "", "email": "" }));
+              }}><i className="fa fa-user"></i>退出</a></li>
+              
+            </ul>}
+            {!authUsername && <ul className="sub-menu">
+              <li><a href="/account-login">登录</a></li>
+              <li><a href="/account-register">注册</a></li>
+            </ul>}
           </div>
 
           <div className="mobile-menu-items">
             <ul className="nav-menu">
               <li><a href="#">首页</a>
-                <ul className="sub-menu">
-                  <li><a href="/">Home One</a></li>
-                  <li><a href="/index-two">Home Two</a></li>
-                </ul>
               </li>
-              <li><a href="/about-us">About</a></li>
-              <li><a href="#">Pages</a>
-                <ul className="sub-menu">
-                  <li><a href="/account">Account</a></li>
-                  <li><a href="/account-login">Login</a></li>
-                  <li><a href="/account-register">Register</a></li>
-                  <li><a href="/page-not-found">Page Not Found</a></li>
-                </ul>
-              </li>
+              <li><a href="/about-us">关于我们</a></li>
               <li><a href="#">Shop</a>
                 <ul className="sub-menu">
                   <li><a href="#">Shop Layout</a>
@@ -253,35 +246,17 @@ export default function Footer() {
                       <li><a href="/single-affiliate-product">Single Product Affiliate</a></li>
                     </ul>
                   </li>
-                  <li><a href="#">Others Pages</a>
+                  <li><a href="#">其他</a>
                     <ul className="sub-menu">
-                      <li><a href="/shop-cart">Shopping Cart</a></li>
-                      <li><a href="/shop-checkout">Checkout</a></li>
-                      <li><a href="/shop-wishlist">Wishlist</a></li>
-                      <li><a href="/shop-compare">Compare</a></li>
+                      <li><a href="/shop-cart">购物车</a></li>
+                      <li><a href="/shop-checkout">结算</a></li>
+                      <li><a href="/shop-wishlist">愿望清单</a></li>
+                      <li><a href="/shop-compare">比较</a></li>
                     </ul>
                   </li>
                 </ul>
               </li>
-              <li><a href="#">Blog</a>
-                <ul className="sub-menu">
-                  <li><a href="#">Blog Layout</a>
-                    <ul className="sub-menu">
-                      <li><a href="/blog">Blog Grid</a></li>
-                      <li><a href="/blog-left-sidebar">Blog Left Sidebar</a></li>
-                      <li><a href="/blog-right-sidebar">Blog Right Sidebar</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Single Blog</a>
-                    <ul className="sub-menu">
-                      <li><a href="/blog-details-no-sidebar">Blog Details</a></li>
-                      <li><a href="/blog-details-left-sidebar">Blog Details Left Sidebar</a></li>
-                      <li><a href="/blog-details">Blog Details Right Sidebar</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="/contact">Contact</a></li>
+              <li><a href="/contact">联系我们</a></li>
             </ul>
           </div>
         </div>

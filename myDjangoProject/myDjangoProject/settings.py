@@ -24,6 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '1&8g-ssk!@=$cshpvh*x@l$7$8jue@k!z_%r*lik@_v-b499^+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# admin no js, css if DEBUG = False
 DEBUG = False
 
 ALLOWED_HOSTS = ['175.178.37.194', 'localhost', '0.0.0.0:9000', '127.0.0.1']
@@ -124,7 +125,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'UTC'
 
@@ -137,7 +138,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
+STATIC_ROOT  = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 # 跨域相关配置

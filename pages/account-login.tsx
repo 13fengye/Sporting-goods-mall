@@ -1,7 +1,8 @@
 import { post } from "components/fetch";
 import router from "next/router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import PageHeaderArea from "./pageHeaderArea";
+import { AuthContext } from "./_app";
 
 export function parseJwt(token: string) {
   var base64Url = token.split('.')[1];
@@ -14,6 +15,7 @@ export function parseJwt(token: string) {
 };
 
 export default function Accountlogin() {
+  const [_, setAuthState] = useContext(AuthContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -95,6 +97,7 @@ export default function Accountlogin() {
                                   const email = user.email;
                                   console.log({ jwt, user, email})
                                   window.localStorage.setItem('auth', JSON.stringify({ jwt, username, email}));
+                                  setAuthState({ jwt, username, email });
                                   router.push('/account')
                                 } else if (res.status === 301) {
                                   setError(res.message);

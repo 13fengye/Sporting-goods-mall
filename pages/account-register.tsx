@@ -1,10 +1,12 @@
 import { post } from "components/fetch";
 import router from "next/router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { parseJwt } from "./account-login";
 import PageHeaderArea from "./pageHeaderArea";
+import { AuthContext } from "./_app";
 
 export default function AccountRegister() {
+  const [_, setAuthState] = useContext(AuthContext);
   const emailReg = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9_-]+)+$/;
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -114,6 +116,7 @@ export default function AccountRegister() {
                                     const email = user.email;
                                     console.log({ jwt, user, email })
                                     window.localStorage.setItem('auth', JSON.stringify({ jwt, username, email }));
+                                    setAuthState({ jwt, username, email });
                                     router.push('/account')
                                   } else {
                                     setError(res.message);

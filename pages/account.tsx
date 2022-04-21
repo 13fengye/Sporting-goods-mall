@@ -1,8 +1,14 @@
 import router, { Router } from "next/router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import PageHeaderArea from "./pageHeaderArea";
+import { AuthContext } from "./_app";
 
 export default function Account() {
+  const [authState] = useContext(AuthContext);
+  // console.log(authState);
+  if (authState.jwt === '') {
+    router.push("/account-login");
+  }
   
   return (<>
     <main className="main-content">

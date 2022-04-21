@@ -228,7 +228,7 @@ export default function Footer({
               <li><a href="#">首页</a>
               </li>
               <li><a href="/about-us">关于我们</a></li>
-              <li><a href="#">Shop</a>
+              <li><a href="#">商品</a>
                 <ul className="sub-menu">
                   <li><a href="#">Shop Layout</a>
                     <ul className="sub-menu">

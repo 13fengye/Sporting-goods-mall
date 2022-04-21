@@ -1,7 +1,8 @@
 import Footer from "components/footer"
 import Header from "components/header"
 import { AppProps } from "next/app"
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+export const AuthContext = createContext<any>(null);
 
 function MyApp({ Component, pageProps }: AppProps) {
   let currState: string = '{ "jwt": "", "username": "", "email": ""}';
@@ -18,11 +19,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   const authUsername = authState.username || false as string | false;
   
   return(
-    <>
+    <AuthContext.Provider value={[authState, setAuthState]}>
       <Header authUsername={authUsername} currState={currState} setAuthState={setAuthState}/>
       <Component {...pageProps} />
       <Footer authUsername={authUsername} currState={currState} setAuthState={setAuthState}/>
-    </>
+    </AuthContext.Provider>
   )
 }
 

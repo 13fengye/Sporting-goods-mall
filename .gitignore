@@ -47,4 +47,4 @@ myDjangoProject/**/__pycache__/
 myDjangoProject/my_env/
 myDjangoProject/static/admin/*
 myDjangoProject/static/image/*
-myDjangoProject/myDjangoProject/
+myDjangoProject/uwsgi-2.0.20/

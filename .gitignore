@@ -48,3 +48,4 @@ myDjangoProject/my_env/
 myDjangoProject/static/admin/*
 myDjangoProject/static/image/*
 myDjangoProject/uwsgi-2.0.20/
+pages/html/

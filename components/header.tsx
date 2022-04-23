@@ -91,17 +91,10 @@ export default function Header({
               <div className="header-align">
                 <div className="header-navigation-area position-relative">
                   <ul className="main-menu nav">
-                    <li><a href="/#/"><span>首页</span></a></li>
-                    <li className="has-submenu">
-                      <ul className="submenu-nav">
-                        <li><a href="/account"><span>Account</span></a></li>
-                        <li><a href="/account-login"><span>Login</span></a></li>
-                        <li><a href="/account-register"><span>Register</span></a></li>
-                      </ul>
-                    </li>
-                    <li className="has-submenu position-static"><a href="/#/"><span>Shop</span></a>
+                    <li><a href="/"><span>首页</span></a></li>
+                    <li className="has-submenu position-static"><a href="/#/"><span>分类</span></a>
                       <ul className="submenu-nav submenu-nav-mega column-3">
-                        <li className="mega-menu-item"><a href="/#/" className="mega-title"><span>Shop Layout</span></a>
+                        <li className="mega-menu-item"><a href="/#/" className="mega-title"><span>室内专场</span></a>
                           <ul>
                             <li><a href="/shop-three-columns"><span>Shop 3 Column</span></a></li>
                             <li><a href="/shop-four-columns"><span>Shop 4 Column</span></a></li>
@@ -109,7 +102,7 @@ export default function Header({
                             <li><a href="/shop-right-sidebar"><span>Shop Right Sidebar</span></a></li>
                           </ul>
                         </li>
-                        <li className="mega-menu-item"><a href="/#/" className="mega-title"><span>Single Product</span></a>
+                        <li className="mega-menu-item"><a href="/#/" className="mega-title"><span>室外专场</span></a>
                           <ul>
                             <li><a href="/single-normal-product"><span>Single Product Normal</span></a></li>
                             <li><a href="/single-product"><span>Single Product Variable</span></a></li>
@@ -117,7 +110,7 @@ export default function Header({
                             <li><a href="/single-affiliate-product"><span>Single Product Affiliate</span></a></li>
                           </ul>
                         </li>
-                        <li className="mega-menu-item"><a href="/#/" className="mega-title"><span>Others Pages</span></a>
+                        <li className="mega-menu-item"><a href="/#/" className="mega-title"><span>其他商品</span></a>
                           <ul>
                             <li><a href="/shop-cart"><span>Shopping Cart</span></a></li>
                             <li><a href="/shop-checkout"><span>Checkout</span></a></li>
@@ -127,25 +120,7 @@ export default function Header({
                         </li>
                       </ul>
                     </li>
-                    <li className="has-submenu"><a href="/#/"><span>Blog</span></a>
-                      <ul className="submenu-nav submenu-nav-mega">
-                        <li className="mega-menu-item"><a href="/#/" className="mega-title">Blog Layout</a>
-                          <ul>
-                            <li><a href="/blog">Blog Grid</a></li>
-                            <li><a href="/blog-left-sidebar">Blog Left Sidebar</a></li>
-                            <li><a href="/blog-right-sidebar">Blog Right Sidebar</a></li>
-                          </ul>
-                        </li>
-                        <li className="mega-menu-item"><a href="/#/" className="mega-title">Single Blog</a>
-                          <ul>
-                            <li><a href="/blog-details-no-sidebar">Blog Details</a></li>
-                            <li><a href="/blog-details-left-sidebar">Blog Details Left Sidebar</a></li>
-                            <li><a href="/blog-details">Blog Details Right Sidebar</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a href="/contact"><span>Contact</span></a></li>
+                    <li><a href="/contact"><span>联系我们</span></a></li>
                   </ul>
                 </div>
               </div>

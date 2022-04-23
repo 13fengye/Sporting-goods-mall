@@ -4,13 +4,15 @@ import PageHeaderArea from "./pageHeaderArea";
 import { AuthContext } from "./_app";
 
 export default function Account() {
+
+  const [authState] = useContext(AuthContext);
   useEffect(() => {
-    const [authState] = useContext(AuthContext);
+    
     // console.log(authState);
     if (authState.jwt === '') {
       router.push("/account-login");
     }
-  }, [])
+  }, [authState])
 
   return (<>
     <main className="main-content">

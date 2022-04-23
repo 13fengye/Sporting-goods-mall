@@ -8,5 +8,5 @@ class User(models.Model):
     email = models.EmailField(unique=True)
     
     class meta:
-        db_table = 'user'
-        managed = True
+        verbose_name = '用户信息'
+        verbose_name_plural = '用户信息'

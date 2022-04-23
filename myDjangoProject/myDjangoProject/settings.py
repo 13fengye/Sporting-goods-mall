@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'corsheaders',
     # 我的应用
     'User',
+    'Product',
+    'Order',
 ]
 
 MIDDLEWARE = [

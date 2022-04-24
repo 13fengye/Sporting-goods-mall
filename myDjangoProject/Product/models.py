@@ -1,5 +1,54 @@
 from django.db import models
 
+
+class ProductCategories(models.Model):
+    name = models.CharField('具体类别', max_length=100,
+                            unique=True, primary_key=True)
+    img = models.FileField('类别图', upload_to=r'categories_imgs')
+
+    class Meta:
+      verbose_name = '具体类别'
+      verbose_name_plural = '具体类别'
+
+
+class ProductBelonging(models.Model):
+    Belonging_Choices = (
+        ('室内专场', '室内专场'),
+        ('室外专场', '室外专场'),
+        ('其他商品', '其他商品'),
+    )
+    Belonging = models.CharField(
+        '商品所属',
+        max_length=100,
+        choices=Belonging_Choices,
+        primary_key=True
+    )
+    img = models.FileField('商品所属图', upload_to=r'belonging_imgs')
+
+    class Meta:
+        verbose_name = '商品所属'
+        verbose_name_plural = '商品所属'
+
+
+class ProductType(models.Model):
+    Type_Choices = (
+        ('球类', '球类'),
+        ('鞋类', '鞋类'),
+        ('衣物类', '衣物类'),
+        ('其他类', '其他类'),
+    )
+
+    Type = models.CharField(
+        '商品类型',
+        max_length=100,
+        choices=Type_Choices,
+        primary_key=True
+    )
+
+    class Meta:
+        verbose_name = '商品类型'
+        verbose_name_plural = '商品类型'
+
 class ProductInfos(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField('商品名称', max_length=100)
@@ -43,31 +92,8 @@ class ProductInfos(models.Model):
     img = models.FileField('商品主图', upload_to=r'imgs')
     img2 = models.FileField('商品副图', upload_to=r'imgs2')
     details = models.FileField('商品介绍', upload_to=r'details')
-
-    Belonging_Choices = (
-        ('室内专场', '室内专场'),
-        ('室外专场', '室外专场'),
-        ('其他商品', '其他商品'),
-    )
-    Belonging = models.CharField(
-      '商品所属', 
-      max_length=100, 
-      choices=Belonging_Choices
-    )
-
-    Type_Choices = (
-        ('球类', '球类'),
-        ('鞋类', '鞋类'),
-        ('衣物类', '衣物类'),
-        ('其他类', '其他类'),
-    )
-
-    Type = models.CharField(
-      '商品类型',
-      max_length=100,
-      choices=Type_Choices
-    )
-
+    belonging = models.ForeignKey(ProductBelonging, on_delete=models.CASCADE)
+    type = models.ForeignKey(ProductType, on_delete=models.CASCADE)
     specific_categories = models.CharField('具体类别', max_length=100)
 
     def __str__(self):

@@ -49,3 +49,8 @@ myDjangoProject/static/admin/*
 myDjangoProject/static/image/*
 myDjangoProject/uwsgi-2.0.20/
 pages/html/
+myDjangoProject/belonging_imgs/
+myDjangoProject/categories_imgs/
+myDjangoProject/imgs/
+myDjangoProject/imgs2/
+myDjangoProject/details/

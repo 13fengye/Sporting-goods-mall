@@ -2,13 +2,12 @@ from django.db import models
 
 
 class ProductCategories(models.Model):
-    name = models.CharField('具体类别', max_length=100,
-                            unique=True, primary_key=True)
+    name = models.CharField('具体类别', max_length=100, unique=True, primary_key=True, default='无')
     img = models.FileField('类别图', upload_to=r'categories_imgs', default='imgs/my_gilr_0.jpg')
 
     class Meta:
-      verbose_name = '具体类别'
-      verbose_name_plural = '具体类别'
+      verbose_name = '3-具体类别'
+      verbose_name_plural = '3-具体类别'
 
 
 class ProductBelonging(models.Model):
@@ -21,13 +20,14 @@ class ProductBelonging(models.Model):
         '商品所属',
         max_length=100,
         # choices=Belonging_Choices,
-        primary_key=True
+        primary_key=True,
+        default='无',
     )
     img = models.FileField('商品所属图', upload_to=r'belonging_imgs', default='imgs/my_gilr_0.jpg')
 
     class Meta:
-        verbose_name = '商品所属'
-        verbose_name_plural = '商品所属'
+        verbose_name = '1-商品所属'
+        verbose_name_plural = '1-商品所属'
 
 
 class ProductType(models.Model):
@@ -42,15 +42,16 @@ class ProductType(models.Model):
         '商品类型',
         max_length=100,
         # choices=Type_Choices,
-        primary_key=True
+        primary_key=True,
+        default='无'
     )
 
     class Meta:
-        verbose_name = '商品类型'
-        verbose_name_plural = '商品类型'
+        verbose_name = '2-商品类型'
+        verbose_name_plural = '2-商品类型'
 
 class ProductColor(models.Model):
-    customColor = models.CharField('自定义颜色', max_length=100, primary_key=True)
+    customColor = models.CharField('自定义颜色', max_length=100, primary_key=True, default='无')
     
     class Meta:
         verbose_name = '自定义颜色'
@@ -58,12 +59,18 @@ class ProductColor(models.Model):
 
 
 class ProductSize(models.Model):
-    customSize = models.CharField('自定义尺寸', max_length=100, primary_key=True)
+    customSize = models.CharField('自定义尺寸', max_length=100, primary_key=True, default='无')
 
     class Meta:
         verbose_name = '自定义尺寸'
         verbose_name_plural = '自定义尺寸'
 
+class ProductDiscount(models.Model):
+    discount = models.FloatField('自定义折扣', primary_key=True, default=1.0)
+
+    class Meta:
+        verbose_name = '自定义折扣'
+        verbose_name_plural = '自定义折扣'
 
 class ProductInfos(models.Model):
     id = models.AutoField(primary_key=True)
@@ -108,15 +115,16 @@ class ProductInfos(models.Model):
     img = models.FileField('商品主图', upload_to=r'imgs', default='imgs/my_gilr_0.jpg')
     img2 = models.FileField('商品副图', upload_to=r'imgs2', default='imgs/my_gilr_0.jpg')
     details = models.FileField('商品介绍', upload_to=r'details', default='imgs/my_gilr_0.jpg')
-    belonging = models.ForeignKey(ProductBelonging, on_delete=models.CASCADE)
-    type = models.ForeignKey(ProductType, on_delete=models.CASCADE)
-    custom_color = models.ForeignKey(ProductColor, on_delete=models.CASCADE, null=True, blank=True)
-    custom_size = models.ForeignKey(ProductSize, on_delete=models.CASCADE, null=True, blank=True)
+    belonging = models.ForeignKey(ProductBelonging, on_delete=models.CASCADE, null=True, blank=True, default='无')
+    type = models.ForeignKey(ProductType, on_delete=models.CASCADE, null=True, blank=True, default='无')
+    custom_color = models.ForeignKey(ProductColor, on_delete=models.CASCADE, null=True, blank=True, default='无')
+    custom_size = models.ForeignKey(ProductSize, on_delete=models.CASCADE, null=True, blank=True, default='无')
+    discount = models.ForeignKey(ProductDiscount, on_delete=models.CASCADE, null=True, blank=True, default='无')
     specific_categories = models.CharField('具体类别', max_length=100)
 
     def __str__(self):
         return str(self.id)
 
     class Meta:
-        verbose_name = '商品信息'
-        verbose_name_plural = '商品信息'
+        verbose_name = '4-商品信息'
+        verbose_name_plural = '4-商品信息'

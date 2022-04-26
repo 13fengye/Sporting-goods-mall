@@ -1,3 +1,4 @@
+import { MinimumDiscount } from "components/discount";
 import React, { useContext, useState } from "react";
 
 export default function Home(){
@@ -21,9 +22,7 @@ export default function Home(){
                                 <div className="title-box">
                                   <h2 className="title">特色新品</h2>
                                 </div>
-                                <div className="desc-box">
-                                  <p className="desc">新品折扣最低X折</p>
-                                </div>
+                                  <MinimumDiscount />
                                 <div className="btn-box">
                                   <a className="btn-slider" href="shop">现在去购买</a>
                                 </div>

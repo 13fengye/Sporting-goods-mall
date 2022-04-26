@@ -1,9 +1,9 @@
 import { NEXT_PUBLIC_URL } from "./url";
 
 export const get = async (url: string) => {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
+  const response = await fetch(NEXT_PUBLIC_URL +url);
+  const data = await response.json();
+  return data;
 }
 
 export const post = async (url: string, data: any) => {

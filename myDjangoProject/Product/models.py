@@ -1,4 +1,5 @@
 from django.db import models
+from pkg_resources import require
 
 
 class ProductCategories(models.Model):
@@ -26,8 +27,8 @@ class ProductBelonging(models.Model):
     img = models.FileField('商品所属图', upload_to=r'belonging_imgs', default='imgs/my_gilr_0.jpg')
 
     class Meta:
-        verbose_name = '1-商品所属'
-        verbose_name_plural = '1-商品所属'
+        verbose_name = '1-商品所属大类别'
+        verbose_name_plural = '1-商品所属大类别'
 
 
 class ProductType(models.Model):
@@ -47,8 +48,8 @@ class ProductType(models.Model):
     )
 
     class Meta:
-        verbose_name = '2-商品类型'
-        verbose_name_plural = '2-商品类型'
+        verbose_name = '2-商品种类'
+        verbose_name_plural = '2-商品种类'
 
 class ProductColor(models.Model):
     customColor = models.CharField('自定义颜色', max_length=100, primary_key=True, default='无')
@@ -72,13 +73,33 @@ class ProductDiscount(models.Model):
         verbose_name = '自定义折扣'
         verbose_name_plural = '自定义折扣'
 
+
+class ProductNo(models.Model):
+    product_no = models.CharField('商品编号', max_length=100, primary_key=True, default='无')
+    name = models.CharField('商品名称', max_length=100)
+    img = models.FileField('商品主图', upload_to=r'imgs', default='imgs/my_gilr_0.jpg')
+    img2 = models.FileField('商品副图', upload_to=r'imgs', default='imgs/my_gilr_0.jpg')
+    details = models.FileField('商品介绍', upload_to=r'details', default='imgs/my_gilr_0.jpg')
+    sold = models.IntegerField('已售数量')
+    likes = models.IntegerField('收藏数量')
+    onsale = models.BooleanField('是否上架', default=False)
+    type = models.ForeignKey(ProductType, on_delete=models.CASCADE, null=True, blank=True, default='无')
+    belonging = models.ForeignKey(ProductBelonging, on_delete=models.CASCADE, null=True, blank=True, default='无')
+    percentage = models.ForeignKey(ProductDiscount, on_delete=models.CASCADE, null=True, blank=True, default='无')
+    specific_categories = models.ForeignKey(ProductCategories, on_delete=models.CASCADE, null=True, blank=True, default='无')
+
+    class Meta:
+        verbose_name = '4-商品通用信息'
+        verbose_name_plural = '4-商品通用信息'
+
+
 class ProductInfos(models.Model):
     id = models.AutoField(primary_key=True)
-    name = models.CharField('商品名称', max_length=100)
     color = models.CharField(
       '颜色',
       max_length=100,
       choices=(
+        ('自定义颜色', '自定义颜色'),
         ('red', '红色'),
         ('blue', '蓝色'),
         ('green', '绿色'),
@@ -89,43 +110,36 @@ class ProductInfos(models.Model):
         ('orange', '橙色'),
         ('brown', '棕色'),
         ('gray', '灰色'),
-        ('pink', '粉色'),
-        ('自定义颜色', '自定义颜色'),
+        ('pink', '粉色')
       )
     )
     size = models.CharField(
       '尺寸',
       max_length=100,
       choices=(
+        ('自定义尺寸', '自定义尺寸'),
         ('S', 'S'),
         ('M', 'M'),
         ('L', 'L'),
         ('XL', 'XL'),
         ('XXL', 'XXL'),
-        ('XXXL', 'XXXL'),
-        ('自定义尺寸', '自定义尺寸')
+        ('XXXL', 'XXXL')
       )
     )
     price = models.FloatField('商品价格')
     discount = models.FloatField('折后价格')
     stock = models.IntegerField('存货数量')
-    sold = models.IntegerField('已售数量')
-    likes = models.IntegerField('收藏数量')
     created = models.DateField('上架日期', auto_now_add=True)
-    img = models.FileField('商品主图', upload_to=r'imgs', default='imgs/my_gilr_0.jpg')
-    img2 = models.FileField('商品副图', upload_to=r'imgs', default='imgs/my_gilr_0.jpg')
-    details = models.FileField('商品介绍', upload_to=r'details', default='imgs/my_gilr_0.jpg')
-    belonging = models.ForeignKey(ProductBelonging, on_delete=models.CASCADE, null=True, blank=True, default='无')
-    type = models.ForeignKey(ProductType, on_delete=models.CASCADE, null=True, blank=True, default='无')
+    onsale = models.BooleanField('是否上架', default=False)
+    isdiscount = models.BooleanField('是否折扣', default=False)
+    ispercentage = models.BooleanField('是否百分比折扣', default=False) 
     custom_color = models.ForeignKey(ProductColor, on_delete=models.CASCADE, null=True, blank=True, default='无')
     custom_size = models.ForeignKey(ProductSize, on_delete=models.CASCADE, null=True, blank=True, default='无')
-    discount = models.ForeignKey(ProductDiscount, on_delete=models.CASCADE, null=True, blank=True, default='无')
-    specific_categories = models.ForeignKey(ProductCategories, on_delete=models.CASCADE, null=True, blank=True, default='无')
-    product_no = models.CharField('商品编号', max_length=100, default='无')
+    product_no = models.ForeignKey(ProductNo, on_delete=models.CASCADE, null=True, blank=True, default='无')
 
     def __str__(self):
         return str(self.id)
 
     class Meta:
-        verbose_name = '4-商品信息'
-        verbose_name_plural = '4-商品信息'
+        verbose_name = '5-商品信息'
+        verbose_name_plural = '5-商品信息'

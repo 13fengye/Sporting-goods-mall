@@ -113,14 +113,15 @@ class ProductInfos(models.Model):
     likes = models.IntegerField('收藏数量')
     created = models.DateField('上架日期', auto_now_add=True)
     img = models.FileField('商品主图', upload_to=r'imgs', default='imgs/my_gilr_0.jpg')
-    img2 = models.FileField('商品副图', upload_to=r'imgs2', default='imgs/my_gilr_0.jpg')
+    img2 = models.FileField('商品副图', upload_to=r'imgs', default='imgs/my_gilr_0.jpg')
     details = models.FileField('商品介绍', upload_to=r'details', default='imgs/my_gilr_0.jpg')
     belonging = models.ForeignKey(ProductBelonging, on_delete=models.CASCADE, null=True, blank=True, default='无')
     type = models.ForeignKey(ProductType, on_delete=models.CASCADE, null=True, blank=True, default='无')
     custom_color = models.ForeignKey(ProductColor, on_delete=models.CASCADE, null=True, blank=True, default='无')
     custom_size = models.ForeignKey(ProductSize, on_delete=models.CASCADE, null=True, blank=True, default='无')
     discount = models.ForeignKey(ProductDiscount, on_delete=models.CASCADE, null=True, blank=True, default='无')
-    specific_categories = models.CharField('具体类别', max_length=100)
+    specific_categories = models.ForeignKey(ProductCategories, on_delete=models.CASCADE, null=True, blank=True, default='无')
+    product_no = models.CharField('商品编号', max_length=100, default='无')
 
     def __str__(self):
         return str(self.id)

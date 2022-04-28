@@ -1498,6 +1498,8 @@ table p {
   -ms-transform: translate(-50%, 0%);
   -o-transform: translate(-50%, 0%);
   width: 500px;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .header-area .header-navigation-area .main-menu.nav .has-submenu .submenu-nav-mega.column-3 {
   width: 720px;
@@ -2232,7 +2234,7 @@ table p {
 }
 @media only screen and (max-width: 1199px) {
   .home-slider-area .home-slider-container .home-slider-wrapper.slider-default .slider-content-area {
-    height: 600px;
+    height: 400px;
   }
 }
 @media only screen and (max-width: 991px) {
@@ -2311,6 +2313,7 @@ table p {
 }
 .home-slider-area .home-slider-container .home-slider-wrapper.slider-default .slider-content-area .slider-content {
   margin-top: -18px;
+  text-align: center;
 }
 @media only screen and (max-width: 575px) {
   .home-slider-area .home-slider-container .home-slider-wrapper.slider-default .slider-content-area .slider-content {

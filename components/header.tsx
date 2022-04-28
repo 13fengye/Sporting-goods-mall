@@ -102,22 +102,6 @@ export default function Header({
                             <li><a href="/shop-right-sidebar"><span>Shop Right Sidebar</span></a></li>
                           </ul>
                         </li>
-                        <li className="mega-menu-item"><a href="/#/" className="mega-title"><span>室外专场</span></a>
-                          <ul>
-                            <li><a href="/single-normal-product"><span>Single Product Normal</span></a></li>
-                            <li><a href="/single-product"><span>Single Product Variable</span></a></li>
-                            <li><a href="/single-group-product"><span>Single Product Group</span></a></li>
-                            <li><a href="/single-affiliate-product"><span>Single Product Affiliate</span></a></li>
-                          </ul>
-                        </li>
-                        <li className="mega-menu-item"><a href="/#/" className="mega-title"><span>其他商品</span></a>
-                          <ul>
-                            <li><a href="/shop-cart"><span>Shopping Cart</span></a></li>
-                            <li><a href="/shop-checkout"><span>Checkout</span></a></li>
-                            <li><a href="/shop-wishlist"><span>Wishlist</span></a></li>
-                            <li><a href="/shop-compare"><span>Compare</span></a></li>
-                          </ul>
-                        </li>
                       </ul>
                     </li>
                     <li><a href="/contact"><span>联系我们</span></a></li>

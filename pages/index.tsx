@@ -23,20 +23,8 @@ export default function Home(){
                     <div className="container">
                       <div className="slider-container">
                         <div className="row justify-content-between align-items-center">
-                          <div className="col-sm-6 col-md-5">
-                            <div className="slider-content">
-                              <div className="content">
-                                <div className="title-box">
-                                  <h2 className="title">特色新品</h2>
-                                </div>
-                                  <MinimumDiscount discount={discount}/>
-                                <div className="btn-box">
-                                  <a className="btn-slider" href="shop">现在去购买</a>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-sm-6 col-md-6">
+                          <MinimumDiscount discount={discount}/>    
+                          {/* <div className="col-sm-6 col-md-6">
                             <div className="slider-thumb">
                               <div className="thumb scene">
                                 <span className="scene-layer" data-depth=".3"><img src={`/static/picture/slider-0${newShoesNumber}.webp`} width="461" height="489" alt="Image-HasTech" /></span>
@@ -46,7 +34,7 @@ export default function Home(){
                                 <div className="shape-group-two scene"><span className="scene-layer" data-depth=".6"><img src="/static/picture/33.webp" width="471" height="462" alt="Image-HasTech" /></span></div>
                               </div>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
@@ -55,14 +43,14 @@ export default function Home(){
                 </div>
               </div>
 
-              <div className="swiper-btn-wrap">
+              {/* <div className="swiper-btn-wrap">
                 <div className="swiper-btn-prev">
                   <i className={`pe-7s-angle-left ${newShoesNumber > 1 ? "" : "disabled"}`} onClick={() => {newShoesNumber > 1 ? setNewShoesNumber(newShoesNumber - 1) : setNewShoesNumber(maxnewShoesNumber)}}></i>
                 </div>
                 <div className="swiper-btn-next">
                   <i className={`pe-7s-angle-right ${newShoesNumber < maxnewShoesNumber ? "" : "disabled"}`} onClick={() => {newShoesNumber < maxnewShoesNumber ? setNewShoesNumber(newShoesNumber + 1) : setNewShoesNumber(minnewShoesNumber) }}></i>
                 </div>
-              </div>
+              </div> */}
             </div>
           </section>
 

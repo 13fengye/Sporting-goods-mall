@@ -3,13 +3,13 @@ import { get } from "components/fetch";
 import React, { useContext, useEffect, useState } from "react";
 
 export default function Home(){
-  const minnewShoesNumber = 1, maxnewShoesNumber = 2;
-  const [newShoesNumber, setNewShoesNumber] =useState<number>(1);
+  // const minnewShoesNumber = 1, maxnewShoesNumber = 2;
+  // const [newShoesNumber, setNewShoesNumber] =useState<number>(1);
   const [discount, setDiscount] = useState<number>(0);
   useEffect(() => {
     get('/Product/getdiscount/').then(data => {
       setDiscount(data.discount);
-    })
+    });
   }, [])
 
   return(

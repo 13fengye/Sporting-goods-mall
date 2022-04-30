@@ -2,22 +2,13 @@ from django.db import models
 from pkg_resources import require
 
 
-class ProductCategories(models.Model):
-    name = models.CharField('具体类别', max_length=100, unique=True, primary_key=True, default='无')
-    img = models.FileField('类别图', upload_to=r'categories_imgs', default='imgs/my_gilr_0.jpg')
-
-    class Meta:
-      verbose_name = '3-具体类别'
-      verbose_name_plural = '3-具体类别'
-
-
 class ProductBelonging(models.Model):
     # Belonging_Choices = (
     #     ('室内专场', '室内专场'),
     #     ('室外专场', '室外专场'),
     #     ('其他商品', '其他商品'),
     # )
-    Belonging = models.CharField(
+    belonging = models.CharField(
         '商品所属',
         max_length=100,
         # choices=Belonging_Choices,
@@ -39,7 +30,7 @@ class ProductType(models.Model):
     #     ('其他类', '其他类'),
     # )
 
-    Type = models.CharField(
+    type = models.CharField(
         '商品类型',
         max_length=100,
         # choices=Type_Choices,
@@ -51,9 +42,20 @@ class ProductType(models.Model):
         verbose_name = '2-商品种类'
         verbose_name_plural = '2-商品种类'
 
+
+class ProductCategories(models.Model):
+    name = models.CharField('具体类别', max_length=100, unique=True, primary_key=True, default='无')
+    img = models.FileField('类别图', upload_to=r'categories_imgs', default='imgs/my_gilr_0.jpg')
+    thisType = models.ForeignKey(ProductType, on_delete=models.CASCADE, verbose_name='商品种类')
+
+    class Meta:
+      verbose_name = '3-具体类别'
+      verbose_name_plural = '3-具体类别'
+
+
 class ProductColor(models.Model):
-    customColor = models.CharField('自定义颜色', max_length=100, primary_key=True, default='无')
-    
+    CustomColor = models.CharField('自定义颜色', max_length=100, primary_key=True, default='无')
+
     class Meta:
         verbose_name = '自定义颜色'
         verbose_name_plural = '自定义颜色'
@@ -83,10 +85,10 @@ class ProductNo(models.Model):
     sold = models.IntegerField('已售数量')
     likes = models.IntegerField('收藏数量')
     onsale = models.BooleanField('是否上架', default=False)
-    type = models.ForeignKey(ProductType, on_delete=models.CASCADE, null=True, blank=True, default='无')
-    belonging = models.ForeignKey(ProductBelonging, on_delete=models.CASCADE, null=True, blank=True, default='无')
-    percentage = models.ForeignKey(ProductDiscount, on_delete=models.CASCADE, null=True, blank=True, default='无')
-    specific_categories = models.ForeignKey(ProductCategories, on_delete=models.CASCADE, null=True, blank=True, default='无')
+    thisType = models.ForeignKey(ProductType, on_delete=models.CASCADE, null=True, blank=True, default='无')
+    thisBelonging = models.ForeignKey(ProductBelonging, on_delete=models.CASCADE, null=True, blank=True, default='无')
+    thisPercentage = models.ForeignKey(ProductDiscount, on_delete=models.CASCADE, null=True, blank=True, default='无')
+    this_specific_categories = models.ForeignKey(ProductCategories, on_delete=models.CASCADE, null=True, blank=True, default='无')
 
     class Meta:
         verbose_name = '4-商品通用信息'
@@ -131,8 +133,8 @@ class ProductInfos(models.Model):
     stock = models.IntegerField('存货数量')
     created = models.DateField('上架日期', auto_now_add=True)
     onsale = models.BooleanField('是否上架', default=False)
-    isdiscount = models.BooleanField('是否折扣', default=False)
-    ispercentage = models.BooleanField('是否百分比折扣', default=False) 
+    isDiscount = models.BooleanField('是否折扣', default=False)
+    isPercentage = models.BooleanField('是否百分比折扣', default=False) 
     custom_color = models.ForeignKey(ProductColor, on_delete=models.CASCADE, null=True, blank=True, default='无')
     custom_size = models.ForeignKey(ProductSize, on_delete=models.CASCADE, null=True, blank=True, default='无')
     product_no = models.ForeignKey(ProductNo, on_delete=models.CASCADE, null=True, blank=True, default='无')

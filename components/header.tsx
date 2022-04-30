@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import Footer from "./footer";
+import {  useEffect, useState } from "react";
+import { get } from "./fetch";
 
 export default function Header({ 
   authUsername, 
@@ -10,6 +10,36 @@ export default function Header({
   setAuthState: any,
   currState: string
 }) {
+  const [belongings, setBelongings] = useState<{belonging: string,img: string}[]>([]);
+  const [types, setTypes] = useState<{ [x: string]: [] }[]>([]);
+  
+  useEffect(() => {
+    const a: { [x: string]: [] }[] = [];
+    const loadBelongings = async() => {
+      await get('/Product/getbelongings/').then(data => {
+        const belongingsData = data.belongs.sort((a: { belonging: string }, b: { belonging: string }) => b.belonging.localeCompare(a.belonging))
+        setBelongings(belongingsData);
+        belongingsData.flatMap((belonging: { belonging: string; }) => {
+          let b: {[x: string]: []}[] = [];
+          const loadType = async () => {
+            await get(`/Product/gettype/${belonging.belonging}/`).then(data => {
+              a.push({[belonging.belonging]: data.types});
+              b = [...a];
+            })
+            setTypes(b);
+          };
+          loadType();
+          
+        });
+      });
+      
+    }
+    loadBelongings();
+    
+  }, []);
+
+  if (types.length === 0) return<div></div>;
+  console.log(belongings);
 
   return (
     <>
@@ -94,14 +124,24 @@ export default function Header({
                     <li><a href="/"><span>首页</span></a></li>
                     <li className="has-submenu position-static"><a href="/#/"><span>分类</span></a>
                       <ul className="submenu-nav submenu-nav-mega column-3">
-                        <li className="mega-menu-item"><a href="/#/" className="mega-title"><span>室内专场</span></a>
-                          <ul>
-                            <li><a href="/shop-three-columns"><span>Shop 3 Column</span></a></li>
-                            <li><a href="/shop-four-columns"><span>Shop 4 Column</span></a></li>
-                            <li><a href="/shop"><span>Shop Left Sidebar</span></a></li>
-                            <li><a href="/shop-right-sidebar"><span>Shop Right Sidebar</span></a></li>
-                          </ul>
-                        </li>
+                        { belongings.map((thisbelonging: { belonging: string, img: string }) => { 
+                          // console.log(types[belongings.indexOf(thisbelonging)]);
+                          const index = types.findIndex((type: { [x: string]: [] }) => type[thisbelonging.belonging] !== undefined);
+                          // if (index !== -1) console.log(types[index][thisbelonging.belonging]);
+                          return(
+                            index !== -1 && types[index][thisbelonging.belonging].length > 0 && <li className="mega-menu-item"><a href="/" className="mega-title"><span>{thisbelonging.belonging}</span></a>
+                              <ul>
+                                { 
+                                  types[index][thisbelonging.belonging].map((type: string)=>{
+                                    return(
+                                      <li><a href="/shop-three-columns"><span>{type}</span></a></li>
+                                    );
+                                  })
+                                }
+                              </ul>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </li>
                     <li><a href="/contact"><span>联系我们</span></a></li>

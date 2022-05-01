@@ -1,3 +1,4 @@
+import { get } from "components/fetch";
 import Footer from "components/footer"
 import Header from "components/header"
 import { AppProps } from "next/app"
@@ -11,18 +12,47 @@ function MyApp({ Component, pageProps }: AppProps) {
   }
 
   const [authState, setAuthState] = useState(JSON.parse(currState));
-
+  const [belongings, setBelongings] = useState<{belonging: string,img: string}[]>([]);
+  const [types, setTypes] = useState<{ [x: string]: [] }[]>([]);
   useEffect(() => {
     setAuthState(JSON.parse(currState));
   }, [currState])
 
   const authUsername = authState.username || false as string | false;
   
+  useEffect(() => {
+    const a: { [x: string]: [] }[] = [];
+    const loadBelongings = async() => {
+      await get('/Product/getbelongings/').then(data => {
+        const belongingsData = data.belongs.sort((a: { belonging: string }, b: { belonging: string }) => b.belonging.localeCompare(a.belonging))
+        setBelongings(belongingsData);
+        belongingsData.flatMap((belonging: { belonging: string; }) => {
+          let b: {[x: string]: []}[] = [];
+          const loadType = async () => {
+            await get(`/Product/gettype/${belonging.belonging}/`).then(data => {
+              a.push({[belonging.belonging]: data.types});
+              b = [...a];
+            })
+            setTypes(b);
+          };
+          loadType();
+          
+        });
+      });
+      
+    }
+    loadBelongings();
+    
+  }, []);
+
+  if (types.length === 0) return<div></div>;
+  console.log(belongings);
+  
   return(
     <AuthContext.Provider value={[authState, setAuthState]}>
-      <Header authUsername={authUsername} currState={currState} setAuthState={setAuthState}/>
+      <Header authUsername={authUsername} currState={currState} setAuthState={setAuthState} belongings={belongings} types={types}/>
       <Component {...pageProps} />
-      <Footer authUsername={authUsername} currState={currState} setAuthState={setAuthState}/>
+      <Footer authUsername={authUsername} currState={currState} setAuthState={setAuthState} belongings={belongings} types={types}/>
     </AuthContext.Provider>
   )
 }

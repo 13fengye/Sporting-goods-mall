@@ -4,43 +4,22 @@ import { get } from "./fetch";
 export default function Header({ 
   authUsername, 
   setAuthState,
-  currState
+  currState,
+  belongings,
+  types
 }: {
   authUsername: string | false,
   setAuthState: any,
-  currState: string
+  currState: string,
+  belongings: {
+    belonging: string;
+    img: string;
+  }[],
+  types: {
+    [x: string]: [];
+  }[]
 }) {
-  const [belongings, setBelongings] = useState<{belonging: string,img: string}[]>([]);
-  const [types, setTypes] = useState<{ [x: string]: [] }[]>([]);
   
-  useEffect(() => {
-    const a: { [x: string]: [] }[] = [];
-    const loadBelongings = async() => {
-      await get('/Product/getbelongings/').then(data => {
-        const belongingsData = data.belongs.sort((a: { belonging: string }, b: { belonging: string }) => b.belonging.localeCompare(a.belonging))
-        setBelongings(belongingsData);
-        belongingsData.flatMap((belonging: { belonging: string; }) => {
-          let b: {[x: string]: []}[] = [];
-          const loadType = async () => {
-            await get(`/Product/gettype/${belonging.belonging}/`).then(data => {
-              a.push({[belonging.belonging]: data.types});
-              b = [...a];
-            })
-            setTypes(b);
-          };
-          loadType();
-          
-        });
-      });
-      
-    }
-    loadBelongings();
-    
-  }, []);
-
-  if (types.length === 0) return<div></div>;
-  console.log(belongings);
-
   return (
     <>
     <header className="main-header-wrapper position-relative">
@@ -134,7 +113,7 @@ export default function Header({
                                 { 
                                   types[index][thisbelonging.belonging].map((type: string)=>{
                                     return(
-                                      <li><a href="/shop-three-columns"><span>{type}</span></a></li>
+                                      <li><a href="/"><span>{type}</span></a></li>
                                     );
                                   })
                                 }

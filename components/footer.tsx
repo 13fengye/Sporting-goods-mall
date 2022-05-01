@@ -3,11 +3,20 @@ import { useEffect, useState } from "react";
 export default function Footer({
   authUsername,
   setAuthState,
-  currState
+  currState,
+  belongings,
+  types
 }: {
   authUsername: string | false,
   setAuthState: any,
-  currState: string
+  currState: string,
+  belongings: {
+    belonging: string;
+    img: string;
+  }[],
+  types: {
+    [x: string]: [];
+  }[]
 }) {
   return(
     <>
@@ -230,30 +239,33 @@ export default function Footer({
               <li><a href="/about-us">关于我们</a></li>
               <li><a href="#">商品</a>
                 <ul className="sub-menu">
-                  <li><a href="#">Shop Layout</a>
-                    <ul className="sub-menu">
-                      <li><a href="/shop-three-columns">Shop 3 Column</a></li>
-                      <li><a href="/shop-four-columns">Shop 4 Column</a></li>
-                      <li><a href="/shop">Shop Left Sidebar</a></li>
-                      <li><a href="/shop-right-sidebar">Shop Right Sidebar</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Single Product</a>
-                    <ul className="sub-menu">
-                      <li><a href="/single-normal-product">Single Product Normal</a></li>
-                      <li><a href="/single-product">Single Product Variable</a></li>
-                      <li><a href="/single-group-product">Single Product Group</a></li>
-                      <li><a href="/single-affiliate-product">Single Product Affiliate</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">其他</a>
-                    <ul className="sub-menu">
-                      <li><a href="/shop-cart">购物车</a></li>
-                      <li><a href="/shop-checkout">结算</a></li>
-                      <li><a href="/shop-wishlist">愿望清单</a></li>
-                      <li><a href="/shop-compare">比较</a></li>
-                    </ul>
-                  </li>
+
+                  { belongings.map((thisbelonging: { belonging: string, img: string }) => { 
+                    // console.log(types[belongings.indexOf(thisbelonging)]);
+                    const index = types.findIndex((type: { [x: string]: [] }) => type[thisbelonging.belonging] !== undefined);
+                    // if (index !== -1) console.log(types[index][thisbelonging.belonging]);
+                    return(
+                      index !== -1 && types[index][thisbelonging.belonging].length > 0 && <li><a href="#">{thisbelonging.belonging}</a>
+                        <ul className="sub-menu">
+                          { 
+                            types[index][thisbelonging.belonging].map((type: string)=>{
+                              return(
+                                <li><a href="/">{type}</a></li>
+                              );
+                            })
+                          }
+                        </ul>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </li>
+              <li><a href="#">其他</a>
+                <ul className="sub-menu">
+                  <li><a href="/shop-cart">购物车</a></li>
+                  <li><a href="/shop-checkout">结算</a></li>
+                  <li><a href="/shop-wishlist">愿望清单</a></li>
+                  <li><a href="/shop-compare">比较</a></li>
                 </ul>
               </li>
               <li><a href="/contact">联系我们</a></li>

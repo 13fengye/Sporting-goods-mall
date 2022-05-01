@@ -234,14 +234,14 @@ table p {
 /*-------- Spacing Style Css --------*/
 .container,
 .container-fluid {
-  padding-bottom: 80px;
-  padding-top: 110px;
+  padding-bottom: 50px;
+  padding-top: 80px;
 }
 @media only screen and (max-width: 1199px) {
   .container,
 .container-fluid {
-    padding-bottom: 54px;
-    padding-top: 85px;
+    padding-bottom: 10px;
+    padding-top: 50px;
   }
 }
 

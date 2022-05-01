@@ -107,7 +107,8 @@ export default function Home(){
             const index2 = lowPrice.findIndex((lowPrice: { [x: string]: { [y: string]: [number, string] } }) => lowPrice[thisbelonging.belonging] !== undefined);
             
             return(
-              <section className="product-area product-collection-area"  style={{ backgroundImage: `url('${NEXT_PUBLIC_URL}/${thisbelonging.img}')`,backgroundRepeat: 'round', backgroundSize: 'cover'}}>
+              <section className="product-area product-collection-area" style={{ backgroundColor: 'GrayText'}}>
+              {/* <section className="product-area product-collection-area" style={{ backgroundImage: `url('${NEXT_PUBLIC_URL}/${thisbelonging.img}')`,backgroundRepeat: 'round', backgroundSize: 'cover'}}> */}
                 <div className="container">
                   <div className="row">
                     <div className="col-12">

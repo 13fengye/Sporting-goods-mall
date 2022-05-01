@@ -1,4 +1,5 @@
 from django.db import models
+from django.test import tag
 from pkg_resources import require
 
 
@@ -37,6 +38,7 @@ class ProductType(models.Model):
         primary_key=True,
         default='无'
     )
+    img = models.FileField('商品类型图', upload_to=r'type_imgs', default='imgs/my_gilr_0.jpg')
 
     class Meta:
         verbose_name = '2-商品种类'
@@ -93,6 +95,23 @@ class ProductNo(models.Model):
     class Meta:
         verbose_name = '4-商品通用信息'
         verbose_name_plural = '4-商品通用信息'
+
+class ProductTags(models.Model):
+    product_no = models.OneToOneField(ProductNo, on_delete=models.CASCADE, verbose_name='商品编号')
+
+    tag_choices = (('热卖', '热卖'),('新品', '新品'),('推荐', '推荐'),('爆款', '爆款'),
+        ('特价', '特价'),('折扣', '折扣'),('满减', '满减'),('满赠', '满赠'),
+        ('满折', '满折'),('畅销', '畅销'),('秒杀', '秒杀'),('秒杀抢购', '秒杀抢购'))
+
+    tag1 = models.CharField('商品标签1', max_length=100, choices=tag_choices, default='无')
+    tag2 = models.CharField('商品标签1', max_length=100, choices=tag_choices, default='无')
+    tag3 = models.CharField('商品标签1', max_length=100, choices=tag_choices, default='无')
+    tag4 = models.CharField('商品标签1', max_length=100, choices=tag_choices, default='无')
+
+
+    class Meta:
+        verbose_name = '6-商品标签'
+        verbose_name_plural = '6-商品标签'
 
 
 class ProductInfos(models.Model):

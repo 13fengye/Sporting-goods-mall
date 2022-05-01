@@ -9,6 +9,7 @@ export default function Home(){
   const [discount, setDiscount] = useState<number>(0);
   const [belongings, setBelongings] = useState<{belonging: string,img: string}[]>([]);
   const [types, setTypes] = useState<{ [x: string]: [] }[]>([]);
+  const [lowPrice, setLowPrice] = useState<{ [x: string]: { [y: string] : [number, string]} }[]>([]);
   
   useEffect(() => {
     const loadDiscount = async() => {
@@ -18,19 +19,31 @@ export default function Home(){
     }
     loadDiscount();
 
-    const a: { [x: string]: [] }[] = [];
+    let t: { [x: string]: [] }[] = [];
+    let l: { [x: string]: { [y: string] : [number, string]} }[] = [];
     const loadBelongings = async() => {
       await get('/Product/getbelongings/').then(data => {
         const belongingsData = data.belongs.sort((a: { belonging: string }, b: { belonging: string }) => b.belonging.localeCompare(a.belonging))
         setBelongings(belongingsData);
         belongingsData.flatMap((belonging: { belonging: string; }) => {
-          let b: {[x: string]: []}[] = [];
+          let t1: {[x: string]: []}[] = [];
           const loadType = async () => {
             await get(`/Product/gettype/${belonging.belonging}/`).then(data => {
-              a.push({[belonging.belonging]: data.types});
-              b = [...a];
+              t.push({[belonging.belonging]: data.types});
+              t1 = [...t];
+              data.types.flatMap((type: string) => {
+                let l1: { [x: string]: { [y: string]: [number, string] } }[] = [];
+                const loadLowPrice = async () => {
+                  await get(`/Product/getlowestprice/${type}/`).then((data) => {
+                    l.push({ [belonging.belonging]: {[type]: [data.lowestPrice, data.typeImgPath]} });
+                    l1 = [...l]
+                  });
+                  setLowPrice(l1);
+                };
+                loadLowPrice();
+              });
             })
-            setTypes(b);
+            setTypes(t1);
           };
           loadType();
           
@@ -43,7 +56,9 @@ export default function Home(){
   }, []);
 
   if (types.length === 0) return<div></div>;
-  console.log(belongings);
+  // console.log(belongings);
+  // console.log(types)
+  // console.log(lowPrice)
 
   return(
     <>
@@ -89,7 +104,8 @@ export default function Home(){
 
         { belongings.map((thisbelonging: { belonging: string, img: string }) => { 
             const index = types.findIndex((type: { [x: string]: [] }) => type[thisbelonging.belonging] !== undefined);
-
+            const index2 = lowPrice.findIndex((lowPrice: { [x: string]: { [y: string]: [number, string] } }) => lowPrice[thisbelonging.belonging] !== undefined);
+            
             return(
               <section className="product-area product-collection-area">
                 <div className="container">
@@ -110,14 +126,16 @@ export default function Home(){
                           {types[index][thisbelonging.belonging].map((type: string)=>{
                             return(
                               <div className="inner-content">
+                                { index2 !== -1 && <>
                                 <div className="product-collection-content">
                                   <div className="content">
                                     <h3 className="title"><a href="/shop">{type}</a></h3>
-                                    <h4 className="price">From $95.00</h4>
+                                    <h4 className="price">最低价￥{lowPrice[index2][thisbelonging.belonging][type][0]}起</h4>
                                   </div>
                                 </div>
-                                <div className="product-collection-thumb" style={{ backgroundImage: `url('${NEXT_PUBLIC_URL}/${thisbelonging.img}')`}}></div>
-                                <a className="banner-link-overlay" href="shop"></a>
+                                <div className="product-collection-thumb" style={{ backgroundImage: `url('${NEXT_PUBLIC_URL}/${lowPrice[index2][thisbelonging.belonging][type][1]}')`}}></div>
+                                </>
+                                }
                               </div>
                             );
                           })}

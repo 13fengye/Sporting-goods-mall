@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   if (types.length === 0) return<div></div>;
-  console.log(belongings);
+  // console.log(belongings);
   
   return(
     <AuthContext.Provider value={[authState, setAuthState]}>

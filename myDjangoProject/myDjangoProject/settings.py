@@ -182,3 +182,5 @@ DETAILS_URL = '/details/'
 DETAILS_ROOT = os.path.join(BASE_DIR, 'details')
 IMAGS_URL = '/imgs/'
 IMAGS_ROOT = os.path.join(BASE_DIR, 'imgs')
+TYPEIMAGS_URL = '/type_imgs/'
+TYPEIMAGS_ROOT = os.path.join(BASE_DIR, 'type_imgs')

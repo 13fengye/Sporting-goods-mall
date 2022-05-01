@@ -34,3 +34,4 @@ urlpatterns += static(settings.BELONGINGS_URL, document_root=settings.BELONGINGS
 urlpatterns += static(settings.CATEGORIES_URL, document_root=settings.CATEGORIES_ROOT)
 urlpatterns += static(settings.DETAILS_URL, document_root=settings.DETAILS_ROOT)
 urlpatterns += static(settings.IMAGS_URL, document_root=settings.IMAGS_ROOT)
+urlpatterns += static(settings.TYPEIMAGS_URL, document_root=settings.TYPEIMAGS_ROOT)

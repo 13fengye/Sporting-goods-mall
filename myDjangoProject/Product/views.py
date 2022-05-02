@@ -28,3 +28,10 @@ def get_lowest_price(request, type):
     typeImgPath = models.ProductType.objects.filter(type=type).values()[0]['img']
     lowest_price = min(price_array[i][0]['price'] for i in range(len(price_array)))
     return HttpResponse(json.dumps({'status': 200, 'lowestPrice': lowest_price, 'typeImgPath': typeImgPath}))
+
+def get_featured_new_products(request):
+    product_no =list((models.ProductTags.objects.filter(tag1='新品') | models.ProductTags.objects.filter(tag2='新品') | models.ProductTags.objects.filter(tag3='新品') | models.ProductTags.objects.filter(tag4='新品')).values('product_no'))
+    if not product_no:
+        return HttpResponse(json.dumps({'status': 200, 'products': []}))
+    ProductNos = [list(models.ProductNo.objects.filter(onsale=True).filter(product_no=item['product_no']).values('product_no' ,'name', 'img', 'standard_price', 'sold', 'describe')) for item in product_no]
+    return HttpResponse(json.dumps({'status': 200, 'products': ProductNos}))

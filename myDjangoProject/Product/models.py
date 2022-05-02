@@ -1,3 +1,4 @@
+from pydoc import describe
 from django.db import models
 from django.test import tag
 from pkg_resources import require
@@ -84,6 +85,8 @@ class ProductNo(models.Model):
     img = models.FileField('商品主图', upload_to=r'imgs', default='imgs/my_gilr_0.jpg')
     img2 = models.FileField('商品副图', upload_to=r'imgs', default='imgs/my_gilr_0.jpg')
     details = models.FileField('商品介绍', upload_to=r'details', default='imgs/my_gilr_0.jpg')
+    describe = models.CharField('商品描述', max_length=100, default='无')
+    standard_price = models.FloatField('标准价格', default=0.0)
     sold = models.IntegerField('已售数量')
     likes = models.IntegerField('收藏数量')
     onsale = models.BooleanField('是否上架', default=False)

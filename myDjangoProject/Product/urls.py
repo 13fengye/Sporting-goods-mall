@@ -7,4 +7,5 @@ urlpatterns = [
     path('gettype/<str:belong>/', get_type),
     path('gettypeimg/<str:type>/', get_type_img),
     path('getlowestprice/<str:type>/', get_lowest_price),
+    path('getfeaturednewproducts/', get_featured_new_products),
 ]

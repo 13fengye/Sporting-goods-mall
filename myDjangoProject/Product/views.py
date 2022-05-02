@@ -35,3 +35,8 @@ def get_featured_new_products(request):
         return HttpResponse(json.dumps({'status': 200, 'products': []}))
     ProductNos = [list(models.ProductNo.objects.filter(onsale=True).filter(product_no=item['product_no']).values('product_no' ,'name', 'img', 'standard_price', 'sold', 'describe')) for item in product_no]
     return HttpResponse(json.dumps({'status': 200, 'products': ProductNos}))
+
+def get_classified_goods(request, belonging, type):
+    ProductNos = list(models.ProductNo.objects.filter(onsale=True, thisBelonging_id=belonging, thisType_id=type).values('product_no' ,'name', 'img', 'standard_price', 'sold', 'describe'))
+    print(ProductNos)
+    return HttpResponse(json.dumps({'status': 200, 'products': ProductNos}))

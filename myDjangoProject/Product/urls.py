@@ -8,4 +8,5 @@ urlpatterns = [
     path('gettypeimg/<str:type>/', get_type_img),
     path('getlowestprice/<str:type>/', get_lowest_price),
     path('getfeaturednewproducts/', get_featured_new_products),
+    path('getclassifiedgoods/<str:belonging>/<str:type>/', get_classified_goods)
 ]

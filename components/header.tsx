@@ -108,12 +108,12 @@ export default function Header({
                           const index = types.findIndex((type: { [x: string]: [] }) => type[thisbelonging.belonging] !== undefined);
                           // if (index !== -1) console.log(types[index][thisbelonging.belonging]);
                           return(
-                            index !== -1 && types[index][thisbelonging.belonging].length > 0 && <li className="mega-menu-item"><a href="/" className="mega-title"><span>{thisbelonging.belonging}</span></a>
+                            index !== -1 && types[index][thisbelonging.belonging].length > 0 && <li className="mega-menu-item"><a className="mega-title"><span>{thisbelonging.belonging}</span></a>
                               <ul>
                                 { 
                                   types[index][thisbelonging.belonging].map((type: string)=>{
                                     return(
-                                      <li><a href="/"><span>{type}</span></a></li>
+                                      <li><a href={`/classified-goods/${thisbelonging.belonging}/${type}`}><span>{type}</span></a></li>
                                     );
                                   })
                                 }

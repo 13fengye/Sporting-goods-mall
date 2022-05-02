@@ -140,7 +140,7 @@ export default function Home(){
                                         <div className="product-collection-content">
                                           <div className="content">
                                             <h3 className="title">
-                                              <a href="/shop">{type}</a>
+                                              <a href={`/classified-goods/${thisbelonging.belonging}/${type}`}>{type}</a>
                                             </h3>
                                             <h4 className="price">
                                               最低价￥
@@ -163,7 +163,7 @@ export default function Home(){
                                             }')`,
                                           }}
                                           onClick={() => {
-                                            Router.push('/shop')
+                                            Router.push(`/classified-goods/${thisbelonging.belonging}/${type}`)
                                           }}
                                         ></div>
                                       </>

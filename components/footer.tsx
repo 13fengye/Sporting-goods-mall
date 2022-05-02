@@ -245,12 +245,12 @@ export default function Footer({
                     const index = types.findIndex((type: { [x: string]: [] }) => type[thisbelonging.belonging] !== undefined);
                     // if (index !== -1) console.log(types[index][thisbelonging.belonging]);
                     return(
-                      index !== -1 && types[index][thisbelonging.belonging].length > 0 && <li><a href="#">{thisbelonging.belonging}</a>
+                      index !== -1 && types[index][thisbelonging.belonging].length > 0 && <li><a>{thisbelonging.belonging}</a>
                         <ul className="sub-menu">
                           { 
                             types[index][thisbelonging.belonging].map((type: string)=>{
                               return(
-                                <li><a href="/">{type}</a></li>
+                                <li><a href={`/classified-goods/${thisbelonging.belonging}/${type}`}>{type}</a></li>
                               );
                             })
                           }

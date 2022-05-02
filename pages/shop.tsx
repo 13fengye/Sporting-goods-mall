@@ -776,7 +776,7 @@ export default function Shop() {
                   </div>
                 </div>
               </div>
-              <div className="col-xl-3">
+              {/* <div className="col-xl-3">
                 <div className="shop-sidebar">
                   <div className="shop-sidebar-category">
                     <h4 className="sidebar-title">Top Categories</h4>
@@ -848,7 +848,7 @@ export default function Shop() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>

@@ -235,13 +235,13 @@ table p {
 .container,
 .container-fluid {
   padding-bottom: 50px;
-  padding-top: 80px;
+  /* padding-top: 50px; */
 }
 @media only screen and (max-width: 1199px) {
   .container,
 .container-fluid {
-    padding-bottom: 10px;
-    padding-top: 50px;
+    padding-bottom: 50px;
+    /* padding-top: 50px; */
   }
 }
 
@@ -1095,13 +1095,15 @@ table p {
 -----------------------------------------------------------------------
 */
 .section-title {
-  margin-bottom: 57px;
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
-@media only screen and (max-width: 1199px) {
+/* @media only screen and (max-width: 1199px) {
   .section-title {
-    margin-bottom: 47px;
+    margin-bottom: 40px;
+    margin-top: 20px;
   }
-}
+} */
 .section-title .title {
   font-size: 48px;
   margin-bottom: 26px;
@@ -1152,7 +1154,7 @@ table p {
 */
 .header-top {
   background-color: #f4f4f4;
-  padding: 8px 0 9px;
+  /* padding: 8px 0 9px; */
 }
 .header-top .desc {
   color: #454545;
@@ -2229,7 +2231,7 @@ table p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 748px;
+  height: 600px;
   position: relative;
 }
 @media only screen and (max-width: 1199px) {
@@ -9669,4 +9671,12 @@ table p {
   color: #eb3e32;
   font-size: 16px;
   margin: 0 2px;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.justify-content-between {
+  justify-content:space-around!important;
 }

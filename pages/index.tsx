@@ -1,6 +1,7 @@
 import { MinimumDiscount } from "components/discount";
 import { get } from "components/fetch";
 import { NEXT_PUBLIC_URL } from "components/url";
+import Router from "next/router";
 import React, { useContext, useEffect, useState } from "react";
 
 export default function Home(){
@@ -106,46 +107,78 @@ export default function Home(){
             const index = types.findIndex((type: { [x: string]: [] }) => type[thisbelonging.belonging] !== undefined);
             const index2 = lowPrice.findIndex((lowPrice: { [x: string]: { [y: string]: [number, string] } }) => lowPrice[thisbelonging.belonging] !== undefined);
             
-            return(
-              <section className="product-area product-collection-area" style={{ backgroundColor: 'GrayText'}}>
-              {/* <section className="product-area product-collection-area" style={{ backgroundImage: `url('${NEXT_PUBLIC_URL}/${thisbelonging.img}')`,backgroundRepeat: 'round', backgroundSize: 'cover'}}> */}
+            return (
+              <section
+                className="product-area product-collection-area"
+                style={{ backgroundColor: "GrayText" }}
+              >
+                {/* <section className="product-area product-collection-area" style={{ backgroundImage: `url('${NEXT_PUBLIC_URL}/${thisbelonging.img}')`,backgroundRepeat: 'round', backgroundSize: 'cover'}}> */}
                 <div className="container">
                   <div className="row">
                     <div className="col-12">
                       <div className="section-title text-center">
-                        <h3 className="title">{thisbelonging.belonging}</h3>
+                        <h3 className="title text-white">
+                          {thisbelonging.belonging}
+                        </h3>
                         <div className="desc">
                           {/* <p>There are many variations of passages of Lorem Ipsum available</p> */}
                         </div>
                       </div>
                     </div>
                   </div>
-                  { index !== -1 && types[index][thisbelonging.belonging].length > 0 &&
-                    <div className="row">
-                      <div className="col-lg-4 col-md-6">
-                        <div className="product-collection">
-                          {types[index][thisbelonging.belonging].map((type: string)=>{
-                            return(
-                              <div className="inner-content">
-                                { index2 !== -1 && <>
-                                <div className="product-collection-content">
-                                  <div className="content">
-                                    <h3 className="title"><a href="/shop">{type}</a></h3>
-                                    <h4 className="price">最低价￥{lowPrice[index2][thisbelonging.belonging][type][0]}起</h4>
+                  {index !== -1 &&
+                    types[index][thisbelonging.belonging].length > 0 && (
+                      <div className="row">
+                        <div className="col-lg-4 col-md-6">
+                          <div className="product-collection">
+                            {types[index][thisbelonging.belonging].map(
+                              (type: string) => {
+                                return (
+                                  <div className="inner-content">
+                                    {index2 !== -1 && (
+                                      <>
+                                        <div className="product-collection-content">
+                                          <div className="content">
+                                            <h3 className="title">
+                                              <a href="/shop">{type}</a>
+                                            </h3>
+                                            <h4 className="price">
+                                              最低价￥
+                                              {
+                                                lowPrice[index2][
+                                                  thisbelonging.belonging
+                                                ][type][0]
+                                              }
+                                              起
+                                            </h4>
+                                          </div>
+                                        </div>
+                                        <div
+                                          className="product-collection-thumb"
+                                          style={{
+                                            backgroundImage: `url('${NEXT_PUBLIC_URL}/${
+                                              lowPrice[index2][
+                                                thisbelonging.belonging
+                                              ][type][1]
+                                            }')`,
+                                          }}
+                                          onClick={() => {
+                                            Router.push('/shop')
+                                          }}
+                                        ></div>
+                                      </>
+                                    )}
                                   </div>
-                                </div>
-                                <div className="product-collection-thumb" style={{ backgroundImage: `url('${NEXT_PUBLIC_URL}/${lowPrice[index2][thisbelonging.belonging][type][1]}')`}}></div>
-                                </>
-                                }
-                              </div>
-                            );
-                          })}
+                                );
+                              }
+                            )}
+                          </div>
                         </div>
                       </div>
-                    </div> }
+                    )}
                 </div>
               </section>
-            )
+            );
           })}
       </main>
     </>

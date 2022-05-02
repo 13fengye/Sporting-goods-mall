@@ -1,6 +1,6 @@
 
 export const MinimumDiscount = ({discount}: {discount :number}) => {
-  return(
+  return (
     <div className="slider-content">
       <div className="content">
         <div className="title-box">
@@ -10,7 +10,9 @@ export const MinimumDiscount = ({discount}: {discount :number}) => {
           <p className="desc">新品折扣最低{discount * 10}折</p>
         </div>
         <div className="btn-box">
-          <a className="btn-slider" href="shop">现在去购买</a>
+          <a className="btn-slider" href="/featured-new-products">
+            现在去购买
+          </a>
         </div>
       </div>
     </div>

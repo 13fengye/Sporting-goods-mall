@@ -72,11 +72,11 @@ const ClassifiedGoods: NextPage<any> = ({
                                           alt="Image-HasTech"
                                         />
                                       </a>
-                                      <div className="product-flag">
+                                      {/* <div className="product-flag">
                                         <ul>
                                           <li className="discount">新品</li>
                                         </ul>
-                                      </div>
+                                      </div> */}
                                       <div className="product-action">
                                         <a
                                           className="btn-product-wishlist"
@@ -158,11 +158,11 @@ const ClassifiedGoods: NextPage<any> = ({
                                           alt="Image-HasTech"
                                         />
                                       </a>
-                                      <div className="product-flag">
+                                      {/* <div className="product-flag">
                                         <ul>
                                           <li className="discount">新品</li>
                                         </ul>
-                                      </div>
+                                      </div> */}
                                       <div className="product-action">
                                         <a
                                           className="btn-product-wishlist"

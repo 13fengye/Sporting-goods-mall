@@ -32,7 +32,7 @@ export default function Footer({
                         <h2 className="title" style={{ fontFamily: "fantasy", fontSize: "-webkit-xxx-large", color:"white" }}>13fengye</h2>
                       </a>
                     </div>
-                    <p className="desc">Lorem ipsum dolor sit amet consl adipisi elit, sed do eiusmod templ incididunt ut labore</p>
+                    <p className="desc">一家不正经的体育用品商城网站</p>
                     {/* <div className="social-icons">
                       <a href="javascript:;" target="_blank" rel="noopener"><i className="fa fa-facebook"></i></a>
                       <a href="javascript:;" target="_blank" rel="noopener"><i className="fa fa-dribbble"></i></a>
@@ -42,7 +42,9 @@ export default function Footer({
                   </div>
                 </div>
               </div>
-              <div className="col-md-6 col-lg-3">
+
+              {/* 服务 */}
+              {/* <div className="col-md-6 col-lg-3">
                 <div className="widget-item widget-services-item">
                   <h4 className="widget-title">Services</h4>
                   <h4 className="widget-collapsed-title collapsed" data-bs-toggle="collapse" data-bs-target="#widgetId-1">Services</h4>
@@ -60,20 +62,19 @@ export default function Footer({
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className="col-md-6 col-lg-3">
                 <div className="widget-item widget-account-item">
-                  <h4 className="widget-title">My Account</h4>
-                  <h4 className="widget-collapsed-title collapsed" data-bs-toggle="collapse" data-bs-target="#widgetId-2">My Account</h4>
+                  <h4 className="widget-title">我的</h4>
+                  <h4 className="widget-collapsed-title collapsed" data-bs-toggle="collapse" data-bs-target="#widgetId-2">我的</h4>
                   <div id="widgetId-2" className="collapse widget-collapse-body">
                     <div className="collapse-body">
                       <div className="widget-menu-wrap">
                         <ul className="nav-menu">
-                          <li><a href="/account-login">My Account</a></li>
-                          <li><a href="/contact">Contact</a></li>
-                          <li><a href="/shop-cart">Shopping cart</a></li>
-                          <li><a href="/shop">Shop</a></li>
-                          <li><a href="/account-login">Services Login</a></li>
+                          <li><a href="/account-login">我的账户</a></li>
+                          <li><a href="/shop-cart">购物车</a></li>
+                          <li><a href="/shop">全部商品</a></li>
+                          <li><a href="/contact">联系我们</a></li>
                         </ul>
                       </div>
                     </div>
@@ -82,16 +83,16 @@ export default function Footer({
               </div>
               <div className="col-md-6 col-lg-3">
                 <div className="widget-item">
-                  <h4 className="widget-title">Contact Info</h4>
-                  <h4 className="widget-collapsed-title collapsed" data-bs-toggle="collapse" data-bs-target="#widgetId-3">Contact Info</h4>
+                  <h4 className="widget-title">联系方式</h4>
+                  <h4 className="widget-collapsed-title collapsed" data-bs-toggle="collapse" data-bs-target="#widgetId-3">联系方式</h4>
                   <div id="widgetId-3" className="collapse widget-collapse-body">
                     <div className="collapse-body">
                       <div className="widget-contact-wrap">
                         <ul>
-                          <li><span>Address:</span> Your address goes here.</li>
-                          <li><span>Phone//fax:</span> <a href="tel://0123456789">0123456789</a></li>
-                          <li><span>Email:</span> <a href="mailto://demo@example.com">demo@example.com</a></li>
-                          <li><a target="_blank" href="javascript:;">www.example.com</a></li>
+                          <li><span>地址:</span> 不告诉你 </li>
+                          <li><span>电话:</span> 12345678910 </li>
+                          <li><span>邮箱:</span> 2457036415@qq.com</li>
+                          <li><span>网站源码:</span><a href="https://github.com/13fengye/Sporting-goods-mall"> Github Code</a></li>
                         </ul>
                       </div>
                     </div>
@@ -218,7 +219,7 @@ export default function Footer({
           <div className="info-items">
             {authUsername && <ul>
               {/* <li className="number"><a href="tel://0123456789"><i className="fa fa-phone"></i>+00 123 456 789</a></li> */}
-              <li className="email"><a><i className="fa fa-envelope"></i>demo@example.com</a></li>
+              {/* <li className="email"><a><i className="fa fa-envelope"></i>demo@example.com</a></li> */}
               <li className="account"><a href="/account-login"><i className="fa fa-user"></i>账户</a></li>
               <li className="account"><a onClick={() => {
                 setAuthState(currState);
@@ -237,7 +238,7 @@ export default function Footer({
               <li><a href="#">首页</a>
               </li>
               <li><a href="/about-us">关于我们</a></li>
-              <li><a href="#">商品</a>
+              <li><a href="/shop">全部商品</a>
                 <ul className="sub-menu">
 
                   { belongings.map((thisbelonging: { belonging: string, img: string }) => { 
@@ -245,7 +246,7 @@ export default function Footer({
                     const index = types.findIndex((type: { [x: string]: [] }) => type[thisbelonging.belonging] !== undefined);
                     // if (index !== -1) console.log(types[index][thisbelonging.belonging]);
                     return(
-                      index !== -1 && types[index][thisbelonging.belonging].length > 0 && <li><a>{thisbelonging.belonging}</a>
+                      index !== -1 && types[index][thisbelonging.belonging].length > 0 && <li><a  className="white-color">{thisbelonging.belonging}</a>
                         <ul className="sub-menu">
                           { 
                             types[index][thisbelonging.belonging].map((type: string)=>{

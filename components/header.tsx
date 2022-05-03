@@ -101,7 +101,7 @@ export default function Header({
                 <div className="header-navigation-area position-relative">
                   <ul className="main-menu nav">
                     <li><a href="/"><span>首页</span></a></li>
-                    <li className="has-submenu position-static"><a href="/#/"><span>分类</span></a>
+                    <li className="has-submenu position-static"><a href="/shop"><span>全部商品</span></a>
                       <ul className="submenu-nav submenu-nav-mega column-3">
                         { belongings.map((thisbelonging: { belonging: string, img: string }) => { 
                           // console.log(types[belongings.indexOf(thisbelonging)]);

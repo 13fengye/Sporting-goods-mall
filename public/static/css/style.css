@@ -9212,11 +9212,11 @@ table p {
 }
 
 .my-account-area {
-  padding: 110px 0 110px;
+  padding: 60px 0 60px;
 }
 @media only screen and (max-width: 1199px) {
   .my-account-area {
-    padding: 90px 0 90px;
+    padding: 10px 0 50px;
   }
 }
 
@@ -9463,19 +9463,19 @@ table p {
   }
 }
 .footer-area .widget-collapsed-title:before {
-  font-family: "IcoFont";
+  /* font-family: "IcoFont"; */
   font-size: 14px;
-  content: "";
+  /* content: ""; */
   position: absolute;
   right: 0;
   height: 100%;
   width: 60px;
   text-align: center;
 }
-.footer-area .widget-collapsed-title:not(.collapsed):before {
+/* .footer-area .widget-collapsed-title:not(.collapsed):before {
   content: "";
   font-family: "IcoFont";
-}
+} */
 .footer-area .widget-collapse-body {
   transition: all 0.3s ease-out;
   -webkit-transition: all 0.3s ease-out;

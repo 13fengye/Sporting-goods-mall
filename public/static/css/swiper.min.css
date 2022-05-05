@@ -69,7 +69,8 @@
   width: 100%;
   height: 100%;
   position: relative;
-  transition-property: transform
+  transition-property: transform;
+  /* margin-top: 45px; */
 }
 
 .swiper-slide-invisible-blank {

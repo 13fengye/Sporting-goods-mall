@@ -4,6 +4,8 @@ export interface Belonging {
 }
 
 export interface ProductNo {
+  details?: any;
+  img2?: string;
   img: string;
   name: string;
   product_no: string;

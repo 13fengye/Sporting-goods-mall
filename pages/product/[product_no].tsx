@@ -1,11 +1,43 @@
-import PageHeaderArea from "./pageHeaderArea";
+import { get } from "components/fetch";
+import { NEXT_PUBLIC_URL } from "components/url";
+import { useEffect, useState } from "react";
+import { ProductNo } from "store/interface";
 
-export default function SingleProductsingleProduct() {
+
+export async function getServerSideProps(context: { params: { product_no: string } }) {
+  
+  return {
+    props: {
+      product_no: context.params.product_no
+    }, // will be passed to the page component as props
+  };
+}
+
+export default function ProductDetail({ product_no }:{product_no:string}) {
+  const [productNo, setProductNo] = useState<ProductNo[]>();
+  const [productInfos, setProductInfos] = useState<ProductNo[]>();
+  const [price, setPrice] = useState<number>();
+
+  useEffect(() => {
+    console.log("product_no", product_no);
+    const loadProduct = async () => {
+      await get(`/Product/getproduct/${product_no}/`).then((data) => {
+        setProductNo(data.productNo);
+        setProductInfos(data.productInfos);
+        setPrice(data.productNo[0].standard_price);
+      });
+    };
+    loadProduct();
+  }, [])
+  if (!productNo || !productInfos) {
+    return <div></div>;
+  }
+  console.log("productNo", productNo);
+  console.log("productInfos", productInfos);
+
   return (
     <>
       <main className="main-content">
-        <PageHeaderArea />
-
         {/* <!--== Start Product Single Area Wrapper ==--> */}
         <section className="product-area product-single-area">
           <div className="container">
@@ -25,65 +57,9 @@ export default function SingleProductsingleProduct() {
                                 href="/static/picture/1.webp"
                               >
                                 <img
-                                  src="/static/picture/1.webp"
-                                  width="570"
-                                  height="541"
-                                  alt="Image-HasTech"
-                                />
-                              </a>
-                            </div>
-                            <div className="swiper-slide">
-                              <a
-                                className="lightbox-image"
-                                data-fancybox="gallery"
-                                href="/static/picture/28.webp"
-                              >
-                                <img
-                                  src="/static/picture/28.webp"
-                                  width="570"
-                                  height="541"
-                                  alt="Image-HasTech"
-                                />
-                              </a>
-                            </div>
-                            <div className="swiper-slide">
-                              <a
-                                className="lightbox-image"
-                                data-fancybox="gallery"
-                                href="/static/picture/37.webp"
-                              >
-                                <img
-                                  src="/static/picture/37.webp"
-                                  width="570"
-                                  height="541"
-                                  alt="Image-HasTech"
-                                />
-                              </a>
-                            </div>
-                            <div className="swiper-slide">
-                              <a
-                                className="lightbox-image"
-                                data-fancybox="gallery"
-                                href="/static/picture/45.webp"
-                              >
-                                <img
-                                  src="/static/picture/45.webp"
-                                  width="570"
-                                  height="541"
-                                  alt="Image-HasTech"
-                                />
-                              </a>
-                            </div>
-                            <div className="swiper-slide">
-                              <a
-                                className="lightbox-image"
-                                data-fancybox="gallery"
-                                href="/static/picture/53.webp"
-                              >
-                                <img
-                                  src="/static/picture/53.webp"
-                                  width="570"
-                                  height="541"
+                                  src={`${NEXT_PUBLIC_URL}/${productNo[0].img}`}
+                                  width="400"
+                                  height="500"
                                   alt="Image-HasTech"
                                 />
                               </a>
@@ -94,39 +70,7 @@ export default function SingleProductsingleProduct() {
                           <div className="swiper-wrapper">
                             <div className="swiper-slide">
                               <img
-                                src="/static/picture/nav-1.webp"
-                                width="127"
-                                height="127"
-                                alt="Image-HasTech"
-                              />
-                            </div>
-                            <div className="swiper-slide">
-                              <img
-                                src="/static/picture/nav-2.webp"
-                                width="127"
-                                height="127"
-                                alt="Image-HasTech"
-                              />
-                            </div>
-                            <div className="swiper-slide">
-                              <img
-                                src="/static/picture/nav-3.webp"
-                                width="127"
-                                height="127"
-                                alt="Image-HasTech"
-                              />
-                            </div>
-                            <div className="swiper-slide">
-                              <img
-                                src="/static/picture/nav-4.webp"
-                                width="127"
-                                height="127"
-                                alt="Image-HasTech"
-                              />
-                            </div>
-                            <div className="swiper-slide">
-                              <img
-                                src="/static/picture/nav-5.webp"
+                                src={`${NEXT_PUBLIC_URL}/${productNo[0].img2}`}
                                 width="127"
                                 height="127"
                                 alt="Image-HasTech"
@@ -140,9 +84,9 @@ export default function SingleProductsingleProduct() {
                     <div className="col-xl-6">
                       {/* <!--== Start Product Info Area ==--> */}
                       <div className="product-single-info">
-                        <h3 className="main-title">Leather Mens Slipper</h3>
+                        <h3 className="main-title">{productNo[0].name}</h3>
                         <div className="prices">
-                          <span className="price">$20.19</span>
+                          <span className="price">￥{price}</span>
                         </div>
                         <div className="border-bottom"></div>
                         {/* <div className="rating-box-wrap">
@@ -270,25 +214,11 @@ export default function SingleProductsingleProduct() {
                       role="tabpanel"
                       aria-labelledby="information-tab"
                     >
-                      <div className="product-information">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Ut enim adlo minim veniam, quis
-                          nostrud exercitation ullamco laboris nisi ut aliquip
-                          ex ea commodo consequat. Duis aute irure dolor in tun
-                          tuni reprehenderit in voluptate velit esse cillum
-                          dolore eu fugiat nulla pariatur. Excepteur sint
-                          occaecat cupidatat non proident, sunt in culpa qui
-                          officia deserun mollit anim id est laborum. Sed ut
-                          perspiciatis unde omnis iste natus error sit
-                          voluptatem accusantium doloremque laudantium, totam
-                          rel aperiam, eaque ipsa quae ab illo inventore
-                          veritatis et quasi architecto beatae vitae dicta sunt
-                          explicabo. Nemo enim ipsam voluptatem quia voluptas
-                          sit aspernatur aut odit aut fugit, sed quia
-                          consequuntur.
-                        </p>
+                      <div className="product-information" style={{ textAlign: "center" }}>
+                        <img
+                          src={`${NEXT_PUBLIC_URL}/${productNo[0].details}`}
+                          alt="Image-HasTech"
+                        />
                       </div>
                     </div>
                     <div
@@ -298,24 +228,7 @@ export default function SingleProductsingleProduct() {
                       aria-labelledby="description-tab"
                     >
                       <div className="product-description">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua. Ut enim adlo minim veniam, quis
-                          nostrud exercitation ullamco laboris nisi ut aliquip
-                          ex ea commodo consequat. Duis aute irure dolor in tun
-                          tuni reprehenderit in voluptate velit esse cillum
-                          dolore eu fugiat nulla pariatur. Excepteur sint
-                          occaecat cupidatat non proident, sunt in culpa qui
-                          officia deserun mollit anim id est laborum. Sed ut
-                          perspiciatis unde omnis iste natus error sit
-                          voluptatem accusantium doloremque laudantium, totam
-                          rel aperiam, eaque ipsa quae ab illo inventore
-                          veritatis et quasi architecto beatae vitae dicta sunt
-                          explicabo. Nemo enim ipsam voluptatem quia voluptas
-                          sit aspernatur aut odit aut fugit, sed quia
-                          consequuntur.
-                        </p>
+                        <p>{productNo[0].describe}</p>
                       </div>
                     </div>
                   </div>

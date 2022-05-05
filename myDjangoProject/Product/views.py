@@ -16,6 +16,10 @@ def get_type(request, belong):
     typeData = list({typeData[i]['thisType_id'] for i in range(len(typeData))})
     return HttpResponse(json.dumps({'status': 200, 'types': typeData}))
 
+def get_all_types(request):
+    typeData = list(models.ProductType.objects.filter().values())
+    return HttpResponse(json.dumps({'status': 200, 'types': typeData}))
+
 def get_type_img(request, type):
     typeImgPath = models.ProductType.objects.filter(type=type).values()[0]['img']
     return HttpResponse(json.dumps({'status': 200, 'typeImgPath': typeImgPath}))
@@ -40,3 +44,26 @@ def get_classified_goods(request, belonging, type):
     ProductNos = list(models.ProductNo.objects.filter(onsale=True, thisBelonging_id=belonging, thisType_id=type).values('product_no' ,'name', 'img', 'standard_price', 'sold', 'describe'))
     print(ProductNos)
     return HttpResponse(json.dumps({'status': 200, 'products': ProductNos}))
+
+def get_all_products(request, belonging, type):
+    # print(belonging, type)
+    if belonging == '默认' and type == '默认':
+        ProductNos = list(models.ProductNo.objects.filter(onsale=True).values('product_no' ,'name', 'img', 'standard_price', 'sold', 'describe'))
+    elif belonging != '默认' and type == '默认':
+        ProductNos = list(models.ProductNo.objects.filter(onsale=True, thisBelonging_id=belonging).values('product_no' ,'name', 'img', 'standard_price', 'sold', 'describe'))
+    elif belonging == '默认':
+        ProductNos = list(models.ProductNo.objects.filter(onsale=True, thisType_id=type).values('product_no' ,'name', 'img', 'standard_price', 'sold', 'describe'))
+    else:
+        ProductNos = list(models.ProductNo.objects.filter(onsale=True, thisBelonging_id=belonging, thisType_id=type).values('product_no' ,'name', 'img', 'standard_price', 'sold', 'describe'))
+    return HttpResponse(json.dumps({'status': 200, 'products': ProductNos}))
+
+def get_product(request, product_no):
+    print(product_no)
+    productNo = list(models.ProductNo.objects.filter(product_no=product_no, onsale=True).values())
+    productInfos = list(models.ProductInfos.objects.filter(product_no_id=product_no, onsale=True).values())
+    newProductInfos = []
+    for productInfo in productInfos:
+        productInfo['created'] = str(productInfo['created'])
+        newProductInfos.append(productInfo)
+    # print(productInfos)
+    return HttpResponse(json.dumps({'status': 200, 'productNo': productNo, 'productInfos': newProductInfos}))

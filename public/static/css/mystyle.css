@@ -11,3 +11,19 @@
 .white-color {
   color: #fff;
 }
+
+.red-color {
+  color: #eb3e32;;
+}
+
+@media screen and (max-width:1180px) {
+  .margin-top {
+    margin-top: 0px;
+  }
+}
+
+.border-bottom {
+  border-bottom: 1px solid #c8c8c8;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}

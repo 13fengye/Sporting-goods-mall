@@ -132,6 +132,7 @@ ul {
 }
 ul li {
   list-style: none;
+  margin: 5px;
 }
 
 pre,
@@ -4231,7 +4232,7 @@ table p {
   display: flex;
 }
 .product-single-item .product-single-info .pro-qty {
-  height: 65px;
+  /* height: 65px; */
   position: relative;
   display: inline-block;
   width: 60px;
@@ -4308,7 +4309,7 @@ table p {
 }
 .product-single-item .product-single-info .btn-theme {
   margin-left: 20px;
-  padding: 22px 55px 21px;
+  /* padding: 22px 55px 21px; */
 }
 .product-single-item .product-single-info .product-color {
   -webkit-box-align: center;
@@ -4325,7 +4326,7 @@ table p {
   font-size: 18px;
   font-weight: 400;
   line-height: 1;
-  margin-right: 22px;
+  margin-right: 36px;
   margin-bottom: 0;
 }
 .product-single-item .product-single-info .product-color .color-list {
@@ -4333,23 +4334,22 @@ table p {
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 0;
+  align-content: center;
+  flex-wrap: wrap;
 }
 .product-single-item .product-single-info .product-color .color-list li {
   border: 3px solid #fff;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   cursor: pointer;
   display: inline-block;
-  height: 40px;
   position: relative;
-  width: 40px;
   z-index: 1;
-}
-.product-single-item .product-single-info .product-color .color-list li + li {
   margin-left: 12px;
 }
+
 .product-single-item .product-single-info .product-color .color-list li:before {
   border: 1px solid #d5d5d5;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   content: "";
   height: calc(100% + 6px);
   left: 50%;
@@ -8650,7 +8650,7 @@ table p {
 @media only screen and (max-width: 767px) {
   .blog-details-item .p-image-right {
     display: inline-block;
-    float: inherit;
+    /* float: inherit; */
     margin-left: 0;
     margin-top: 0;
     width: 100%;

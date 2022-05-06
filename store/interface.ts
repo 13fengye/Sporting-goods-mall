@@ -4,6 +4,14 @@ export interface Belonging {
 }
 
 export interface ProductNo {
+  stock?: number;
+  isPercentage: boolean;
+  discount?: number;
+  isDiscount: boolean;
+  custom_color_id?: string;
+  custom_size_id?: string;
+  size?: string;
+  color?: string;
   details?: any;
   img2?: string;
   img: string;

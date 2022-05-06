@@ -205,6 +205,7 @@ const AllProducts = ({ belonging, type }: { belonging: string; type: string }) =
                                           ￥{product.standard_price}
                                         </span>
                                       </div>
+                                      <div>已售 {product.sold}</div>
                                     </div>
                                   </div>
                                 </div>

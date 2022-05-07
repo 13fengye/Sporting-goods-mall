@@ -1,5 +1,6 @@
 import { get } from "components/fetch";
 import { NEXT_PUBLIC_URL } from "components/url";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { ProductNo } from "store/interface";
 
@@ -24,6 +25,7 @@ export default function ProductDetail({ product_no }:{product_no:string}) {
   const [selectedSize, setSelectedSize] = useState<string>();
   const [selectedProductInfo, setSelectedProductInfo] = useState<ProductNo>();
   const [quantity, setQuantity] = useState<number>(0);
+  const router = useRouter();
 
   useEffect(() => {
     const loadProduct = async () => {
@@ -136,8 +138,8 @@ export default function ProductDetail({ product_no }:{product_no:string}) {
     return <div></div>;
   }
   console.log(selectedProductInfo);
-  console.log(productNo);
-  console.log(productInfos);
+  // console.log(productNo);
+  // console.log(productInfos);
 
   return (
     <>
@@ -196,7 +198,20 @@ export default function ProductDetail({ product_no }:{product_no:string}) {
                       <div className="product-single-info">
                         <h3 className="main-title">{productNo[0].name}</h3>
                         <div className="prices">
-                          <div className="price"><span className="pro-price"><span className={newPrice && oldPrice !== newPrice ? 'old' : ''}>￥{oldPrice}</span>{ newPrice && oldPrice !== newPrice && <span>￥{newPrice}</span>}</span></div>
+                          <div className="price">
+                            <span className="pro-price">
+                              <span
+                                className={
+                                  newPrice && oldPrice !== newPrice ? "old" : ""
+                                }
+                              >
+                                ￥{oldPrice}
+                              </span>
+                              {newPrice && oldPrice !== newPrice && (
+                                <span>￥{newPrice}</span>
+                              )}
+                            </span>
+                          </div>
                         </div>
                         <div className="border-bottom"></div>
                         {/* <div className="rating-box-wrap">
@@ -218,57 +233,113 @@ export default function ProductDetail({ product_no }:{product_no:string}) {
                           exercitation ullamco laboris nisi ut aliquip exet
                           commodo consequat. Duis aute irure dolor
                         </p> */}
-                        { showColorGroup.length > 0 && <h6 className="title font-size-20">选择颜色</h6> }
+                        {showColorGroup.length > 0 && (
+                          <h6 className="title font-size-20">选择颜色</h6>
+                        )}
                         <div className="product-color">
                           <ul className="color-list">
-                            { showColorGroup.flatMap((color: string) => {
-                              return(
-                                <li className={selectedColor === `${color}` || color === '无' ? 'active' : ''} onClick={()=>{
-                                  if (color !== '无') {
-                                    if (selectedColor === color) {
-                                      setSelectedColor(undefined);
-                                    } else {
-                                      setSelectedColor(color);
-                                    }
+                            {showColorGroup.flatMap((color: string) => {
+                              return (
+                                <li
+                                  className={
+                                    selectedColor === `${color}` ||
+                                    color === "无"
+                                      ? "active"
+                                      : ""
                                   }
-                                }}>{color}</li>
+                                  onClick={() => {
+                                    if (color !== "无") {
+                                      if (selectedColor === color) {
+                                        setSelectedColor(undefined);
+                                      } else {
+                                        setSelectedColor(color);
+                                      }
+                                    }
+                                  }}
+                                >
+                                  {color}
+                                </li>
                               );
                               // className="active"
                             })}
                           </ul>
                         </div>
-                        { showSizeGroup.length > 0 && <h6 className="title font-size-20">选择尺码</h6> }
+                        {showSizeGroup.length > 0 && (
+                          <h6 className="title font-size-20">选择尺码</h6>
+                        )}
                         <div className="product-size">
                           <ul className="size-list">
-                            { showSizeGroup.flatMap((size: string) => {
-                              return(
-                                <li className={selectedSize === `${size}` || size === '无' ? 'active' : ''} onClick={()=>{
-                                  if (size !== '无') {
-                                    if (selectedSize === size) {
-                                      setSelectedSize(undefined);
-                                    } else {
-                                      setSelectedSize(size);
-                                    }
+                            {showSizeGroup.flatMap((size: string) => {
+                              return (
+                                <li
+                                  className={
+                                    selectedSize === `${size}` || size === "无"
+                                      ? "active"
+                                      : ""
                                   }
-                                }}>{size}</li>
+                                  onClick={() => {
+                                    if (size !== "无") {
+                                      if (selectedSize === size) {
+                                        setSelectedSize(undefined);
+                                      } else {
+                                        setSelectedSize(size);
+                                      }
+                                    }
+                                  }}
+                                >
+                                  {size}
+                                </li>
                               );
                               // className="active"
                             })}
                           </ul>
                         </div>
-                        <div className="product-quick-action">
+                        {!selectedProductInfo && <div className="margin-bottom-10 font-color-red font-size-20">请选择颜色和尺码</div>}
+                        <div className="product-quick-action" style={selectedProductInfo ? { display: '-webkit-box' }: {}}>
                           <div className="qty-wrap">
-                            {selectedProductInfo && <button className="border-radius-30 margin-right-10" disabled={ quantity<=0 } onClick={()=>{setQuantity(quantity-1)}}>-</button>}
+                            {selectedProductInfo && (
+                              <button
+                                className="border-radius-30 margin-right-10"
+                                disabled={quantity <= 0}
+                                onClick={() => {
+                                  setQuantity(quantity - 1);
+                                }}
+                              >
+                                -
+                              </button>
+                            )}
                             <div className="pro-qty">
-                              <input type="text" disabled title="Quantity" value={quantity} />
+                              <input
+                                type="text"
+                                disabled
+                                title="Quantity"
+                                value={quantity}
+                              />
                             </div>
-                            {selectedProductInfo && <button className="border-radius-30 margin-left-10" disabled={ quantity>selectedProductInfo.stock!-1 } onClick={()=>{setQuantity(quantity+1)}}>+</button>}
+                            {selectedProductInfo && (
+                              <button
+                                className="border-radius-30 margin-left-10"
+                                disabled={
+                                  quantity > selectedProductInfo.stock! - 1
+                                }
+                                onClick={() => {
+                                  setQuantity(quantity + 1);
+                                }}
+                              >
+                                +
+                              </button>
+                            )}
                           </div>
-                          <button className="btn-theme border-radius-30">
-                            Add to Cart
+                          <button className={`border-radius-30 ${selectedProductInfo && quantity>0 ? 'btn-theme' : 'btn-theme-disabled'}`} disabled={selectedProductInfo === undefined || quantity<=0} onClick={()=>{ router.push(`/checkout/${selectedProductInfo!.id}/${quantity}`) }}>
+                            立即购买
+                          </button>
+                          <button className={`border-radius-30 ${selectedProductInfo && quantity>0 ? 'btn-theme btn-margin-top' : 'btn-theme-disabled'}`} disabled={selectedProductInfo === undefined || quantity<=0} onClick={()=>{ console.log('加购物车') }}>
+                            加入购物车
                           </button>
                         </div>
-                        {selectedProductInfo && <div>库存 {selectedProductInfo.stock}</div>}
+                        {selectedProductInfo && (
+                          <div>库存 {selectedProductInfo.stock}</div>
+                        )}
                         <div className="border-bottom"></div>
                         {/* <div className="product-wishlist-compare">
                           <a href="/shop-wishlist">

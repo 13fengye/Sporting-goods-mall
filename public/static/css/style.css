@@ -248,6 +248,8 @@ table p {
 
 /*-------- Button Style Css --------*/
 .btn-theme {
+  height: 50px;
+  width: 200px;
   background-color: #eb3e32;
   border: 2px solid #eb3e32;
   color: #fff;
@@ -255,7 +257,6 @@ table p {
   font-weight: 600;
   font-size: 18px;
   line-height: 1;
-  padding: 22px 62px 21px;
   transition: all 0.3s ease-out;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
@@ -265,16 +266,30 @@ table p {
 @media only screen and (max-width: 1199px) {
   .btn-theme {
     font-weight: 500;
-    padding: 14px 28px 14px;
     font-size: 16px;
   }
 }
 @media only screen and (max-width: 991px) {
   .btn-theme {
-    padding: 12px 26px 13px;
     font-size: 15px;
   }
 }
+
+.btn-theme-disabled {
+  height: 50px;
+  width: 200px;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  margin-left: 20px;
+}
+
 .btn-theme:hover {
   background-color: #fff;
   border-color: #eb3e32;
@@ -287,7 +302,6 @@ table p {
 }
 @media only screen and (max-width: 767px) {
   .btn-theme.btn-sm {
-    padding: 11px 24px 11px;
     font-size: 15px;
   }
 }
@@ -300,7 +314,6 @@ table p {
   font-weight: 600;
   font-size: 18px;
   line-height: 1;
-  padding: 21px 62px 22px;
   transition: all 0.3s ease-out;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
@@ -310,13 +323,11 @@ table p {
 @media only screen and (max-width: 1199px) {
   .btn-theme-border {
     font-weight: 500;
-    padding: 14px 28px 14px;
     font-size: 16px;
   }
 }
 @media only screen and (max-width: 991px) {
   .btn-theme-border {
-    padding: 12px 26px 13px;
     font-size: 15px;
   }
 }
@@ -4230,6 +4241,11 @@ table p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  /* @media screen and (max-width: 767px) {
+    .display-webkit-box {
+      display: -webkit-box;
+    }
+  } */
 }
 .product-single-item .product-single-info .pro-qty {
   /* height: 65px; */
@@ -4311,6 +4327,14 @@ table p {
   margin-left: 20px;
   /* padding: 22px 55px 21px; */
 }
+
+@media screen and (max-width: 767px) {
+  .product-single-item .product-single-info .btn-theme {
+    margin-left: 10px;
+  /* padding: 22px 55px 21px; */
+  }
+}
+
 .product-single-item .product-single-info .product-color {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -4371,9 +4395,9 @@ table p {
 .product-single-item .product-single-info .product-color .color-list li.active:before {
   border-color: #eb3e32;
 }
-.product-single-item .product-single-info .product-color .color-list li:hover:before {
+/* .product-single-item .product-single-info .product-color .color-list li:hover:before {
   border-color: #eb3e32;
-}
+} */
 .product-single-item .product-single-info .product-size {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -4383,6 +4407,19 @@ table p {
   display: flex;
   margin-bottom: 40px;
 }
+
+@media screen and (max-width: 767px) {
+  .product-single-item .product-single-info .product-size {
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      margin-bottom: 20px;
+  }
+}
+
 .product-single-item .product-single-info .product-size .title {
   color: #1d1d1d;
   font-size: 18px;
@@ -4439,9 +4476,9 @@ table p {
 .product-single-item .product-single-info .product-size .size-list li.active:before {
   border-color: #eb3e32;
 }
-.product-single-item .product-single-info .product-size .size-list li:hover:before {
+/* .product-single-item .product-single-info .product-size .size-list li:hover:before {
   border-color: #eb3e32;
-}
+} */
 .product-single-item .product-single-info .product-wishlist-compare {
   border-bottom: 1px solid #c8c8c8;
   display: -webkit-box;
@@ -5796,17 +5833,18 @@ table p {
   padding: 10px;
 }
 
-@media only screen and (max-width: 1199px) {
+@media only screen and (min-width: 1024px) {
   .shopping-checkout-wrap .container {
-    padding-bottom: 85px;
-    padding-top: 85px;
+    padding-bottom: 45px;
+    padding-top: 45px;
   }
 }
+
 .shopping-checkout-wrap .title {
   font-size: 20px;
   position: relative;
   padding-bottom: 12px;
-  margin-bottom: 45px;
+  margin-bottom: 15px;
 }
 .shopping-checkout-wrap .title:before {
   background-color: #333131;
@@ -5833,13 +5871,11 @@ table p {
 }
 .shopping-checkout-wrap .checkout-page-login-wrap .login-accordion .card h3 i {
   font-size: 14px;
-  color: #6dde6d;
+  color: #ff0505;
   margin-right: 14px;
 }
+
 .shopping-checkout-wrap .checkout-page-login-wrap .login-accordion .card h3 a {
-  color: #333131;
-}
-.shopping-checkout-wrap .checkout-page-login-wrap .login-accordion .card h3 a:hover {
   color: #eb3e32;
 }
 .shopping-checkout-wrap .checkout-page-login-wrap .login-accordion .card .card-body {
@@ -6062,7 +6098,7 @@ table p {
   background-color: #eb3e32;
 }
 .shopping-checkout-wrap .checkout-billing-details-wrap .billing-form-wrap form .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .shopping-checkout-wrap .checkout-billing-details-wrap .billing-form-wrap form .form-group label {
   font-size: 14px;

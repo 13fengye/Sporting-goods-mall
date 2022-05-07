@@ -49,3 +49,17 @@
 .margin-left-10 {
   margin-left: 10px;
 }
+
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
+
+.font-color-red {
+  color: #eb3e32;
+}
+
+@media screen and (max-width:768px) {
+  .btn-margin-top {
+    margin-top: 20px;
+  }
+}

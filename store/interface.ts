@@ -4,6 +4,7 @@ export interface Belonging {
 }
 
 export interface ProductNo {
+  id?: number;
   stock?: number;
   isPercentage: boolean;
   discount?: number;

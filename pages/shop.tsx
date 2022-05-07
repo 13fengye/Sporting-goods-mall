@@ -192,7 +192,7 @@ const AllProducts = ({ belonging, type }: { belonging: string; type: string }) =
                                     </div>
                                     <div className="product-info">
                                       <h4 className="title">
-                                        <a href={`/single-product/${product.product_no}`}>
+                                        <a href={`/product/${product.product_no}`}>
                                           {product.name}
                                         </a>
                                       </h4>
@@ -245,7 +245,7 @@ const AllProducts = ({ belonging, type }: { belonging: string; type: string }) =
                                 <div className="product-item product-list-item">
                                   <div className="inner-content">
                                     <div className="product-thumb">
-                                      <a href={`/single-product/${product.product_no}`}>
+                                      <a href={`/product/${product.product_no}`}>
                                         <img
                                           src={`${NEXT_PUBLIC_URL}/${product.img}`}
                                           width="270"
@@ -279,7 +279,7 @@ const AllProducts = ({ belonging, type }: { belonging: string; type: string }) =
                                     </div>
                                     <div className="product-info">
                                       <h4 className="title">
-                                        <a href={`/single-product/${product.product_no}`}>
+                                        <a href={`/product/${product.product_no}`}>
                                           {product.name}
                                         </a>
                                       </h4>

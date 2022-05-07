@@ -74,7 +74,7 @@ export default function AccountRegister() {
                       <div className="col-12">
                         <div className="form-group">
                           <label htmlFor="username">用户名<span className="required">*</span></label>
-                        <input id="username" className="form-control" type="username" autoComplete="off" onChange={(e) => { setUsername(e.currentTarget.value) }} value={username} />
+                          <input id="username" className="form-control" type="username" autoComplete="off" onChange={(e) => { setUsername(e.currentTarget.value) }} value={username} />
                           <div style={{ fontFamily: 'cursive', color: '#ff0000' }}>{checkUserNameError}</div>
                         </div>
                       </div>

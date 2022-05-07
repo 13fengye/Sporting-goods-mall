@@ -62,11 +62,11 @@ class User(View):
         else:
             user = models.User.objects.filter(username=username) | models.User.objects.filter(email=email) | models.User.objects.filter(username=email)
             if user:
-              response = HttpResponse(json.dumps({'message': '用户名或邮箱注册已存在', 'status': 401}))
+                response = HttpResponse(json.dumps({'message': '用户名或邮箱注册已存在', 'status': 401}))
             else:
-              token = make_token(username)
-              models.User.objects.create(username=username, password=md5(password), email=email)
-              response = HttpResponse(json.dumps({'message': '注册成功', 'status': 200, 'token': token}))
+                token = make_token(username)
+                models.User.objects.create(username=username, password=md5(password), email=email)
+                response = HttpResponse(json.dumps({'message': '注册成功', 'status': 200, 'token': token}))
             return response
 
 
@@ -76,6 +76,6 @@ def make_token(username, expire=3600*24):
     key = settings.JWT_TOKEN_KEY
     now_t = time.time()
     payload_data = {'username': username, 'exp': now_t + expire}
-    return jwt.encode(payload_data, key, algorithm='HS256')
+    return jwt.encode(payload_data, key, algorithm='HS256').decode()
 
     

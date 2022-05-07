@@ -5935,7 +5935,7 @@ table p {
     margin-left: 0;
   }
 }
-.shopping-checkout-wrap .checkout-page-login-wrap .login-accordion .card .card-body .login-wrap form .btn-login {
+.shopping-checkout-wrap .checkout-page-login-wrap .login-accordion .card .card-body .login-wrap form .btn-login-disabled {
   background-color: #efefef;
   border: 1px solid #eee;
   color: #333131;
@@ -5943,6 +5943,16 @@ table p {
   margin-right: 20px;
   display: inline-block;
 }
+
+.shopping-checkout-wrap .checkout-page-login-wrap .login-accordion .card .card-body .login-wrap form .btn-login {
+  background-color: #dc3535;
+  border: 1px solid #eee;
+  color: #f8f9fa;
+  padding: 10px 30px;
+  margin-right: 20px;
+  display: inline-block;
+}
+
 .shopping-checkout-wrap .checkout-page-login-wrap .login-accordion .card .card-body .login-wrap form .rememberme-account {
   display: inline-block;
   position: relative;
@@ -6100,6 +6110,13 @@ table p {
 .shopping-checkout-wrap .checkout-billing-details-wrap .billing-form-wrap form .form-group {
   margin-bottom: 10px;
 }
+
+@media screen and (min-width: 991px) {
+  .checkout-billing-details-wrap {
+    margin-top: 55px;
+  }
+}
+
 .shopping-checkout-wrap .checkout-billing-details-wrap .billing-form-wrap form .form-group label {
   font-size: 14px;
   color: #333131;
@@ -6243,6 +6260,7 @@ table p {
 .shopping-checkout-wrap .checkout-order-details-wrap .order-details-table-wrap .table .cart-item:last-child td {
   padding-bottom: 27px;
   border-bottom-width: 1px;
+  width: 80%;
 }
 .shopping-checkout-wrap .checkout-order-details-wrap .order-details-table-wrap .table .shipping td {
   min-width: 140px;

@@ -67,3 +67,9 @@ def get_product(request, product_no):
         newProductInfos.append(productInfo)
     # print(productInfos)
     return HttpResponse(json.dumps({'status': 200, 'productNo': productNo, 'productInfos': newProductInfos}))
+
+def get_product_info(request, productinfo_id):
+    productInfo = list(models.ProductInfos.objects.filter(id=productinfo_id).values())[0]
+    productNo = list(models.ProductNo.objects.filter(product_no=productInfo['product_no_id']).values())[0]
+    productInfo['created'] = str(productInfo['created'])
+    return HttpResponse(json.dumps({'status': 200, 'productInfo': productInfo, 'productNo': productNo}))

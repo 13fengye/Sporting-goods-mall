@@ -76,6 +76,8 @@ def make_token(username, expire=3600*24):
     key = settings.JWT_TOKEN_KEY
     now_t = time.time()
     payload_data = {'username': username, 'exp': now_t + expire}
-    return jwt.encode(payload_data, key, algorithm='HS256').decode()
-
-    
+    payload = jwt.encode(payload_data, key, algorithm='HS256')
+    if type(payload) == str:
+        return payload
+    elif type(payload) == bytes:
+        return payload.decode()

@@ -83,10 +83,10 @@ export default function Accountlogin() {
                             <a className="btn-login">Login</a>
                           </Link> */}
                           <a className="btn-login"
-                          onClick={()=>{
+                          onClick={async ()=>{
                             setCheck(true);
                             if (username !== '' && password!== '') {
-                              post('/User/user/', { 'username': username, 'password': password, 'email': ''}).then(res => {
+                              await post('/User/user/', { 'username': username, 'password': password, 'email': ''}).then(res => {
                                 console.log(res);
                                 if (res.status === 200) {
                                   setIsLogin(true);

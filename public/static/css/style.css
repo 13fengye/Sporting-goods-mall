@@ -263,6 +263,23 @@ table p {
   -ms-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
 }
+
+.btn-theme-1 {
+  height: 50px;
+  background-color: #eb3e32;
+  border: 2px solid #eb3e32;
+  color: #fff;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+
 @media only screen and (max-width: 1199px) {
   .btn-theme {
     font-weight: 500;
@@ -5252,6 +5269,7 @@ table p {
   line-height: 54px;
   text-transform: uppercase;
   padding: 0 40px;
+  width: auto;
   letter-spacing: 0.5px;
 }
 @media only screen and (max-width: 767px) {

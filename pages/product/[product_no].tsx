@@ -1,7 +1,8 @@
-import { get } from "components/fetch";
+import { get, post } from "components/fetch";
 import { NEXT_PUBLIC_URL } from "components/url";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { AuthContext } from "pages/_app";
+import { useContext, useEffect, useState } from "react";
 import { ProductNo } from "store/interface";
 
 
@@ -15,6 +16,7 @@ export async function getServerSideProps(context: { params: { product_no: string
 }
 
 export default function ProductDetail({ product_no }:{product_no:string}) {
+  const [authState] = useContext(AuthContext);
   const [productNo, setProductNo] = useState<ProductNo[]>();
   const [productInfos, setProductInfos] = useState<ProductNo[]>();
   const [oldPrice, setOldPrice] = useState<number>();
@@ -333,7 +335,17 @@ export default function ProductDetail({ product_no }:{product_no:string}) {
                           <button className={`border-radius-30 ${selectedProductInfo && quantity>0 ? 'btn-theme' : 'btn-theme-disabled'}`} disabled={selectedProductInfo === undefined || quantity<=0} onClick={()=>{ router.push(`/checkout/${selectedProductInfo!.id}/${quantity}`) }}>
                             立即购买
                           </button>
-                          <button className={`border-radius-30 ${selectedProductInfo && quantity>0 ? 'btn-theme btn-margin-top' : 'btn-theme-disabled'}`} disabled={selectedProductInfo === undefined || quantity<=0} onClick={()=>{ console.log('加购物车') }}>
+                          <button className={`border-radius-30 ${selectedProductInfo && quantity>0 ? 'btn-theme btn-margin-top' : 'btn-theme-disabled'}`} disabled={selectedProductInfo === undefined || quantity<=0} 
+                            onClick={async ()=>{
+                              await post(`/Order/addtocart/`, {'username':authState.username, 'productinfo_id':selectedProductInfo!.id, 'quantity':quantity, 'name': productNo[0].name, 'price': newPrice, 'img': productNo[0].img}).then(res=>{
+                                if (res.status === 200) {
+                                  alert(res.message);
+                                  router.push(`/cart/shopping-cart`) 
+                                } else {
+                                  alert('添加购物车失败')
+                                }
+                              })                              
+                            }}>
                             加入购物车
                           </button>
                         </div>

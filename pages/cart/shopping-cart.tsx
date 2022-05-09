@@ -142,7 +142,15 @@ export default function ShoppingCart() {
                       </tbody>
                     </table>
                   </div>
-                  <a className="btn-theme btn-flat" href="/shop-checkout">进行结算</a>
+                  <div onClick={()=>{
+                    if (cartList.length === 0) {
+                      alert("请先添加商品");
+                    } else {
+                      router.push("/shop-checkout");
+                    }
+                  }}>
+                    <a className="btn-theme btn-flat">进行结算</a>
+                  </div>
                 </div>
               </div>
             </div>

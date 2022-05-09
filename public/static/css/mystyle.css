@@ -63,3 +63,7 @@
     margin-top: 20px;
   }
 }
+
+.cart-button-text-center {
+  text-align: -webkit-center;
+}

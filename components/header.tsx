@@ -1,12 +1,14 @@
-import {  useEffect, useState } from "react";
-import { get } from "./fetch";
+import { AuthContext } from "pages/_app";
+import {  useContext, useEffect, useState } from "react";
+import { Cart } from "store/interface";
 
 export default function Header({ 
   authUsername, 
   setAuthState,
   currState,
   belongings,
-  types
+  types,
+  cartList
 }: {
   authUsername: string | false,
   setAuthState: any,
@@ -17,8 +19,10 @@ export default function Header({
   }[],
   types: {
     [x: string]: [];
-  }[]
+  }[],
+  cartList: Cart[]
 }) {
+  const [authState] = useContext(AuthContext);
   
   return (
     <>
@@ -77,12 +81,12 @@ export default function Header({
                         <i className="pe-7s-like icon"></i>
                       </a>
                     </div>
-                    <div className="shopping-cart">
+                    { authState.jwt !== "" && <div className="shopping-cart">
                       <button className="shopping-cart-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasCart" aria-controls="offcanvasRightLabel">
                         <i className="pe-7s-shopbag icon"></i>
-                        <sup className="shop-count">02</sup>
+                        <sup className="shop-count">{cartList.length}</sup>
                       </button>
-                    </div>
+                    </div>}
                     <button className="btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
                       <i className="pe-7s-menu"></i>
                     </button>

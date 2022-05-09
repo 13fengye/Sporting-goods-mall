@@ -29,10 +29,10 @@ class CartInfos(models.Model):
 class OrderInfos(models.Model):
     id = models.AutoField(primary_key=True)
     price = models.FloatField('订单总价')
-    productinfos_id = models.CharField('商品ID-数量', max_length=200)
+    productinfo_amounts = models.CharField('商品ID-数量', max_length=200)
     created = models.DateField('创建时间', auto_now_add=True)
-    user_id = models.IntegerField('用户ID')
-    state = models.CharField('订单状态', max_length=20, choices=STATE)
+    user_id = models.CharField('用户名', max_length=32)
+    state = models.CharField('订单状态', max_length=20, choices=STATE, default='已支付')
     # 订单备注
     remark = models.CharField('订单备注', max_length=200, null=True, blank=True)
 

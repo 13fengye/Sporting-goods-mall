@@ -1,7 +1,7 @@
 import { post } from "components/fetch";
 import { NEXT_PUBLIC_URL } from "components/url";
 import router from "next/router";
-import { AuthContext } from "pages/_app";
+import { AuthContext, ReFreshGlobalContext } from "pages/_app";
 import { useContext, useEffect, useState } from "react";
 import { Cart } from "store/interface";
 
@@ -19,21 +19,23 @@ export default function ShoppingCart() {
   const [authState] = useContext(AuthContext);
   const [cartList, setCartList] = useState<Cart[]>([]);
   const [discount, setDiscount] = useState<number>(0);
+  const [reFreshGlobalState, setReFreshGlobalState] = useContext(ReFreshGlobalContext);
   useEffect(() => {
     // console.log(authState);
-    if (authState.jwt === '') {
+    if (authState.jwt === "") {
       router.push("/account-login");
       return;
     }
 
     const loadShoppongCart = async () => {
-      await post("/Order/getcart/", {'username': authState.username}).then((res) => {
-        setCartList(res.cartList);
-      });
+      await post("/Order/getcart/", { username: authState.username }).then(
+        (res) => {
+          setCartList(res.cartList);
+        }
+      );
     };
     loadShoppongCart();
-
-  }, [authState])
+  }, [authState, reFreshGlobalState]);
   console.log(cartList);
   const subTotal = cartList.reduce((acc, cur) => acc + cur.quantity * cur.price, 0);
 
@@ -63,7 +65,15 @@ export default function ShoppingCart() {
                           cartList.map((cart: Cart) => {
                             return(<tr className="cart-product-item">
                               <td className="product-remove">
-                                <a href="#/"><i className="fa fa-trash-o"></i></a>
+                                <a onClick={async ()=>{
+                                  await post("/Order/deleteproduct/", {'productinfo_id': cart.commodityInfos_id}).then((res) => {
+                                    if (res.status === 200) {
+                                      setReFreshGlobalState(!reFreshGlobalState);
+                                    } else {
+                                      alert("删除失败");
+                                    }
+                                  })
+                                }}><i className="fa fa-trash-o"></i></a>
                               </td>
                               <td className="product-thumb">
                                 <a href="/single-product">

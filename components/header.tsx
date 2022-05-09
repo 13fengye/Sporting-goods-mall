@@ -76,11 +76,11 @@ export default function Header({
                     <div className="shopping-search">
                       <button className="shopping-search-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasSearch" aria-controls="AsideOffcanvasSearch"><i className="pe-7s-search icon"></i></button>
                     </div>
-                    <div className="shopping-wishlist">
+                    {/* <div className="shopping-wishlist">
                       <a className="shopping-wishlist-btn" href="shop-wishlist">
                         <i className="pe-7s-like icon"></i>
                       </a>
-                    </div>
+                    </div> */}
                     { authState.jwt !== "" && <div className="shopping-cart">
                       <button className="shopping-cart-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasCart" aria-controls="offcanvasRightLabel">
                         <i className="pe-7s-shopbag icon"></i>
@@ -127,7 +127,7 @@ export default function Header({
                         })}
                       </ul>
                     </li>
-                    <li><a href="/contact"><span>联系我们</span></a></li>
+                    {/* <li><a href="/contact"><span>联系我们</span></a></li> */}
                   </ul>
                 </div>
               </div>

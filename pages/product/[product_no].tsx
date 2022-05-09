@@ -1,7 +1,7 @@
 import { get, post } from "components/fetch";
 import { NEXT_PUBLIC_URL } from "components/url";
 import { useRouter } from "next/router";
-import { AuthContext } from "pages/_app";
+import { AuthContext, ReFreshGlobalContext } from "pages/_app";
 import { useContext, useEffect, useState } from "react";
 import { ProductNo } from "store/interface";
 
@@ -28,6 +28,7 @@ export default function ProductDetail({ product_no }:{product_no:string}) {
   const [selectedProductInfo, setSelectedProductInfo] = useState<ProductNo>();
   const [quantity, setQuantity] = useState<number>(0);
   const router = useRouter();
+  const [refreshGlobalState, setReFreshGlobalState] = useContext(ReFreshGlobalContext);
 
   useEffect(() => {
     const loadProduct = async () => {
@@ -340,6 +341,7 @@ export default function ProductDetail({ product_no }:{product_no:string}) {
                               await post(`/Order/addtocart/`, {'username':authState.username, 'productinfo_id':selectedProductInfo!.id, 'quantity':quantity, 'name': productNo[0].name, 'price': newPrice, 'img': productNo[0].img}).then(res=>{
                                 if (res.status === 200) {
                                   alert(res.message);
+                                  setReFreshGlobalState(!refreshGlobalState);
                                   router.push(`/cart/shopping-cart`) 
                                 } else {
                                   alert('添加购物车失败')

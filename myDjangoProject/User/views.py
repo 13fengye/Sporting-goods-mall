@@ -49,7 +49,7 @@ class User(View):
             if hasThisUser:
                 user = models.User.objects.filter(username=username, password=md5(password)) | models.User.objects.filter(email=username, password=md5(password))
                 if user:
-                  token = make_token(username)
+                  token = make_token(list(user)[0].email)
                   response = HttpResponse(json.dumps({'message': '登录成功', 'status': 200, 'token': token}))
                   return response
                 else:
@@ -81,3 +81,39 @@ def make_token(username, expire=3600*24):
         return payload
     elif type(payload) == bytes:
         return payload.decode()
+
+def get_billing_info(request):
+    postData = json.loads(request.body)
+    username = postData['username']
+    billing_info = list(models.UserAddress.objects.filter(username=username).values())
+    print(billing_info)
+    if not billing_info:
+        return HttpResponse(json.dumps({'status': 301, 'message': '未添加收货地址'}))
+    else:
+        return HttpResponse(json.dumps({'status': 200, 'message': '获取成功', 'billing_info': billing_info}))
+
+def update_billinginfo(request):
+    postData = json.loads(request.body)
+    username = postData['username']
+    name = postData['name']
+    phone = postData['phone']
+    address = postData['address']
+    billing_info = models.UserAddress.objects.filter(username=username)
+    if billing_info:
+        billing_info.update(name=name, phone=phone, address=address)
+        return HttpResponse(json.dumps({'status': 200, 'message': '更新成功'}))
+    else:
+        models.UserAddress.objects.create(username=username, name=name, phone=phone, address=address)
+        return HttpResponse(json.dumps({'status': 200, 'message': '添加成功'}))
+
+def change_password(request):
+    postData = json.loads(request.body)
+    username = postData['username']
+    old_password = postData['currentPassword']
+    new_password = postData['newPassword']
+    user = models.User.objects.filter(username=username, password=md5(old_password)) | models.User.objects.filter(email=username, password=md5(old_password))
+    if user:
+        user.update(password=md5(new_password))
+        return HttpResponse(json.dumps({'status': 200, 'message': '修改成功'}))
+    else:
+        return HttpResponse(json.dumps({'status': 301, 'message': '原密码错误'}))

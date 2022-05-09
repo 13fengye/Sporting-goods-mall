@@ -1,9 +1,10 @@
+import { BillingAddress } from "components/billing-address";
 import { get, post } from "components/fetch";
 import router from "next/router";
 import { parseJwt } from "pages/account-login";
-import { AuthContext } from "pages/_app";
+import { AuthContext, ReFreshGlobalContext } from "pages/_app";
 import { useContext, useEffect, useState } from "react";
-import { ProductNo } from "store/interface";
+import { ProductNo, UserAddress } from "store/interface";
 
 export async function getServerSideProps(context: { params: { productinfo_id: string, amount: number } }) {
   
@@ -24,6 +25,7 @@ export default function ShopCheckout({
 }) {
   console.log(productinfo_id, amount);
   const [authState, setAuthState] = useContext(AuthContext);
+  const [refreshGlobalState, setReFreshGlobalState] = useContext(ReFreshGlobalContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -43,6 +45,11 @@ export default function ShopCheckout({
   const [productNo, setProductNo] = useState<ProductNo>();
   const [productInfo, setProductInfo] = useState<ProductNo>();
   const [price, setPrice] = useState<number>();
+  const [billingAddress, setBillingAddress] = useState<UserAddress|string>('');
+  const [name, setName] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [address, setAddress] = useState<string>("");
+  const [remark, setRemark] = useState<string>("无");
   
   useEffect(() => {
     const loadProductInfo = async () => {
@@ -55,6 +62,20 @@ export default function ShopCheckout({
       })
     };
     loadProductInfo();
+
+    const loadBinglingAddress = async () => {
+      await post("/User/getbillinginfo/", { 'username': authState.username }).then((res) => {
+        if (res.status === 200) {
+          setBillingAddress(res.billing_info[0]);
+          setName(res.billing_info[0].name);
+          setPhone(res.billing_info[0].phone);
+          setAddress(res.billing_info[0].address);
+        } else {
+          setBillingAddress(res.message);
+        }
+      });
+    };
+    loadBinglingAddress();
   } , []);
   
   useEffect(() => {
@@ -425,66 +446,16 @@ export default function ShopCheckout({
                   <div className="billing-form-wrap">
                     <form action="#" method="post">
                       <div className="row">
-                        <div className="col-md-12">
-                          <div className="form-group">
-                            <label htmlFor="f_name">
-                              姓名{" "}
-                              <a className="required" title="required">
-                                *
-                              </a>
-                            </label>
-                            <input
-                              id="f_name"
-                              type="text"
-                              className="form-control"
-                              placeholder="收件人姓名"
-                            />
-                          </div>
-                        </div>
-                        <div className="col-md-12">
-                          <div className="form-group">
-                            <label htmlFor="street-address">
-                              详细地址{" "}
-                              <abbr className="required" title="required">
-                                *
-                              </abbr>
-                            </label>
-                            <input
-                              id="street-address"
-                              type="text"
-                              className="form-control"
-                              placeholder="收件人详细地址"
-                            />
-                          </div>
-                        </div>
-                        <div className="col-md-12">
-                          <div className="form-group">
-                            <label htmlFor="phone">
-                              联系方式{" "}
-                              <a className="required" title="required">
-                                *
-                              </a>
-                            </label>
-                            <input
-                              id="phone"
-                              type="text"
-                              className="form-control"
-                              placeholder="收件人联系方式"
-                            />
-                          </div>
-                        </div>
-                        <div className="col-md-12">
-                          <div className="form-group mb--0">
-                            <label htmlFor="order-notes">
-                              订单备注 (可选)
-                            </label>
-                            <textarea
-                              id="order-notes"
-                              className="form-control"
-                              placeholder="订单备注"
-                            ></textarea>
-                          </div>
-                        </div>
+                        <BillingAddress
+                          name={name}
+                          phone={phone}
+                          address={address}
+                          remark={remark}
+                          setName={setName}
+                          setPhone={setPhone}
+                          setAddress={setAddress}
+                          setRemark={setRemark}
+                        />
                       </div>
                     </form>
                   </div>
@@ -524,7 +495,7 @@ export default function ShopCheckout({
                       </tfoot>
                     </table>
                     <div className="shop-payment-method">
-                      <div id="PaymentMethodAccordion">
+                      {/* <div id="PaymentMethodAccordion">
                         <div className="card">
                           <div className="card-header" id="check_payments2">
                             <h5
@@ -572,9 +543,18 @@ export default function ShopCheckout({
                           <span className="required">*</span>
                           </label>
                         </div>
-                      </div>
-                      <a href="/account-login" className="btn-theme" style={{height: '60px'}}>
-                        下单
+                      </div> */}
+                      <a className="btn-theme" style={{height: '60px'}}
+                        onClick={async () => {
+                          await post('/Order/createorder/', { 'username': authState.username, 'productinfo_id': productinfo_id, 'amount': amount, 'price': price, 'name': name, 'phone': phone, 'address': address, 'remark': remark }).then((res)=>{
+                            if(res.status === 200) {
+                              setReFreshGlobalState(!refreshGlobalState);
+                              alert('支付成功！');
+                            } else {
+                              alert(res.message);
+                            }
+                          });
+                        }}>下单
                       </a>
                     </div>
                   </div>

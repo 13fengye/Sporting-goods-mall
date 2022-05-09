@@ -1,12 +1,13 @@
-import PageHeaderArea from "./pageHeaderArea";
+import { useState } from "react";
+import { ProductNo } from "store/interface";
 
 export default function ShopWishlist(){
+
+  const [productNos, setProductNos] = useState<ProductNo[]>([]);
+
   return (
     <>
       <main className="main-content">
-        <PageHeaderArea />
-
-        {/* <!--== Start Wishlist Area Wrapper ==--> */}
         <section className="shopping-wishlist-area">
           <div className="container">
             <div className="row">
@@ -17,14 +18,14 @@ export default function ShopWishlist(){
                       <tr>
                         <th className="product-remove">&nbsp;</th>
                         <th className="product-thumb">&nbsp;</th>
-                        <th className="product-name">Product</th>
-                        <th className="product-stock-status">Stock Status</th>
-                        <th className="product-price">Price</th>
+                        <th className="product-name">商品</th>
+                        <th className="product-stock-status">库存</th>
+                        <th className="product-price">价格</th>
                         <th className="product-action">&nbsp;</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr className="cart-wishlist-item">
+                      {<tr className="cart-wishlist-item">
                         <td className="product-remove">
                           <a href="#/"><i className="fa fa-trash-o"></i></a>
                         </td>
@@ -45,51 +46,7 @@ export default function ShopWishlist(){
                         <td className="product-action">
                           <a className="btn-cart" href="/shop-cart">Add to cart</a>
                         </td>
-                      </tr>
-                      <tr className="cart-wishlist-item">
-                        <td className="product-remove">
-                          <a href="#/"><i className="fa fa-trash-o"></i></a>
-                        </td>
-                        <td className="product-thumb">
-                          <a href="/single-product">
-                            <img src="/static/picture/2.webp" width="90" height="110" alt="Image-HasTech" />
-                          </a>
-                        </td>
-                        <td className="product-name">
-                          <h4 className="title"><a href="/single-product">Quickiin Mens shoes</a></h4>
-                        </td>
-                        <td className="product-stock-status">
-                          <span className="stock">In Stock</span>
-                        </td>
-                        <td className="product-price">
-                          <span className="price">£69.99</span>
-                        </td>
-                        <td className="product-action">
-                          <a className="btn-cart" href="/shop-cart">Add to cart</a>
-                        </td>
-                      </tr>
-                      <tr className="cart-wishlist-item">
-                        <td className="product-remove">
-                          <a href="#/"><i className="fa fa-trash-o"></i></a>
-                        </td>
-                        <td className="product-thumb">
-                          <a href="/single-product">
-                            <img src="/static/picture/3.webp" width="90" height="110" alt="Image-HasTech" />
-                          </a>
-                        </td>
-                        <td className="product-name">
-                          <h4 className="title"><a href="/single-product">Rexpo Womens shoes</a></h4>
-                        </td>
-                        <td className="product-stock-status">
-                          <span className="stock">In Stock</span>
-                        </td>
-                        <td className="product-price">
-                          <span className="price">£39.99</span>
-                        </td>
-                        <td className="product-action">
-                          <a className="btn-cart" href="/shop-cart">Add to cart</a>
-                        </td>
-                      </tr>
+                      </tr>}
                     </tbody>
                   </table>
                 </div>

@@ -13,11 +13,20 @@ class User(models.Model):
 
 # 用户地址信息
 class UserAddress(models.Model):
-    username = models.ForeignKey(User, on_delete=models.CASCADE)
+    username = models.CharField('用户名', max_length=32)
     name = models.CharField('姓名', max_length=32)
     address = models.CharField('地址', max_length=128)
-    phone = models.CharField('手机号码', max_length=11)
+    phone = models.CharField('手机号码', max_length=32)
 
     class meta:
         verbose_name = '用户地址'
         verbose_name_plural = '用户地址'
+
+# 用户收藏
+class UserCollection(models.Model):
+    username = models.CharField('用户名', max_length=32)
+    product_no = models.CharField('商品编号', max_length=32)
+
+    class meta:
+        verbose_name = '用户收藏'
+        verbose_name_plural = '用户收藏'

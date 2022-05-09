@@ -112,9 +112,9 @@ export default function Footer({
                           <li>
                             <a href="/shop">全部商品</a>
                           </li>
-                          <li>
+                          {/* <li>
                             <a href="/contact">联系我们</a>
-                          </li>
+                          </li> */}
                         </ul>
                       </div>
                     </div>
@@ -428,19 +428,14 @@ export default function Footer({
                 <a href="/">首页</a>
               </li>
               <li>
-                <a href="/about-us">关于我们</a>
-              </li>
-              <li>
                 <a href="/shop">全部商品</a>
                 <ul className="sub-menu">
                   {belongings.map(
                     (thisbelonging: { belonging: string; img: string }) => {
-                      // console.log(types[belongings.indexOf(thisbelonging)]);
                       const index = types.findIndex(
                         (type: { [x: string]: [] }) =>
                           type[thisbelonging.belonging] !== undefined
                       );
-                      // if (index !== -1) console.log(types[index][thisbelonging.belonging]);
                       return (
                         index !== -1 &&
                         types[index][thisbelonging.belonging].length > 0 && (
@@ -473,9 +468,6 @@ export default function Footer({
               { authState.jwt !== "" && <li>
                 <a href="/cart/shopping-cart">购物车</a>
               </li>}
-              <li>
-                <a href="/contact">联系我们</a>
-              </li>
             </ul>
           </div>
         </div>

@@ -1,14 +1,22 @@
+import { BillingAddress } from "components/billing-address";
 import { get, post } from "components/fetch";
 import router from "next/router";
 import { parseJwt } from "pages/account-login";
-import { AuthContext } from "pages/_app";
+import { AuthContext, ReFreshGlobalContext } from "pages/_app";
 import { useContext, useEffect, useState } from "react";
-import { Cart } from "store/interface";
+import { Cart, UserAddress } from "store/interface";
 
 export default function ShoppingCartCheckout() {
-    const [authState] = useContext(AuthContext);
+  const [authState] = useContext(AuthContext);
+  const [refreshGlobalState, setReFreshGlobalState] = useContext(ReFreshGlobalContext);
   const [cartList, setCartList] = useState<Cart[]>([]);
   const [discount, setDiscount] = useState<number>(0);
+  const [billingAddress, setBillingAddress] = useState<UserAddress|string>('');
+  const [name, setName] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [address, setAddress] = useState<string>("");
+  const [remark, setRemark] = useState<string>("无");
+  console.log(name, phone, address);
   useEffect(() => {
     // console.log(authState);
     if (authState.jwt === '') {
@@ -23,7 +31,21 @@ export default function ShoppingCartCheckout() {
     };
     loadShoppongCart();
 
-  }, [authState])
+    const loadBinglingAddress = async () => {
+      await post("/User/getbillinginfo/", { 'username': authState.username }).then((res) => {
+        if (res.status === 200) {
+          setBillingAddress(res.billing_info[0]);
+          setName(res.billing_info[0].name);
+          setPhone(res.billing_info[0].phone);
+          setAddress(res.billing_info[0].address);
+        } else {
+          setBillingAddress(res.message);
+        }
+      });
+    };
+    loadBinglingAddress();
+
+  }, [authState, refreshGlobalState]);
   console.log(cartList);
   const subTotal = cartList.reduce((acc, cur) => acc + cur.quantity * cur.price, 0);
  
@@ -34,79 +56,16 @@ export default function ShoppingCartCheckout() {
         <section className="shopping-checkout-wrap">
           <div className="container">
             <div className="row">
-              <div className="col-lg-6">
-                {/* <!--== Start Billing Accordion ==--> */}
-                <div className="checkout-billing-details-wrap">
-                  <h2 className="title">结算明细</h2>
-                  <div className="billing-form-wrap">
-                    <form action="#" method="post">
-                      <div className="row">
-                        <div className="col-md-12">
-                          <div className="form-group">
-                            <label htmlFor="f_name">
-                              姓名{" "}
-                              <a className="required" title="required">
-                                *
-                              </a>
-                            </label>
-                            <input
-                              id="f_name"
-                              type="text"
-                              className="form-control"
-                              placeholder="收件人姓名"
-                            />
-                          </div>
-                        </div>
-                        <div className="col-md-12">
-                          <div className="form-group">
-                            <label htmlFor="street-address">
-                              详细地址{" "}
-                              <abbr className="required" title="required">
-                                *
-                              </abbr>
-                            </label>
-                            <input
-                              id="street-address"
-                              type="text"
-                              className="form-control"
-                              placeholder="收件人详细地址"
-                            />
-                          </div>
-                        </div>
-                        <div className="col-md-12">
-                          <div className="form-group">
-                            <label htmlFor="phone">
-                              联系方式{" "}
-                              <a className="required" title="required">
-                                *
-                              </a>
-                            </label>
-                            <input
-                              id="phone"
-                              type="text"
-                              className="form-control"
-                              placeholder="收件人联系方式"
-                            />
-                          </div>
-                        </div>
-                        <div className="col-md-12">
-                          <div className="form-group mb--0">
-                            <label htmlFor="order-notes">
-                              订单备注 (可选)
-                            </label>
-                            <textarea
-                              id="order-notes"
-                              className="form-control"
-                              placeholder="订单备注"
-                            ></textarea>
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                {/* <!--== End Billing Accordion ==--> */}
-              </div>
+              <BillingAddress
+                name={name}
+                phone={phone}
+                address={address}
+                remark={remark}
+                setName={setName}
+                setPhone={setPhone}
+                setAddress={setAddress}
+                setRemark={setRemark}
+              />
               <div className="col-lg-6">
                 {/* <!--== Start Order Details Accordion ==--> */}
                 <div className="checkout-order-details-wrap">
@@ -120,23 +79,21 @@ export default function ShoppingCartCheckout() {
                         </tr>
                       </thead>
                       <tbody className="table-body">
-                        {
-                          cartList.map((cart: Cart) => {
-                            return (
-                              <tr className="cart-item">
-                                <td className="product-name">
-                                  {cart.name}{" "}
-                                  <span className="product-quantity">
-                                    × {cart.quantity}
-                                  </span>
-                                </td>
-                                <td className="product-total">
-                                  ￥{cart.price * cart.quantity}
-                                </td>
-                              </tr>
-                            );
-                          })
-                        }
+                        {cartList.map((cart: Cart) => {
+                          return (
+                            <tr className="cart-item">
+                              <td className="product-name">
+                                {cart.name}{" "}
+                                <span className="product-quantity">
+                                  × {cart.quantity}
+                                </span>
+                              </td>
+                              <td className="product-total">
+                                ￥{Math.round(cart.price * cart.quantity * 10) / 10}
+                              </td>
+                            </tr>
+                          );
+                        })}
                       </tbody>
                       <tfoot className="table-foot">
                         <tr className="cart-subtotal">
@@ -154,7 +111,7 @@ export default function ShoppingCartCheckout() {
                       </tfoot>
                     </table>
                     <div className="shop-payment-method">
-                      <div id="PaymentMethodAccordion">
+                      {/* <div id="PaymentMethodAccordion">
                         <div className="card">
                           <div className="card-header" id="check_payments2">
                             <h5
@@ -202,9 +159,19 @@ export default function ShoppingCartCheckout() {
                           <span className="required">*</span>
                           </label>
                         </div>
-                      </div>
-                      <a href="/account-login" className="btn-theme" style={{height: '60px'}}>
-                        下单
+                      </div> */}
+                      <a className="btn-theme" style={{ height: "60px" }}
+                        onClick={async () => {
+                          await post('/Order/createorders/', { 'username': authState.username, 'name': name, 'phone': phone, 'address': address, 'remark': remark, 'totalPrice': subTotal - discount, }).then((res)=>{
+                            if(res.status === 200) {
+                              setReFreshGlobalState(!refreshGlobalState);
+                              alert('支付成功！');
+                            } else {
+                              alert(res.message);
+                            }
+                          });
+                        }}
+                      >下单
                       </a>
                     </div>
                   </div>

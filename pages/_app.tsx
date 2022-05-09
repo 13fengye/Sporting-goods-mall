@@ -2,16 +2,17 @@ import { get, post } from "components/fetch";
 import Footer from "components/footer"
 import Header from "components/header"
 import { AppProps } from "next/app"
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { Cart } from "store/interface";
 export const AuthContext = createContext<any>(null);
+export const ReFreshGlobalContext = createContext<any>(null);
 
 function MyApp({ Component, pageProps }: AppProps) {
   let currState: string = '{ "jwt": "", "username": "", "email": ""}';
   if (typeof window !== "undefined") {
     currState = localStorage.getItem('auth') || currState;
   }
-
+  const [reFreshGlobalState, setReFreshGlobalState] = useState<boolean>(false);
   const [authState, setAuthState] = useState(JSON.parse(currState));
   const [belongings, setBelongings] = useState<{belonging: string,img: string}[]>([]);
   const [types, setTypes] = useState<{ [x: string]: [] }[]>([]);
@@ -54,15 +55,17 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
     loadShoppongCart();
     
-  }, [authState.jwt]);
+  }, [authState.jwt, reFreshGlobalState]);
 
   if (types.length === 0) return<div></div>;
   
   return(
     <AuthContext.Provider value={[authState, setAuthState]}>
-      <Header authUsername={authUsername} currState={currState} setAuthState={setAuthState} belongings={belongings} types={types} cartList={cartList}/>
-      <Component {...pageProps} />
+      <ReFreshGlobalContext.Provider value={[reFreshGlobalState, setReFreshGlobalState]}>
+        <Header authUsername={authUsername} currState={currState} setAuthState={setAuthState} belongings={belongings} types={types} cartList={cartList}/>
+      <Component {...pageProps}/>
       <Footer authUsername={authUsername} currState={currState} setAuthState={setAuthState} belongings={belongings} types={types} cartList={cartList}/>
+      </ReFreshGlobalContext.Provider>
     </AuthContext.Provider>
   )
 }

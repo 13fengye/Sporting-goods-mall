@@ -6131,7 +6131,7 @@ table p {
 
 @media screen and (min-width: 991px) {
   .checkout-billing-details-wrap {
-    margin-top: 55px;
+    margin-top: 25px;
   }
 }
 
@@ -9366,7 +9366,6 @@ table p {
   font-size: 20px;
   border-bottom: 1px dashed #ccc;
   padding-bottom: 10px;
-  margin-bottom: 25px;
 }
 @media only screen and (max-width: 991px) {
   .myaccount-content h3 {

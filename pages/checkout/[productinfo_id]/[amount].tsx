@@ -116,6 +116,7 @@ export default function ShopCheckout({
 
   const canRegister = username !== '' && email !== '' && password1 !== '' && password2 !== '' && password1 === password2 && emailReg.test(email)
   const canLogin = username !== "" && password !== "";
+  const canClick = name === "" || phone === "" || address === "";
   
   return (
     <>
@@ -532,18 +533,20 @@ export default function ShopCheckout({
                           </label>
                         </div>
                       </div> */}
-                      <a className="btn-theme" style={{height: '60px'}}
+                      <button className={`btn-theme height-60 ${canClick ? 'color' : ''}`}
+                        disabled = { name === "" || phone === "" || address === "" }
                         onClick={async () => {
                           await post('/Order/createorder/', { 'username': authState.username, 'productinfo_id': productinfo_id, 'amount': amount, 'price': price, 'name': name, 'phone': phone, 'address': address, 'remark': remark }).then((res)=>{
                             if(res.status === 200) {
                               setReFreshGlobalState(!refreshGlobalState);
                               alert('支付成功！');
+                              router.push("/success");
                             } else {
                               alert(res.message);
                             }
                           });
                         }}>下单
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>

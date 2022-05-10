@@ -1,16 +1,29 @@
-import { useContext, useEffect, useState } from "react";
-import Footer from "./footer";
+import { AuthContext } from "pages/_app";
+import {  useContext, useEffect, useState } from "react";
+import { Cart } from "store/interface";
 
 export default function Header({ 
   authUsername, 
   setAuthState,
-  currState
+  currState,
+  belongings,
+  types,
+  cartList
 }: {
   authUsername: string | false,
   setAuthState: any,
-  currState: string
+  currState: string,
+  belongings: {
+    belonging: string;
+    img: string;
+  }[],
+  types: {
+    [x: string]: [];
+  }[],
+  cartList: Cart[]
 }) {
-
+  const [authState] = useContext(AuthContext);
+  
   return (
     <>
     <header className="main-header-wrapper position-relative">
@@ -63,17 +76,17 @@ export default function Header({
                     <div className="shopping-search">
                       <button className="shopping-search-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasSearch" aria-controls="AsideOffcanvasSearch"><i className="pe-7s-search icon"></i></button>
                     </div>
-                    <div className="shopping-wishlist">
+                    {/* <div className="shopping-wishlist">
                       <a className="shopping-wishlist-btn" href="shop-wishlist">
                         <i className="pe-7s-like icon"></i>
                       </a>
-                    </div>
-                    <div className="shopping-cart">
+                    </div> */}
+                    { authState.jwt !== "" && <div className="shopping-cart">
                       <button className="shopping-cart-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasCart" aria-controls="offcanvasRightLabel">
                         <i className="pe-7s-shopbag icon"></i>
-                        <sup className="shop-count">02</sup>
+                        <sup className="shop-count">{cartList.length}</sup>
                       </button>
-                    </div>
+                    </div>}
                     <button className="btn-menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasMenu" aria-controls="AsideOffcanvasMenu">
                       <i className="pe-7s-menu"></i>
                     </button>
@@ -92,35 +105,29 @@ export default function Header({
                 <div className="header-navigation-area position-relative">
                   <ul className="main-menu nav">
                     <li><a href="/"><span>首页</span></a></li>
-                    <li className="has-submenu position-static"><a href="/#/"><span>分类</span></a>
+                    <li className="has-submenu position-static"><a href="/shop"><span>全部商品</span></a>
                       <ul className="submenu-nav submenu-nav-mega column-3">
-                        <li className="mega-menu-item"><a href="/#/" className="mega-title"><span>室内专场</span></a>
-                          <ul>
-                            <li><a href="/shop-three-columns"><span>Shop 3 Column</span></a></li>
-                            <li><a href="/shop-four-columns"><span>Shop 4 Column</span></a></li>
-                            <li><a href="/shop"><span>Shop Left Sidebar</span></a></li>
-                            <li><a href="/shop-right-sidebar"><span>Shop Right Sidebar</span></a></li>
-                          </ul>
-                        </li>
-                        <li className="mega-menu-item"><a href="/#/" className="mega-title"><span>室外专场</span></a>
-                          <ul>
-                            <li><a href="/single-normal-product"><span>Single Product Normal</span></a></li>
-                            <li><a href="/single-product"><span>Single Product Variable</span></a></li>
-                            <li><a href="/single-group-product"><span>Single Product Group</span></a></li>
-                            <li><a href="/single-affiliate-product"><span>Single Product Affiliate</span></a></li>
-                          </ul>
-                        </li>
-                        <li className="mega-menu-item"><a href="/#/" className="mega-title"><span>其他商品</span></a>
-                          <ul>
-                            <li><a href="/shop-cart"><span>Shopping Cart</span></a></li>
-                            <li><a href="/shop-checkout"><span>Checkout</span></a></li>
-                            <li><a href="/shop-wishlist"><span>Wishlist</span></a></li>
-                            <li><a href="/shop-compare"><span>Compare</span></a></li>
-                          </ul>
-                        </li>
+                        { belongings.map((thisbelonging: { belonging: string, img: string }) => { 
+                          // console.log(types[belongings.indexOf(thisbelonging)]);
+                          const index = types.findIndex((type: { [x: string]: [] }) => type[thisbelonging.belonging] !== undefined);
+                          // if (index !== -1) console.log(types[index][thisbelonging.belonging]);
+                          return(
+                            index !== -1 && types[index][thisbelonging.belonging].length > 0 && <li className="mega-menu-item"><a className="mega-title"><span>{thisbelonging.belonging}</span></a>
+                              <ul>
+                                { 
+                                  types[index][thisbelonging.belonging].map((type: string)=>{
+                                    return(
+                                      <li><a href={`/classified-goods/${thisbelonging.belonging}/${type}`}><span>{type}</span></a></li>
+                                    );
+                                  })
+                                }
+                              </ul>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </li>
-                    <li><a href="/contact"><span>联系我们</span></a></li>
+                    {/* <li><a href="/contact"><span>联系我们</span></a></li> */}
                   </ul>
                 </div>
               </div>

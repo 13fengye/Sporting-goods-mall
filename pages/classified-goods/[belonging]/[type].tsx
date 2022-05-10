@@ -1,50 +1,42 @@
 import { get } from "components/fetch";
-import React, { useEffect, useState } from "react";
+import ProductNavbar from "components/product-navbar";
+import React, { useContext, useEffect, useState } from "react";
 import { ProductNo } from "store/interface";
 import { NEXT_PUBLIC_URL } from "components/url";
-const AllProducts = ({ belonging, type }: { belonging: string; type: string }) => {
-  console.log(belonging, type);
-  const [allProducts, setAallProducts] = useState<ProductNo[]>();
-  const [selectedLelonging, setSelectedLelonging] = useState<string>("默认");
-  const [selectedType, setSelectedType] = useState<string>("默认");
-  const [belongings, setBelongings] = useState<{belonging: string,img: string}[]>([]);
-  const [types, setTypes] = useState<{ type: string; img: string }[]>([]);
-  const [productsLength, setproductsLength] = useState<number>(0);
+import { NextPage } from "next";
 
+export async function getServerSideProps(context: { params: { belonging: string, type: string } }) {
+  
+  return {
+    props: {
+      belonging: context.params.belonging,
+      type: context.params.type,
+    }, // will be passed to the page component as props
+  };
+}
+
+const ClassifiedGoods: NextPage<any> = ({
+  belonging,
+  type,
+}: {
+  belonging: string;
+  type: string;
+}) => {
+  console.log(belonging, type);
+  const [classifiedGoods, setClassifiedGoods] = useState<ProductNo[]>();
 
   useEffect(() => {
-    const a: { [x: string]: [] }[] = [];
-    const loadBelongings = async () => {
-      await get("/Product/getbelongings/").then((data) => {
-        const belongingsData = data.belongs.sort(
-          (a: { belonging: string }, b: { belonging: string }) =>
-            b.belonging.localeCompare(a.belonging)
-        );
-        setBelongings(belongingsData);
-      });
-    };
-    loadBelongings();
-
-    const loadType = async () => {
-      await get('/Product/getalltypes/').then((data)=>
-        setTypes(data.types)
-      );
-    };
-    loadType();
-
     const loadNewProducts = async () => {
-      await get(`/Product/getallproducts/${selectedLelonging}/${selectedType}`).then((data) => {
-        setAallProducts(data.products);
-        setproductsLength(data.products.length);
+      await get(`/Product/getclassifiedgoods/${belonging}/${type}`).then((data) => {
+        setClassifiedGoods(data.products);
       });
     };
     loadNewProducts();
-  }, [selectedLelonging, selectedType]);
+  }, []);
 
   // return <div></div>
 
-  if (!allProducts) return <div></div>;
-  console.log(belongings, types);
+  if (!classifiedGoods) return <div></div>;
 
   return (
     <>
@@ -52,96 +44,10 @@ const AllProducts = ({ belonging, type }: { belonging: string; type: string }) =
         {/* <!--== Start Product Area Wrapper ==--> */}
         <section className="product-area product-default-area">
           <div className="container">
-            <div className="row flex-xl-row-reverse justify-content-between margin-top-50 margin-top">
+            <div className="row flex-xl-row-reverse justify-content-between margin-top-50">
               <div className="col-xl-9">
                 <div className="row">
-                  <div className="shop-top-bar">
-                    <div className="shop-top-left">
-                      <p className="pagination-line">
-                        找到 <a className="red-color">{productsLength}</a>{" "}
-                        个商品
-                      </p>
-                    </div>
-                    <div className="shop-top-center">
-                      <nav className="product-nav">
-                        <div
-                          className="nav nav-tabs"
-                          id="nav-tab"
-                          role="tablist"
-                        >
-                          <button
-                            className="nav-link active"
-                            id="nav-grid-tab"
-                            data-bs-toggle="tab"
-                            data-bs-target="#nav-grid"
-                            type="button"
-                            role="tab"
-                            aria-controls="nav-grid"
-                            aria-selected="true"
-                          >
-                            <i className="fa fa-th"></i>
-                          </button>
-                          <button
-                            className="nav-link"
-                            id="nav-list-tab"
-                            data-bs-toggle="tab"
-                            data-bs-target="#nav-list"
-                            type="button"
-                            role="tab"
-                            aria-controls="nav-list"
-                            aria-selected="false"
-                          >
-                            <i className="fa fa-list"></i>
-                          </button>
-                        </div>
-                      </nav>
-                    </div>
-                    <div className="shop-top-right">
-                      <form action="" method="">
-                        <div className="shop-sort">
-                          <span>类别:</span>
-                          <select
-                            className="form-select"
-                            aria-label="Sort select example"
-                            id="belonging"
-                            onClick={(e) => {
-                              setSelectedLelonging(e.currentTarget.value);
-                            }}
-                          >
-                            <option selected={false}>默认</option>
-                            {belongings.map(
-                              (belonging: {
-                                belonging: string;
-                                img: string;
-                              }) => {
-                                return (
-                                  <option value={`${belonging.belonging}`}>
-                                    {belonging.belonging}
-                                  </option>
-                                );
-                              }
-                            )}
-                          </select>
-                        </div>
-                        <div className="shop-sort">
-                          <select
-                            className="form-select"
-                            aria-label="Sort select example"
-                            id="belonging"
-                            style={{ marginLeft: "60px" }}
-                            onClick={(e) => {
-                              setSelectedType(e.currentTarget.value);
-                            }}
-                          >
-                            <option selected={false}>默认</option>
-                            {types.map((type: { type: string; img: string }) => {
-                              return <option value={`${type.type}`}>{type.type}</option>;
-                            })}
-                          </select>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
+                  <ProductNavbar />
                   <div className="col-12">
                     <div className="tab-content" id="nav-tabContent">
                       <div
@@ -151,7 +57,7 @@ const AllProducts = ({ belonging, type }: { belonging: string; type: string }) =
                         aria-labelledby="nav-grid-tab"
                       >
                         <div className="row">
-                          {allProducts.flatMap((product: ProductNo) => {
+                          {classifiedGoods.flatMap((product: ProductNo) => {
                             return (
                               <div className="col-sm-6 col-lg-4">
                                 {/* <!--== Start Product Item ==--> */}
@@ -205,7 +111,6 @@ const AllProducts = ({ belonging, type }: { belonging: string; type: string }) =
                                           ￥{product.standard_price}
                                         </span>
                                       </div>
-                                      <div>已售 {product.sold}</div>
                                     </div>
                                   </div>
                                 </div>
@@ -238,7 +143,7 @@ const AllProducts = ({ belonging, type }: { belonging: string; type: string }) =
                         aria-labelledby="nav-list-tab"
                       >
                         <div className="row">
-                          {allProducts.flatMap((product: ProductNo) => {
+                          {classifiedGoods.flatMap((product: ProductNo) => {
                             return (
                               <div className="col-md-12">
                                 {/* <!--== Start Product Item ==--> */}
@@ -336,6 +241,6 @@ const AllProducts = ({ belonging, type }: { belonging: string; type: string }) =
       </main>
     </>
   );
-};;
+};
 
-export default AllProducts;
+export default ClassifiedGoods;

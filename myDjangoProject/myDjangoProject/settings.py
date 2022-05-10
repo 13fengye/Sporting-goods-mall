@@ -175,3 +175,13 @@ CORS_ALLOW_HEADERS = (
 )
 
 JWT_TOKEN_KEY = 'pengzhentong'
+BELONGINGS_URL = '/belonging_imgs/'
+BELONGINGS_ROOT = os.path.join(BASE_DIR, 'belonging_imgs')
+CATEGORIES_URL = '/categories_imgs/'
+CATEGORIES_ROOT = os.path.join(BASE_DIR, 'categories_imgs')
+DETAILS_URL = '/details/'
+DETAILS_ROOT = os.path.join(BASE_DIR, 'details')
+IMAGS_URL = '/imgs/'
+IMAGS_ROOT = os.path.join(BASE_DIR, 'imgs')
+TYPEIMAGS_URL = '/type_imgs/'
+TYPEIMAGS_ROOT = os.path.join(BASE_DIR, 'type_imgs')

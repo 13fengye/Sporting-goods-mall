@@ -15,8 +15,23 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.contrib import staticfiles
+from django.contrib.staticfiles.urls import static
+from . import settings
+
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'User/', include('User.urls')),
+    url(r'Product/', include('Product.urls')),
+    url(r'Order/', include('Order.urls')),
+
 ]
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.BELONGINGS_URL, document_root=settings.BELONGINGS_ROOT)
+urlpatterns += static(settings.CATEGORIES_URL, document_root=settings.CATEGORIES_ROOT)
+urlpatterns += static(settings.DETAILS_URL, document_root=settings.DETAILS_ROOT)
+urlpatterns += static(settings.IMAGS_URL, document_root=settings.IMAGS_ROOT)
+urlpatterns += static(settings.TYPEIMAGS_URL, document_root=settings.TYPEIMAGS_ROOT)

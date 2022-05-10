@@ -22,6 +22,7 @@ class MyDocument extends Document {
           <link href="/static/css/fancybox.min.css" rel="stylesheet"/>
           <link href="/static/css/aos.min.css" rel="stylesheet"/>
           <link href="/static/css/style.css" rel="stylesheet"/>
+          <link href="/static/css/mystyle.css" rel="stylesheet"/>
           <script src="/static/js/modernizr.js"></script>
           <script src="/static/js/jquery-main.js"></script>
           <script src="/static/js/jquery-migrate.js"></script>

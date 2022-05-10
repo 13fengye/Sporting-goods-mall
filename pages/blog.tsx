@@ -1,12 +1,7 @@
-import PageHeaderArea from "./pageHeaderArea";
-
 export default function Blog() {
   return (
     <>
       <main className="main-content">
-        <PageHeaderArea />
-
-        {/* <!--== Start Blog Area Wrapper ==--> */}
         <section className="blog-area blog-inner-area">
           <div className="container">
             <div className="row">

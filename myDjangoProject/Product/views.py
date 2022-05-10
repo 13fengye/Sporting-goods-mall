@@ -73,3 +73,7 @@ def get_product_info(request, productinfo_id):
     productNo = list(models.ProductNo.objects.filter(product_no=productInfo['product_no_id']).values())[0]
     productInfo['created'] = str(productInfo['created'])
     return HttpResponse(json.dumps({'status': 200, 'productInfo': productInfo, 'productNo': productNo}))
+
+def get_search_products(request, keyword):
+    productNos = list(models.ProductNo.objects.filter(name__contains=keyword).values('product_no' ,'name', 'img', 'standard_price', 'sold', 'describe'))
+    return HttpResponse(json.dumps({'status': 200, 'products': productNos})) if productNos else HttpResponse(json.dumps({'status': 200, 'products': []}))

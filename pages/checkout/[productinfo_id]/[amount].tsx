@@ -439,29 +439,17 @@ export default function ShopCheckout({
               <></>
             )}
             <div className="row">
-              <div className="col-lg-6">
-                {/* <!--== Start Billing Accordion ==--> */}
-                <div className="checkout-billing-details-wrap">
-                  <h2 className="title">结算明细</h2>
-                  <div className="billing-form-wrap">
-                    <form action="#" method="post">
-                      <div className="row">
-                        <BillingAddress
-                          name={name}
-                          phone={phone}
-                          address={address}
-                          remark={remark}
-                          setName={setName}
-                          setPhone={setPhone}
-                          setAddress={setAddress}
-                          setRemark={setRemark}
-                        />
-                      </div>
-                    </form>
-                  </div>
-                </div>
+                <BillingAddress
+                  name={name}
+                  phone={phone}
+                  address={address}
+                  remark={remark}
+                  setName={setName}
+                  setPhone={setPhone}
+                  setAddress={setAddress}
+                  setRemark={setRemark}
+                />
                 {/* <!--== End Billing Accordion ==--> */}
-              </div>
               <div className="col-lg-6">
                 {/* <!--== Start Order Details Accordion ==--> */}
                 <div className="checkout-order-details-wrap">

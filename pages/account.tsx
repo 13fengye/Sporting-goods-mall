@@ -1,9 +1,7 @@
 import { post } from "components/fetch";
-import { NEXT_PUBLIC_URL } from "components/url";
-import router, { Router } from "next/router";
+import router from "next/router";
 import { useContext, useEffect, useState } from "react";
 import { OrderInfos, UserAddress } from "store/interface";
-import PageHeaderArea from "./pageHeaderArea";
 import { AuthContext } from "./_app";
 
 export default function Account() {
@@ -55,8 +53,6 @@ export default function Account() {
   return (
     <>
       <main className="main-content">
-        <PageHeaderArea />
-        {/* <!--== Start My Account Wrapper ==--> */}
         <section className="my-account-area">
           <div className="container pt--0 pb--0">
             <div className="row">
@@ -143,8 +139,8 @@ export default function Account() {
                                   <p><strong>{billingAddress}</strong></p>
                                 </> : 
                                 <>
-                                  <p>姓名:{billingAddress.name}</p>
-                                  <p>地址:{billingAddress.address}</p>
+                                  <p>姓名: {billingAddress.name}</p>
+                                  <p>地址: {billingAddress.address}</p>
                                   <p>联系方式: {billingAddress.phone}</p>
                                 </>
                                 }
@@ -352,6 +348,9 @@ export default function Account() {
                                       } else {
                                         await post("/User/changepassword/", { 'username': authState.username, 'currentPassword': currentPassword, 'newPassword': newPassword }).then((res)=>{
                                           alert(res.message);
+                                          if (res.status === 200) {
+                                            router.push("/account-login");
+                                          }
                                         })
                                       }
                                     }}>

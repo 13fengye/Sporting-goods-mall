@@ -10,9 +10,9 @@ export default function PageNotFound(){
                 <div className="page-not-found-wrap">
                   <div className="page-not-found-content">
                     <h3 className="not-found-text" data-aos="fade-down" data-aos-duration="1000">404</h3>
-                    <h3 className="title" data-aos="fade-down" data-aos-duration="1200">Page Cannot Be Found!</h3>
-                    <p className="desc" data-aos="fade-down" data-aos-duration="1400">Seems like nothing was found at this location. Try something else or you can go back to the homepage following the button below!</p>
-                    <a className="btn-theme-border" href="/index" data-aos="fade-down" data-aos-duration="1600">Back to home</a>
+                    <h3 className="title" data-aos="fade-down" data-aos-duration="1200">页面走丢了</h3>
+                    <p className="desc" data-aos="fade-down" data-aos-duration="1400">这里似乎没有您想要的信息，回到首页吧~</p>
+                    <a className="btn-theme-border" href="/index" data-aos="fade-down" data-aos-duration="1600">回到首页</a>
                   </div>
                 </div>
               </div>

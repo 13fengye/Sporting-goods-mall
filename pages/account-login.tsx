@@ -1,7 +1,6 @@
 import { post } from "components/fetch";
 import router from "next/router";
 import { useContext, useEffect, useState } from "react";
-import PageHeaderArea from "./pageHeaderArea";
 import { AuthContext } from "./_app";
 
 export function parseJwt(token: string) {
@@ -45,9 +44,6 @@ export default function Accountlogin() {
   return (
     <>
       <main className="main-content">
-        <PageHeaderArea />
-
-        {/* <!--== Start My Account Area Wrapper ==--> */}
         <section className="account-area">
           <div className="container">
             <div className="row">

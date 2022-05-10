@@ -2,7 +2,6 @@ import { post } from "components/fetch";
 import router from "next/router";
 import { useContext, useEffect, useState } from "react";
 import { parseJwt } from "./account-login";
-import PageHeaderArea from "./pageHeaderArea";
 import { AuthContext } from "./_app";
 
 export default function AccountRegister() {
@@ -53,88 +52,83 @@ export default function AccountRegister() {
 
   return (<>
     <main className="main-content">
-      <PageHeaderArea />
-
-
-        {/* <!--== Start My Account Area Wrapper ==--> */}
-        <section className="account-area">
-          <div className="container">
-            <div className="row">
-              <div className="col-sm-8 m-auto">
-                <div className="section-title text-center">
-                  <h2 className="title">注册</h2>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-12">
-                <div className="register-form-content">
-                  <form action="#">
-                    <div className="row">
-                      <div className="col-12">
-                        <div className="form-group">
-                          <label htmlFor="username">用户名<span className="required">*</span></label>
-                          <input id="username" className="form-control" type="username" autoComplete="off" onChange={(e) => { setUsername(e.currentTarget.value) }} value={username} />
-                          <div style={{ fontFamily: 'cursive', color: '#ff0000' }}>{checkUserNameError}</div>
-                        </div>
-                      </div>
-                      <div className="col-12">
-                        <div className="form-group">
-                          <label htmlFor="email">邮箱 <span className="required">*</span></label>
-                          <input id="email" className="form-control" type="email" onChange={(e) => { setEmail(e.currentTarget.value) }} value={email} />
-                          <div style={{ fontFamily: 'cursive', color: '#ff0000' }}>{checkEmailError}</div>
-                        </div>
-                      </div>
-                      <div className="col-12">
-                        <div className="form-group">
-                          <label htmlFor="password">密码 <span className="required">*</span></label>
-                          <input id="password" className="form-control" type="password" autoComplete="new-password" onChange={(e) => { setPassword1(e.currentTarget.value) }} value={password1} />
-                          <div style={{ fontFamily: 'cursive', color: '#ff0000' }}>{checkPassword1Error}</div>
-                        </div>
-                      </div>
-                      <div className="col-12">
-                        <div className="form-group">
-                          <label htmlFor="password">再次密码 <span className="required">*</span></label>
-                          <input id="password" className="form-control" type="password" onChange={(e) => { setPassword2(e.currentTarget.value) }} value={password2} />
-                          <div style={{ fontFamily: 'cursive', color: '#ff0000' }}>{checkPassword2Error}</div>
-                          <div style={{ fontFamily: 'cursive', color: !isRegister ? '#ff0000' : '#16e02c', fontWeight: !isRegister ? '' : 'bold' }}>{error}</div>
-                        </div>
-                      </div>
-                      <div className="col-12">
-                        <div className="form-group mb--0">
-                          <a className="btn-register"
-                            onClick={() => {
-                              setCheck(true);
-                              if (username !== '' && email !== '' && password1 !== '' && password2 !== '' && password1 === password2 && emailReg.test(email)) {
-                                post('/User/user/', { 'username': username, 'password': password1, 'email': email}).then(res => {
-                                  if (res.status === 200) {
-                                    setIsRegiste(true);
-                                    setError(res.message);
-                                    const jwt = res.token;
-                                    const user = parseJwt(jwt);
-                                    const username = user.username;
-                                    const email = user.email;
-                                    console.log({ jwt, user, email })
-                                    window.localStorage.setItem('auth', JSON.stringify({ jwt, username, email }));
-                                    setAuthState({ jwt, username, email });
-                                    router.push('/account')
-                                  } else {
-                                    setError(res.message);
-                                    setIsRegiste(false);
-                                  }
-                                })
-                              }
-                            }}>注册</a>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
+      <section className="account-area">
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-8 m-auto">
+              <div className="section-title text-center">
+                <h2 className="title">注册</h2>
               </div>
             </div>
           </div>
-        </section>
-        {/* <!--== End My Account Area Wrapper ==--> */}
+          <div className="row">
+            <div className="col-12">
+              <div className="register-form-content">
+                <form action="#">
+                  <div className="row">
+                    <div className="col-12">
+                      <div className="form-group">
+                        <label htmlFor="username">用户名<span className="required">*</span></label>
+                        <input id="username" className="form-control" type="username" autoComplete="off" onChange={(e) => { setUsername(e.currentTarget.value) }} value={username} />
+                        <div style={{ fontFamily: 'cursive', color: '#ff0000' }}>{checkUserNameError}</div>
+                      </div>
+                    </div>
+                    <div className="col-12">
+                      <div className="form-group">
+                        <label htmlFor="email">邮箱 <span className="required">*</span></label>
+                        <input id="email" className="form-control" type="email" onChange={(e) => { setEmail(e.currentTarget.value) }} value={email} />
+                        <div style={{ fontFamily: 'cursive', color: '#ff0000' }}>{checkEmailError}</div>
+                      </div>
+                    </div>
+                    <div className="col-12">
+                      <div className="form-group">
+                        <label htmlFor="password">密码 <span className="required">*</span></label>
+                        <input id="password" className="form-control" type="password" autoComplete="new-password" onChange={(e) => { setPassword1(e.currentTarget.value) }} value={password1} />
+                        <div style={{ fontFamily: 'cursive', color: '#ff0000' }}>{checkPassword1Error}</div>
+                      </div>
+                    </div>
+                    <div className="col-12">
+                      <div className="form-group">
+                        <label htmlFor="password">再次密码 <span className="required">*</span></label>
+                        <input id="password" className="form-control" type="password" onChange={(e) => { setPassword2(e.currentTarget.value) }} value={password2} />
+                        <div style={{ fontFamily: 'cursive', color: '#ff0000' }}>{checkPassword2Error}</div>
+                        <div style={{ fontFamily: 'cursive', color: !isRegister ? '#ff0000' : '#16e02c', fontWeight: !isRegister ? '' : 'bold' }}>{error}</div>
+                      </div>
+                    </div>
+                    <div className="col-12">
+                      <div className="form-group mb--0">
+                        <a className="btn-register"
+                          onClick={() => {
+                            setCheck(true);
+                            if (username !== '' && email !== '' && password1 !== '' && password2 !== '' && password1 === password2 && emailReg.test(email)) {
+                              post('/User/user/', { 'username': username, 'password': password1, 'email': email}).then(res => {
+                                if (res.status === 200) {
+                                  setIsRegiste(true);
+                                  setError(res.message);
+                                  const jwt = res.token;
+                                  const user = parseJwt(jwt);
+                                  const username = user.username;
+                                  const email = user.email;
+                                  console.log({ jwt, user, email })
+                                  window.localStorage.setItem('auth', JSON.stringify({ jwt, username, email }));
+                                  setAuthState({ jwt, username, email });
+                                  router.push('/account')
+                                } else {
+                                  setError(res.message);
+                                  setIsRegiste(false);
+                                }
+                              })
+                            }
+                          }}>注册</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   </>)
 }

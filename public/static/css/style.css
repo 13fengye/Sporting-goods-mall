@@ -316,6 +316,7 @@ table p {
   font-weight: 500;
   padding: 14px 28px 13px;
   font-size: 16px;
+  text-align: center;
 }
 @media only screen and (max-width: 767px) {
   .btn-theme.btn-sm {
@@ -736,7 +737,7 @@ table p {
   font-size: 14px;
   font-family: "FontAwesome";
   position: absolute;
-  right: -3px;
+  right: -20px;
   top: 0;
   line-height: 49px;
 }

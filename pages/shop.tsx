@@ -171,24 +171,6 @@ const AllProducts = ({ belonging, type }: { belonging: string; type: string }) =
                                           <li className="discount">新品</li>
                                         </ul>
                                       </div> */}
-                                      <div className="product-action">
-                                        <a
-                                          className="btn-product-wishlist"
-                                          href="/shop-wishlist"
-                                        >
-                                          <i className="fa fa-heart"></i>
-                                        </a>
-                                        <a
-                                          className="btn-product-cart"
-                                          href="/shop-cart"
-                                        >
-                                          <i className="fa fa-shopping-cart"></i>
-                                        </a>
-                                      </div>
-                                      <a
-                                        className="banner-link-overlay"
-                                        href="/"
-                                      ></a>
                                     </div>
                                     <div className="product-info">
                                       <h4 className="title">
@@ -258,24 +240,6 @@ const AllProducts = ({ belonging, type }: { belonging: string; type: string }) =
                                           <li className="discount">新品</li>
                                         </ul>
                                       </div> */}
-                                      <div className="product-action">
-                                        <a
-                                          className="btn-product-wishlist"
-                                          href="/shop-wishlist"
-                                        >
-                                          <i className="fa fa-heart"></i>
-                                        </a>
-                                        <a
-                                          className="btn-product-cart"
-                                          href="/shop-cart"
-                                        >
-                                          <i className="fa fa-shopping-cart"></i>
-                                        </a>
-                                      </div>
-                                      <a
-                                        className="banner-link-overlay"
-                                        href="/"
-                                      ></a>
                                     </div>
                                     <div className="product-info">
                                       <h4 className="title">
@@ -293,9 +257,9 @@ const AllProducts = ({ belonging, type }: { belonging: string; type: string }) =
                                       <p>{product.describe}</p>
                                       <a
                                         className="btn-theme btn-sm"
-                                        href="/shop-cart"
+                                        href={`/product/${product.product_no}`}
                                       >
-                                        加入购物车
+                                        去购买
                                       </a>
                                     </div>
                                   </div>
@@ -304,6 +268,10 @@ const AllProducts = ({ belonging, type }: { belonging: string; type: string }) =
                               </div>
                             );
                           })}
+                          { allProducts.length === 0 && 
+                            <div>
+                              <h1 className="search-result">没有搜索到相关商品</h1>
+                            </div> }
 
                           {/* 分页 */}
                           {/* <div className="col-12">

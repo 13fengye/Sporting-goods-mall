@@ -71,3 +71,8 @@
 .margin-top-20 {
   margin-top: 20px;
 }
+
+.search-result {
+  text-align: center;
+  font-weight: 300;
+}

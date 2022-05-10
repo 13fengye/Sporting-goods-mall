@@ -1,11 +1,7 @@
-import PageHeaderArea from "./pageHeaderArea";
-
 export default function AboutUs() {
   return(
     <>
       <main className="main-content">
-        <PageHeaderArea />
-
         {/* <!--== Start About Area Wrapper ==--> */}
         <section className="about-area about-default-wrapper">
           <div className="container">

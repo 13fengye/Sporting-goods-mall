@@ -1,36 +1,51 @@
-import { get } from "components/fetch";
+import { get, post } from "components/fetch";
 import ProductNavbar from "components/product-navbar";
-import React, { useEffect, useState } from "react";
-import { ProductNo } from "store/interface";
 import { NEXT_PUBLIC_URL } from "components/url";
+import { useRouter } from "next/router";
+import { AuthContext, ReFreshGlobalContext } from "pages/_app";
+import { useContext, useEffect, useState } from "react";
+import { ProductNo } from "store/interface";
 
-export default function Shop() {
-  const [featuredNewProductsData, setFeaturedNewProductsData] = useState<[ProductNo][]>();
-
-  useEffect(() => {
-    const loadNewProducts = async () => {
-      await get('/Product/getfeaturednewproducts/').then(data => {
-        setFeaturedNewProductsData(data.products);
-      })
-    };
-    loadNewProducts();
-  }, []);
-
-  if (!featuredNewProductsData) return <div></div>;
+export async function getServerSideProps(context: { params: { keyword: string } }) {
   
-  const featuredNewProducts = featuredNewProductsData.map(([featuredNewProduct]: [ProductNo])=>featuredNewProduct);
-  console.log(featuredNewProducts);
+  return {
+    props: {
+      keyword: context.params.keyword,
+    }, // will be passed to the page component as props
+  };
+}
+
+export default function SearchProducts({
+  keyword
+}:{
+  keyword: string
+}) {
+  const [searchProducts, setSearchProducts] = useState<ProductNo[]>([]);
+  console.log(keyword);
+  
+  useEffect(()=>{
+    const loadSearchProducts = async () => {
+      await get(`/Product/searchproducts/${keyword}`).then((data) => {
+        if (data.status === 200) {
+          setSearchProducts(data.products);
+        }
+      });
+    };
+    loadSearchProducts();
+  },[keyword]);
 
   return (
     <>
       <main className="main-content">
+        {/* <!--== Start Product Area Wrapper ==--> */}
         <section className="product-area product-default-area">
           <div className="container">
             <div className="row flex-xl-row-reverse justify-content-between margin-top-50">
               <div className="col-xl-9">
                 <div className="row">
                   <ProductNavbar />
-                  <div className="col-12">
+                  {searchProducts.length > 0 ? 
+                    <div className="col-12">
                     <div className="tab-content" id="nav-tabContent">
                       <div
                         className="tab-pane fade show active"
@@ -39,14 +54,16 @@ export default function Shop() {
                         aria-labelledby="nav-grid-tab"
                       >
                         <div className="row">
-                          {featuredNewProducts.flatMap((product: ProductNo) => {
+                          {searchProducts.flatMap((product: ProductNo) => {
                             return (
                               <div className="col-sm-6 col-lg-4">
                                 {/* <!--== Start Product Item ==--> */}
                                 <div className="product-item">
                                   <div className="inner-content">
                                     <div className="product-thumb">
-                                      <a href={`/product/${product.product_no}`}>
+                                      <a
+                                        href={`/product/${product.product_no}`}
+                                      >
                                         <img
                                           src={`${NEXT_PUBLIC_URL}/${product.img}`}
                                           width="270"
@@ -54,11 +71,6 @@ export default function Shop() {
                                           alt="Image-HasTech"
                                         />
                                       </a>
-                                      <div className="product-flag">
-                                        <ul>
-                                          <li className="discount">新品</li>
-                                        </ul>
-                                      </div>
                                       <a
                                         className="banner-link-overlay"
                                         href="/"
@@ -66,7 +78,9 @@ export default function Shop() {
                                     </div>
                                     <div className="product-info">
                                       <h4 className="title">
-                                        <a href={`/product/${product.product_no}`}>
+                                        <a
+                                          href={`/product/${product.product_no}`}
+                                        >
                                           {product.name}
                                         </a>
                                       </h4>
@@ -75,7 +89,9 @@ export default function Shop() {
                                           $240.00
                                         </span>
                                         <span className="sep">-</span> */}
-                                        <span className="price">￥{product.standard_price}</span>
+                                        <span className="price">
+                                          ￥{product.standard_price}
+                                        </span>
                                       </div>
                                     </div>
                                   </div>
@@ -109,52 +125,51 @@ export default function Shop() {
                         aria-labelledby="nav-list-tab"
                       >
                         <div className="row">
-                          {featuredNewProducts.flatMap((product: ProductNo) => {
+                          {searchProducts.flatMap((product: ProductNo) => {
                             return (
                               <div className="col-md-12">
-                            {/* <!--== Start Product Item ==--> */}
-                            <div className="product-item product-list-item">
-                              <div className="inner-content">
-                                <div className="product-thumb">
-                                  <a href={`/product/${product.product_no}`}>
-                                    <img
-                                      src={`${NEXT_PUBLIC_URL}/${product.img}`}
-                                      width="270"
-                                      height="270"
-                                      alt="Image-HasTech"
-                                    />
-                                  </a>
-                                  <div className="product-flag">
-                                    <ul>
-                                      <li className="discount">新品</li>
-                                    </ul>
-                                  </div>
-                                </div>
-                                <div className="product-info">
-                                  <h4 className="title">
-                                    <a href={`/product/${product.product_no}`}>
-                                      {product.name}
-                                    </a>
-                                  </h4>
-                                  <div className="prices">
-                                    {/* <span className="price-old">$240.00</span>
+                                {/* <!--== Start Product Item ==--> */}
+                                <div className="product-item product-list-item">
+                                  <div className="inner-content">
+                                    <div className="product-thumb">
+                                      <a
+                                        href={`/product/${product.product_no}`}
+                                      >
+                                        <img
+                                          src={`${NEXT_PUBLIC_URL}/${product.img}`}
+                                          width="270"
+                                          height="270"
+                                          alt="Image-HasTech"
+                                        />
+                                      </a>
+                                    </div>
+                                    <div className="product-info">
+                                      <h4 className="title">
+                                        <a
+                                          href={`/product/${product.product_no}`}
+                                        >
+                                          {product.name}
+                                        </a>
+                                      </h4>
+                                      <div className="prices">
+                                        {/* <span className="price-old">$240.00</span>
                                     <span className="sep">-</span> */}
-                                    <span className="price">￥{product.standard_price}</span>
+                                        <span className="price">
+                                          ￥{product.standard_price}
+                                        </span>
+                                      </div>
+                                      <p>{product.describe}</p>
+                                      <a
+                                        className="btn-theme btn-sm"
+                                        href={`/product/${product.product_no}`}
+                                      >
+                                        去购买
+                                      </a>
+                                    </div>
                                   </div>
-                                  <p>
-                                    {product.describe}
-                                  </p>
-                                  <a
-                                    className="btn-theme btn-sm"
-                                    href={`/product/${product.product_no}`}
-                                  >
-                                    去购买
-                                  </a>
                                 </div>
+                                {/* <!--== End prPduct Item ==--> */}
                               </div>
-                            </div>
-                            {/* <!--== End prPduct Item ==--> */}
-                          </div>
                             );
                           })}
 
@@ -178,14 +193,12 @@ export default function Shop() {
                           </div> */}
                         </div>
                       </div>
-                      {
-                        featuredNewProducts.length === 0 &&
-                        <div>
-                          <h1 className="search-result">没有搜索到相关商品</h1>
-                        </div>
-                      }
                     </div>
+                  </div> : 
+                  <div>
+                    <h1 className="search-result">没有搜索到相关商品</h1>
                   </div>
+                  }
                 </div>
               </div>
             </div>

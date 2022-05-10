@@ -1,3 +1,4 @@
+import router from "next/router";
 import { AuthContext } from "pages/_app";
 import {  useContext, useEffect, useState } from "react";
 import { Cart } from "store/interface";
@@ -23,6 +24,7 @@ export default function Header({
   cartList: Cart[]
 }) {
   const [authState] = useContext(AuthContext);
+  const [keyWord, setKeyWord] = useState<string>("");
   
   return (
     <>
@@ -65,10 +67,16 @@ export default function Header({
                 </div>
                 <div className="header-middle-align-center">
                   <div className="header-search-area">
-                    <form className="header-searchbox">
-                      <input type="search" className="form-control" placeholder="搜索" />
-                      <button className="btn-submit" type="submit"><i className="pe-7s-search"></i></button>
-                    </form>
+                    <div className="header-searchbox">
+                      <input type="search" className="form-control" placeholder="搜索" 
+                        onChange={(e) => { setKeyWord(e.currentTarget.value) }}
+                      />
+                      <button className="btn-submit" type="submit" style={keyWord === '' ? { backgroundColor: '#eb3e327d' } : {}} disabled={keyWord === ''}
+                        onClick={() => {
+                          router.push(`/search/${keyWord}/`);
+                        }}
+                      ><i className="pe-7s-search"></i></button>
+                    </div>
                   </div>
                 </div>
                 <div className="header-middle-align-end">
@@ -81,7 +89,7 @@ export default function Header({
                         <i className="pe-7s-like icon"></i>
                       </a>
                     </div> */}
-                    { authState.jwt !== "" && <div className="shopping-cart">
+                    { authState.jwt !== "" && cartList.length > 0 && <div className="shopping-cart">
                       <button className="shopping-cart-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#AsideOffcanvasCart" aria-controls="offcanvasRightLabel">
                         <i className="pe-7s-shopbag icon"></i>
                         <sup className="shop-count">{cartList.length}</sup>

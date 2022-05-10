@@ -13,4 +13,5 @@ urlpatterns = [
     path('getallproducts/<str:belonging>/<str:type>/', get_all_products),
     path('getproduct/<str:product_no>/', get_product),
     path('getproductinfo/<str:productinfo_id>/', get_product_info),
+    path('searchproducts/<str:keyword>/', get_search_products),
 ]

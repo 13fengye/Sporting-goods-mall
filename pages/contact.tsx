@@ -1,12 +1,7 @@
-import PageHeaderArea from "./pageHeaderArea";
-
 export default function Contact() {
   return (
     <>
       <main className="main-content">
-        <PageHeaderArea />
-
-          {/* <!--== Start Contact Area Wrapper ==--> */}
           <section className="contact-area contact-page-area">
             <div className="container">
               <div className="row contact-page-wrapper">
@@ -15,7 +10,6 @@ export default function Contact() {
                     <div className="contact-form-title">
                       <h2 className="title">We Are Here! Please Send A Quest</h2>
                     </div>
-                    {/* <!--== Start Contact Form ==--> */}
                     <div className="contact-form">
 
                       <div className="row row-gutter-20">

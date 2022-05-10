@@ -94,6 +94,10 @@ export default function ShoppingCartCheckout() {
                             </tr>
                           );
                         })}
+                        { cartList.length === 0 &&
+                          <div>
+                            <h1 className="search-result">没有搜索到相关商品</h1>
+                          </div> }
                       </tbody>
                       <tfoot className="table-foot">
                         <tr className="cart-subtotal">

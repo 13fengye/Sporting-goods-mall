@@ -180,6 +180,10 @@ export default function Home(){
               </section>
             );
           })}
+          { belongings.length === 0 && 
+            <div>
+              <h1 className="search-result">没有搜索到相关商品</h1>
+            </div> }
       </main>
     </>
   );

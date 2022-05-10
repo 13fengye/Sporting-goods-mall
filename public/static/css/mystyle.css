@@ -76,3 +76,24 @@
   text-align: center;
   font-weight: 300;
 }
+
+.height-60 {
+  height: "60px";
+}
+
+.color {
+  background-color: #2323243b !important;
+  border-color: #23232400 !important;
+}
+
+.success {
+  text-align: center;
+  margin: 200px;
+}
+
+@media screen and (max-width:768px) {
+  .success {
+    text-align: center;
+    margin: 100px;
+  }
+}

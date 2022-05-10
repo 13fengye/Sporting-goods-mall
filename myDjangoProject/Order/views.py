@@ -46,7 +46,7 @@ def delete_product(request):
         productinfo.delete()
         return HttpResponse(json.dumps({'status': 200, 'message': '删除商品成功'}))
 
-def create_order(request):
+def create_order(request):  # sourcery skip: use-named-expression
     postData = json.loads(request.body)
     username = postData['username']
     productinfo_amounts = postData['productinfo_id'] + '-' + postData['amount']
@@ -66,7 +66,11 @@ def create_order(request):
         productno.save()
     else:
         return HttpResponse(json.dumps({'status': 400, 'message': '库存不足或订单创建失败!'}))
-    UserAddress.objects.filter(username = username).update(name = name, phone = phone, address = address)
+    userAddress = UserAddress.objects.filter(username = username)
+    if userAddress:
+        userAddress.update(name = name, phone = phone, address = address)
+    else:
+        UserAddress.objects.create(username = username, name = name, phone = phone, address = address)
     return HttpResponse(json.dumps({'status': 200, 'message': '创建订单成功'}))
 
 def create_orders(request):
@@ -77,9 +81,12 @@ def create_orders(request):
     name = postData['name']
     phone = postData['phone']
     address = postData['address']
-    UserAddress.objects.filter(username = username).update(name = name, phone = phone, address = address)
+    userAddress = UserAddress.objects.filter(username = username)
+    if userAddress:
+        userAddress.update(name = name, phone = phone, address = address)
+    else:
+        UserAddress.objects.create(username = username, name = name, phone = phone, address = address)
     cartList = CartInfos.objects.filter(user_id = username)
-    print(cartList)
     if not cartList:
         return HttpResponse(json.dumps({'status': 400, 'message': '购物车为空!'}))
     productinfo_amounts = ''

@@ -48,6 +48,7 @@ export default function ShoppingCartCheckout() {
   }, [authState, refreshGlobalState]);
   console.log(cartList);
   const subTotal = cartList.reduce((acc, cur) => acc + cur.quantity * cur.price, 0);
+  const canClick = name === "" || phone === "" || address === "";
  
   return (
     <>
@@ -164,19 +165,21 @@ export default function ShoppingCartCheckout() {
                           </label>
                         </div>
                       </div> */}
-                      <a className="btn-theme" style={{ height: "60px" }}
+                      <button className={`btn-theme height-60 ${canClick ? 'color' : ''}`}
+                        disabled = { canClick }
                         onClick={async () => {
                           await post('/Order/createorders/', { 'username': authState.username, 'name': name, 'phone': phone, 'address': address, 'remark': remark, 'totalPrice': subTotal - discount, }).then((res)=>{
                             if(res.status === 200) {
                               setReFreshGlobalState(!refreshGlobalState);
                               alert('支付成功！');
+                              router.push('/success');
                             } else {
                               alert(res.message);
                             }
                           });
                         }}
                       >下单
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>

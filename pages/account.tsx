@@ -2,11 +2,12 @@ import { post } from "components/fetch";
 import router from "next/router";
 import { useContext, useEffect, useState } from "react";
 import { OrderInfos, UserAddress } from "store/interface";
-import { AuthContext } from "./_app";
+import { AuthContext, ReFreshGlobalContext } from "./_app";
 
 export default function Account() {
 
   const [authState] = useContext(AuthContext);
+  const [refreshGlobalState, setReFreshGlobalState] = useContext(ReFreshGlobalContext);
   const [billingAddress, setBillingAddress] = useState<UserAddress|string>('');
   const [addOrUpdateBillingInfo, setAddOrUpdateBillingInfo] = useState<boolean>(false);
   const [name, setName] = useState<string>('');
@@ -47,7 +48,7 @@ export default function Account() {
       })
     };
     loadSingeOrders();
-  }, []);
+  }, [refreshGlobalState]);
   console.log(orders);
 
   return (
@@ -244,7 +245,12 @@ export default function Account() {
                         >
                           <div className="myaccount-content">
                             { orders.length > 0 && <div>
-                              <h3>订单列表</h3>
+                              <h3>订单列表{'  '}<a className="red-color" onClick={async ()=>{
+                                await post("/Order/deleteallorderinfos/", { 'username': authState.username }).then((res)=>{
+                                  alert(res.message);
+                                  setReFreshGlobalState(!refreshGlobalState);
+                                })
+                              }}>清空订单</a></h3>
                               <div className="myaccount-table table-responsive text-center">
                                 <table className="table table-bordered">
                                   <thead className="thead-light">

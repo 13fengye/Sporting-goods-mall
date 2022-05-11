@@ -647,7 +647,7 @@ progress {
 
   .container,
   .container-sm {
-    max-width: 540px
+    max-width: 740px
   }
 }
 
@@ -656,7 +656,7 @@ progress {
   .container,
   .container-md,
   .container-sm {
-    max-width: 720px
+    max-width: 920px
   }
 }
 
@@ -666,7 +666,7 @@ progress {
   .container-lg,
   .container-md,
   .container-sm {
-    max-width: 960px
+    max-width: 1160px
   }
 }
 
@@ -677,7 +677,7 @@ progress {
   .container-md,
   .container-sm,
   .container-xl {
-    max-width: 1140px
+    max-width: 1340px
   }
 }
 
@@ -689,7 +689,7 @@ progress {
   .container-sm,
   .container-xl,
   .container-xxl {
-    max-width: 1320px
+    max-width: 1520px
   }
 }
 

@@ -9,4 +9,5 @@ urlpatterns = [
     path('createorder/', create_order),
     path('createorders/', create_orders),
     path('getorders/', get_orders),
+    path('deleteallorderinfos/', delete_all_orderinfos),
 ]

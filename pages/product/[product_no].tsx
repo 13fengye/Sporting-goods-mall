@@ -333,7 +333,14 @@ export default function ProductDetail({ product_no }:{product_no:string}) {
                               </button>
                             )}
                           </div>
-                          <button className={`border-radius-30 ${selectedProductInfo && quantity>0 ? 'btn-theme' : 'btn-theme-disabled'}`} disabled={selectedProductInfo === undefined || quantity<=0} onClick={()=>{ router.push(`/checkout/${selectedProductInfo!.id}/${quantity}`) }}>
+                          <button className={`border-radius-30 ${selectedProductInfo && quantity>0 ? 'btn-theme' : 'btn-theme-disabled'}`} disabled={selectedProductInfo === undefined || quantity<=0}
+                            onClick={()=>{ 
+                              if (authState.jwt !=='') {
+                                router.push(`/checkout/${selectedProductInfo!.id}/${quantity}`);
+                              } else {
+                                router.push('/account-login')
+                              }
+                            }}>
                             立即购买
                           </button>
                           <button className={`border-radius-30 ${selectedProductInfo && quantity>0 ? 'btn-theme btn-margin-top' : 'btn-theme-disabled'}`} disabled={selectedProductInfo === undefined || quantity<=0} 

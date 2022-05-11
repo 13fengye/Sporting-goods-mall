@@ -31,6 +31,7 @@ export default function Footer({
     (acc, cur) => acc + cur.quantity * cur.price,
     0
   );
+  const [keyWord, setKeyWord] = useState<string>("");
 
   return (
     <>
@@ -346,24 +347,26 @@ export default function Footer({
           <div className="container pt--0 pb--0">
             <div className="search-box-form-wrap">
               <div className="search-note">
-                <p>Start typing and press Enter to search</p>
+                <p>输入关键词</p>
               </div>
-              <form action="#" method="post">
-                <div className="search-form position-relative">
-                  <label htmlFor="search-input" className="visually-hidden">
-                    Search
-                  </label>
-                  <input
-                    id="search-input"
-                    type="search"
-                    className="form-control"
-                    placeholder="Search entire store…"
-                  />
-                  <button className="search-button">
-                    <i className="fa fa-search"></i>
-                  </button>
-                </div>
-              </form>
+              <div className="search-form position-relative">
+                <label htmlFor="search-input" className="visually-hidden">
+                  搜索
+                </label>
+                <input
+                  id="search-input"
+                  type="search"
+                  className="form-control"
+                  placeholder="搜索"
+                  onChange={(e) => { setKeyWord(e.currentTarget.value) }}
+                />
+                <button className="search-button" style={keyWord === '' ? { backgroundColor: '#eb3e327d' } : {}} disabled={keyWord === ''}
+                  onClick={() => {
+                    router.push(`/search/${keyWord}/`);
+                  }}>
+                  <i className="fa fa-search"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -119,3 +119,10 @@ def get_orders(request):
         return HttpResponse(json.dumps({'status': 200, 'message': '获取订单成功', 'ordersList': ordersList}))
     else:
         return HttpResponse(json.dumps({'status': 400, 'message': '暂无订单'}))
+
+
+def delete_all_orderinfos(request):
+    postData = json.loads(request.body)
+    username = postData['username']
+    OrderInfos.objects.filter(user_id=username).delete()
+    return HttpResponse(json.dumps({'status': 200, 'message': '删除订单成功'}))

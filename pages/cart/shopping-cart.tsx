@@ -76,12 +76,12 @@ export default function ShoppingCart() {
                                 }}><i className="fa fa-trash-o"></i></a>
                               </td>
                               <td className="product-thumb">
-                                <a href="/single-product">
-                                  <img src={`${NEXT_PUBLIC_URL}/${cart.img}`} alt="Image-HasTech" />
+                                <a>
+                                  <img src={`${NEXT_PUBLIC_URL}/${cart.img}`} alt="Image-HasTech" width={50} height={50}/>
                                 </a>
                               </td>
                               <td className="product-name">
-                                <h4 className="title"><a href="/single-product">{cart.name}</a></h4>
+                                <h4 className="title"><a>{cart.name}</a></h4>
                               </td>
                               <td className="product-price">
                                 <span className="price">￥{cart.price}</span>

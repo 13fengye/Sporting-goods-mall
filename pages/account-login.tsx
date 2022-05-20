@@ -107,7 +107,7 @@ export default function Accountlogin() {
                           }}>登录</a>
                         </div>
                       </div>
-                      <div className="col-12">
+                      {/* <div className="col-12">
                         <div className="form-group account-info-group mb--0">
                           <div className="rememberme-account">
                             <div className="form-check">
@@ -117,7 +117,7 @@ export default function Accountlogin() {
                           </div>
                           <a className="lost-password" href="#/">忘记密码?</a>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </form>
                 </div>

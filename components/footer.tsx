@@ -394,7 +394,7 @@ export default function Footer({
                 {/* <li className="number"><a href="tel://0123456789"><i className="fa fa-phone"></i>+00 123 456 789</a></li> */}
                 {/* <li className="email"><a><i className="fa fa-envelope"></i>demo@example.com</a></li> */}
                 <li className="account">
-                  <a href="/account-login">
+                  <a href="/account">
                     <i className="fa fa-user"></i>账户
                   </a>
                 </li>

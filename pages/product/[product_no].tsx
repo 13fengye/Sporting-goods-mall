@@ -345,15 +345,20 @@ export default function ProductDetail({ product_no }:{product_no:string}) {
                           </button>
                           <button className={`border-radius-30 ${selectedProductInfo && quantity>0 ? 'btn-theme btn-margin-top' : 'btn-theme-disabled'}`} disabled={selectedProductInfo === undefined || quantity<=0} 
                             onClick={async ()=>{
-                              await post(`/Order/addtocart/`, {'username':authState.username, 'productinfo_id':selectedProductInfo!.id, 'quantity':quantity, 'name': productNo[0].name, 'price': newPrice, 'img': productNo[0].img}).then(res=>{
-                                if (res.status === 200) {
-                                  alert(res.message);
-                                  setReFreshGlobalState(!refreshGlobalState);
-                                  router.push(`/cart/shopping-cart`) 
-                                } else {
-                                  alert('添加购物车失败')
-                                }
-                              })                              
+                              if (authState.username !== '') {
+                                await post(`/Order/addtocart/`, {'username':authState.username, 'productinfo_id':selectedProductInfo!.id, 'quantity':quantity, 'name': productNo[0].name, 'price': newPrice, 'img': productNo[0].img}).then(res=>{
+                                  if (res.status === 200) {
+                                    alert(res.message);
+                                    setReFreshGlobalState(!refreshGlobalState);
+                                    router.push(`/cart/shopping-cart`) 
+                                  } else {
+                                    alert('添加购物车失败')
+                                  }
+                                }) 
+                              } else {                                
+                                alert('请先登录！');
+                                router.push("/account-login");
+                              }                         
                             }}>
                             加入购物车
                           </button>

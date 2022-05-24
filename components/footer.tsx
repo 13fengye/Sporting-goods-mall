@@ -124,13 +124,13 @@ export default function Footer({
               </div>
               <div className="col-md-6 col-lg-3">
                 <div className="widget-item">
-                  <h4 className="widget-title">联系方式</h4>
+                  <h4 className="widget-title">联系我们</h4>
                   <h4
                     className="widget-collapsed-title collapsed"
                     data-bs-toggle="collapse"
                     data-bs-target="#widgetId-3"
                   >
-                    联系方式
+                    联系我们
                   </h4>
                   <div
                     id="widgetId-3"
@@ -140,7 +140,7 @@ export default function Footer({
                       <div className="widget-contact-wrap">
                         <ul>
                           <li>
-                            <span>地址:</span> 不告诉你{" "}
+                            <span>地址:</span> 广东省梅州市嘉应学院{" "}
                           </li>
                           <li>
                             <span>电话:</span> 12345678910{" "}

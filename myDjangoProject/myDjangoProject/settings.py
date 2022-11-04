@@ -92,7 +92,7 @@ DATABASES = {
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'USER': 'root',
-        'PASSWORD': '199953',
+        'PASSWORD': '123456',
     }
 }
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

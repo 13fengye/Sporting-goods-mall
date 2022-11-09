@@ -26,10 +26,10 @@ SECRET_KEY = '1&8g-ssk!@=$cshpvh*x@l$7$8jue@k!z_%r*lik@_v-b499^+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # admin no js, css if DEBUG = False
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['175.178.37.194', 'localhost', '0.0.0.0:9000', '127.0.0.1']
-# ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['175.178.37.194', 'localhost', '0.0.0.0:9000', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 

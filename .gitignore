@@ -15,6 +15,8 @@
 # production
 /build
 
+/my_env
+
 # debug
 
 # local env files

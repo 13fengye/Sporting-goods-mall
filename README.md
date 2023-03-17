@@ -80,7 +80,12 @@ python3 manage.py migrate --fake
 # Mysql：
 https://blog.csdn.net/xiamoyanyulrq/article/details/83041724?msclkid=f9de19c6be7411ec8f0657d145c45ca3
 启动：mysql -u root -p -h 127.0.0.1
-创建：create DATABASE sportinggoodsmall default charset=utf8;
+创建：create DATABASE sportinggoodsmall default charset=utf8
+
+导入初始化数据:
+use sportinggoodsmall;
+source myDjangoProject/init_data.sql
+
 创建数据库后，在setting.py里配置DATABASES,其中数据库名为sportinggoodsmall
 
 例如：

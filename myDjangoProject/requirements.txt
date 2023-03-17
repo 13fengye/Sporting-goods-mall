@@ -1,0 +1,17 @@
+asgiref==3.4.1
+distlib==0.3.6
+Django==3.2.18
+django-cors-headers==3.10.1
+filelock==3.4.1
+importlib-metadata==4.8.3
+importlib-resources==5.4.0
+Pillow==8.4.0
+pkg_resources==0.0.0
+platformdirs==2.4.0
+PyJWT==2.4.0
+PyMySQL==1.0.2
+pytz==2022.7.1
+sqlparse==0.4.3
+typing_extensions==4.1.1
+virtualenv==20.17.1
+zipp==3.6.0

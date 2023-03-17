@@ -104,7 +104,7 @@ import pymysql
 pymysql.install_as_MySQLdb()
 --------------------------------
 
-# Django虚拟环境virtualenv
+# Django使用虚拟环境virtualenv
 sudo apt install virtualenv
 方法一：
 参考：https://blog.csdn.net/JBY2020/article/details/116074528

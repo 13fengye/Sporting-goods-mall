@@ -5,7 +5,8 @@
 cd /usr/local/nginx
 sudo ./nginx
 cd ~/Sporting-goods-mall
-npm run start
+yarn build
+yarn start
 后端：
 python3 manage.py runserver 0.0.0.0:8001
 ----------------------------------------
@@ -20,6 +21,13 @@ git clone git@github.com:13fengye/Sporting-goods-mall.git
 
 # 接着做一下的环境配置
 # ------------------------------------------前端---------------------------------------------- #
+
+# npm and node (https://developer.aliyun.com/article/760687)
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+sudo apt-get update && sudo apt-get install yarn
+sudo apt-get install -y nodejs
 
 # React
 
